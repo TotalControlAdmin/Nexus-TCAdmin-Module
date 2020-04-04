@@ -33,7 +33,7 @@
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 21:09:49" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 23:28:43" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_games>
   <tc_game_paths>
@@ -51,7 +51,7 @@
     <ext_extract_opt>1</ext_extract_opt>
     <ext_script_engine_id>3</ext_script_engine_id>
     <ext_script />
-    <ext_license />
+    <ext_license>By installing "Nexus" you agree that Alexr03 or TCADMIN or any third party developers are not responsible or held liable for you the end user using 3rd party software or tools from within our forums.</ext_license>
   </tc_game_paths>
   <tc_game_general_config>
     <game_id>145</game_id>
@@ -178,7 +178,7 @@
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 21:09:49" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 23:28:43" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_game_mail_templates>
   <tc_game_steam_config>
@@ -471,6 +471,53 @@
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:56:28" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 18:07:00" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
+    <output_filters />
+    <custom_prompt />
+  </tc_game_scripts>
+  <tc_game_scripts>
+    <game_id>145</game_id>
+    <script_id>2</script_id>
+    <mod_id>0</mod_id>
+    <update_id>0</update_id>
+    <operating_system>2</operating_system>
+    <script_engine_id>1</script_engine_id>
+    <description>Delete after creation (for updates)</description>
+    <script_contents>import clr
+      clr.AddReference("TCAdmin.GameHosting.SDK")
+      from System.IO import Directory, DirectoryInfo, FileInfo
+      from TCAdmin.GameHosting.SDK.Objects import Game
+
+      game = Game(ThisService.GameId)
+
+      directoryInfo = DirectoryInfo("C:/TCAFiles/Games/" + game.Paths.FilesFolderName)
+
+      for file in directoryInfo.GetFiles():
+      Script.WriteToConsole("Delete file: " + file.Name)
+      file.Delete()
+
+      for dir in directoryInfo.GetDirectories():
+      Script.WriteToConsole("Delete dir: " + dir.Name)
+      dir.Delete(True)</script_contents>
+    <service_event>19</service_event>
+    <execute_order>0</execute_order>
+    <ignore_errors>1</ignore_errors>
+    <server_owner_access>0</server_owner_access>
+    <subadmin_access>0</subadmin_access>
+    <reseller_access>0</reseller_access>
+    <user_access>0</user_access>
+    <stop_service>0</stop_service>
+    <allow_scheduling>0</allow_scheduling>
+    <display_name>TestDel</display_name>
+    <image_url />
+    <prompt_variables>0</prompt_variables>
+    <exec_as_service_user>0</exec_as_service_user>
+    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+      &lt;values&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 23:25:45" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 23:28:38" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
     <output_filters />
     <custom_prompt />

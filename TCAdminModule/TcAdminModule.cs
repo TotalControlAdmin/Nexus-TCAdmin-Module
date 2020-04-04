@@ -66,7 +66,7 @@ namespace TCAdminModule
                         "Cannot find Nexus Game. Aborting updated game config download.");
                     return;
                 }
-
+                
                 string gameXml = string.Empty;
 
                 foreach (CustomVariable nexusGameCustomVariable in nexusGame.CustomVariables)
@@ -85,7 +85,7 @@ namespace TCAdminModule
                     ImportFeatures = allFeatures
                 };
 
-                if (string.IsNullOrEmpty(gameXml))
+                if (!string.IsNullOrEmpty(gameXml))
                 {
                     TCAdmin.GameHosting.SDK.Objects.Game.Import(
                         TCAdmin.SDK.Database.DatabaseManager.CreateDatabaseManager(), gameXml, gameImportOptions);
@@ -135,7 +135,7 @@ namespace TCAdminModule
                 };
                 authScript.Save();
             }
-            
+
             this.Logger.LogMessage("Updated Authentication for Nexus script.");
         }
     }
