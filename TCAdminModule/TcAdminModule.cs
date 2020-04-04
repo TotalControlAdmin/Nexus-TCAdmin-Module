@@ -7,6 +7,7 @@ using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.SDK.Mail;
 using TCAdmin.SDK.Objects;
 using TCAdminWrapper;
+using OperatingSystem = TCAdmin.SDK.Objects.OperatingSystem;
 
 namespace TCAdminModule
 {
@@ -104,7 +105,7 @@ namespace TCAdminModule
             GlobalGameScript authScript = null;
             foreach (GlobalGameScript gameScript in GlobalGameScript.GetGlobalGameScripts())
             {
-                if (gameScript.Name != "Nexus::Authentication") continue;
+                if (gameScript.Name != "Nexus Authentication") continue;
                 authScript = gameScript;
             }
 
@@ -124,12 +125,13 @@ namespace TCAdminModule
             {
                 authScript = new GlobalGameScript()
                 {
-                    Name = "Nexus::Authentication",
+                    Name = "Nexus Authentication",
                     Description = "Authentication Script for Nexus Discord Bot.",
                     ServiceEvent = ServiceEvent.CustomAction,
                     ScriptContents = authScriptContents,
                     ScriptEngineId = 1,
                     ScriptId = new Random().Next(500, 1000),
+                    OperatingSystem = OperatingSystem.Any
                 };
                 authScript.Save();
             }

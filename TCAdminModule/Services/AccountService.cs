@@ -50,11 +50,6 @@ namespace TCAdminModule.Services
 
             var user = User.GetAllUsers(2, true).FindByCustomField("__Nexus:DiscordUserId", id) as User;
 
-            if (user == null)
-            {
-                throw new CustomMessageException("**User not found**");
-            }
-
             return user;
         }
 
