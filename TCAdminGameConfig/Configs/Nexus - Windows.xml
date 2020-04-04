@@ -11,7 +11,7 @@
     <slots_rule />
     <exclude_rules />
     <query_protocol />
-    <rcon_protocol>18</rcon_protocol>
+    <rcon_protocol>0</rcon_protocol>
     <show_in_create_list>1</show_in_create_list>
     <is_voice_server>0</is_voice_server>
     <is_template>0</is_template>
@@ -25,16 +25,16 @@
     <background_image />
     <join_url />
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:V1_GAME_ID" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9:FileManager" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;FileManagerConfig xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EditPatterns&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.cfg&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.txt&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.ini&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.json&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/EditPatterns&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;MaxEditSize&amp;gt;102400&amp;lt;/MaxEditSize&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableDecompress&amp;gt;true&amp;lt;/EnableDecompress&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableCompress&amp;gt;true&amp;lt;/EnableCompress&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;MaxCompressSize&amp;gt;52428800&amp;lt;/MaxCompressSize&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableUpload&amp;gt;true&amp;lt;/EnableUpload&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableDownload&amp;gt;true&amp;lt;/EnableDownload&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;DefaultFileName&amp;gt;custom.cfg&amp;lt;/DefaultFileName&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;WriteBom&amp;gt;false&amp;lt;/WriteBom&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/FileManagerConfig&amp;gt;" type="TCAdmin.SDK.Web.FileManager.FileManagerConfig,TCAdmin.SDK.Web" /&gt;
-  &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9:VirtualDirectories" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;ArrayOfVirtualDirectorySecurity xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionMode&amp;gt;Basic&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionType&amp;gt;Root&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;Permissions&amp;gt;ReadFile WriteFile DeleteFile RenameFile ListDirectory CreateDirectory DeleteDirectory RenameDirectory&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;ServerId&amp;gt;1&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;RootPhysicalPath&amp;gt;$[SubAdminFiles]&amp;lt;/RootPhysicalPath&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;VirtualDirectoryName&amp;gt;Sub Admin Files&amp;lt;/VirtualDirectoryName&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Filters&amp;gt;*.exe;*.dll;*.so;*.bat;*.sh;*.cmd;*.vbs;*.pif;*.scr;*.com&amp;lt;/Filters&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionMode&amp;gt;None&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionType&amp;gt;File&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Permissions&amp;gt;None&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionMode&amp;gt;Basic&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionType&amp;gt;Root&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;Permissions&amp;gt;ReadFile WriteFile DeleteFile RenameFile ListDirectory CreateDirectory DeleteDirectory RenameDirectory&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;ServerId&amp;gt;2&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;RootPhysicalPath&amp;gt;$[ResellerFiles]&amp;lt;/RootPhysicalPath&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;VirtualDirectoryName&amp;gt;Reseller Files&amp;lt;/VirtualDirectoryName&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Filters&amp;gt;*.exe;*.dll;*.so;*.bat;*.sh;*.cmd;*.vbs;*.pif;*.scr;*.com&amp;lt;/Filters&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionMode&amp;gt;None&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionType&amp;gt;File&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Permissions&amp;gt;None&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionMode&amp;gt;Basic&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionType&amp;gt;Root&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;Permissions&amp;gt;ReadFile WriteFile DeleteFile RenameFile ListDirectory CreateDirectory DeleteDirectory RenameDirectory&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;ServerId&amp;gt;3&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;RootPhysicalPath&amp;gt;$[UserFiles]&amp;lt;/RootPhysicalPath&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;VirtualDirectoryName&amp;gt;User Files&amp;lt;/VirtualDirectoryName&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Filters&amp;gt;*.exe;*.dll;*.so;*.bat;*.sh;*.cmd;*.vbs;*.pif;*.scr;*.com&amp;lt;/Filters&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionMode&amp;gt;None&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionType&amp;gt;File&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Permissions&amp;gt;None&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/ArrayOfVirtualDirectorySecurity&amp;gt;" type="TCAdmin.SDK.VirtualFileSystem.VirtualDirectorySecurity[],TCAdmin.SDK" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:10:26" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:V1_GAME_ID" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9:FileManager" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;FileManagerConfig xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EditPatterns&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.cfg&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.txt&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.ini&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.json&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/EditPatterns&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;MaxEditSize&amp;gt;102400&amp;lt;/MaxEditSize&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableDecompress&amp;gt;true&amp;lt;/EnableDecompress&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableCompress&amp;gt;true&amp;lt;/EnableCompress&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;MaxCompressSize&amp;gt;52428800&amp;lt;/MaxCompressSize&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableUpload&amp;gt;true&amp;lt;/EnableUpload&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableDownload&amp;gt;true&amp;lt;/EnableDownload&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;DefaultFileName&amp;gt;custom.cfg&amp;lt;/DefaultFileName&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;WriteBom&amp;gt;false&amp;lt;/WriteBom&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/FileManagerConfig&amp;gt;" type="TCAdmin.SDK.Web.FileManager.FileManagerConfig,TCAdmin.SDK.Web" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9:VirtualDirectories" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;ArrayOfVirtualDirectorySecurity xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionMode&amp;gt;Basic&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionType&amp;gt;Root&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;Permissions&amp;gt;ReadFile WriteFile DeleteFile RenameFile ListDirectory CreateDirectory DeleteDirectory RenameDirectory&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;ServerId&amp;gt;1&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;RootPhysicalPath&amp;gt;$[SubAdminFiles]&amp;lt;/RootPhysicalPath&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;VirtualDirectoryName&amp;gt;Sub Admin Files&amp;lt;/VirtualDirectoryName&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Filters&amp;gt;*.exe;*.dll;*.so;*.bat;*.sh;*.cmd;*.vbs;*.pif;*.scr;*.com&amp;lt;/Filters&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionMode&amp;gt;None&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionType&amp;gt;File&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Permissions&amp;gt;None&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionMode&amp;gt;Basic&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionType&amp;gt;Root&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;Permissions&amp;gt;ReadFile WriteFile DeleteFile RenameFile ListDirectory CreateDirectory DeleteDirectory RenameDirectory&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;ServerId&amp;gt;2&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;RootPhysicalPath&amp;gt;$[ResellerFiles]&amp;lt;/RootPhysicalPath&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;VirtualDirectoryName&amp;gt;Reseller Files&amp;lt;/VirtualDirectoryName&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Filters&amp;gt;*.exe;*.dll;*.so;*.bat;*.sh;*.cmd;*.vbs;*.pif;*.scr;*.com&amp;lt;/Filters&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionMode&amp;gt;None&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionType&amp;gt;File&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Permissions&amp;gt;None&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionMode&amp;gt;Basic&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionType&amp;gt;Root&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;Permissions&amp;gt;ReadFile WriteFile DeleteFile RenameFile ListDirectory CreateDirectory DeleteDirectory RenameDirectory&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;ServerId&amp;gt;3&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;RootPhysicalPath&amp;gt;$[UserFiles]&amp;lt;/RootPhysicalPath&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;VirtualDirectoryName&amp;gt;User Files&amp;lt;/VirtualDirectoryName&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Filters&amp;gt;*.exe;*.dll;*.so;*.bat;*.sh;*.cmd;*.vbs;*.pif;*.scr;*.com&amp;lt;/Filters&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionMode&amp;gt;None&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionType&amp;gt;File&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Permissions&amp;gt;None&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/ArrayOfVirtualDirectorySecurity&amp;gt;" type="TCAdmin.SDK.VirtualFileSystem.VirtualDirectorySecurity[],TCAdmin.SDK" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 21:09:49" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_games>
   <tc_game_paths>
     <game_id>145</game_id>
@@ -46,7 +46,7 @@
     <relative_user_files />
     <files_folder_name>NexusBot</files_folder_name>
     <enable_ext_download>1</enable_ext_download>
-    <ext_download_url>https://cloud.openshift.alexr03.dev/s/kC9E9QtrDXHTYCS/download</ext_download_url>
+    <ext_download_url>https://gitlab.openshift.alexr03.dev/tcadmin/nexus-tcadmin-module/-/raw/master/TCAdminGameConfig/Downloadables/Nexus.zip</ext_download_url>
     <ext_save_name>Nexus.zip</ext_save_name>
     <ext_extract_opt>1</ext_extract_opt>
     <ext_script_engine_id>3</ext_script_engine_id>
@@ -153,7 +153,7 @@
     <cmdline_default_custom />
     <cmdline_private_custom />
     <predef_cmdlines>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfPredefinedCommandLine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</predef_cmdlines>
+      &lt;ArrayOfPredefinedCommandLine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</predef_cmdlines>
     <disable_param_selection>0</disable_param_selection>
   </tc_game_cmdlines>
   <tc_game_punkbuster_config>
@@ -170,16 +170,16 @@
   <tc_game_mail_templates>
     <game_id>145</game_id>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCAGH:InstallUserTemplateId" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCAGH:InstallAdminTemplateId" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCAGH:ReinstallUserTemplateId" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCAGH:ReinstallAdminTemplateId" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:10:26" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCAGH:InstallUserTemplateId" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCAGH:InstallAdminTemplateId" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCAGH:ReinstallUserTemplateId" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCAGH:ReinstallAdminTemplateId" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 21:09:49" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_game_mail_templates>
   <tc_game_steam_config>
     <game_id>145</game_id>
@@ -222,7 +222,7 @@
   </tc_game_identity>
   <tc_game_text_console>
     <game_id>145</game_id>
-    <control_input>1</control_input>
+    <control_input>0</control_input>
     <control_output>1</control_output>
     <stop_commands />
     <wait_for_exit>1</wait_for_exit>
@@ -230,7 +230,7 @@
   <tc_game_web_console>
     <game_id>145</game_id>
     <enable_web_console>1</enable_web_console>
-    <input_source>0</input_source>
+    <input_source>2</input_source>
     <output_source>1</output_source>
     <log_file />
     <print_rcon_response>1</print_rcon_response>
@@ -259,23 +259,23 @@
     <description>The main Nexus Configuration</description>
     <view_order>0</view_order>
     <template>{
-  "DiscordToken": "![discordToken]",
-  "Prefixes": [
-    ";"
-  ]
-}</template>
+      "DiscordToken": "![discordToken]",
+      "Prefixes": [
+      ";"
+      ]
+      }</template>
     <enable_config_editor>1</enable_config_editor>
     <read_values>0</read_values>
     <hide_path>0</hide_path>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:Encoding" value="0" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:22:40" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 16:51:20" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:Encoding" value="0" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:22:40" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 16:51:20" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
     <hide_read_failure>0</hide_read_failure>
     <update_automatically>1</update_automatically>
   </tc_game_config_files>
@@ -287,27 +287,45 @@
     <description />
     <view_order>0</view_order>
     <template>{
-  "SqlString": "![TCAModuleSqlString]",
-  "SqlEncrypted": ![TCAModuleSqlEncrypted],
-  "DebugTcAdmin": ![TCAModuleDebug],
-  "DebugTcAdminSql": ![TCAModuleDebugSql],
-  "TCAdminNexusGameId": $ipy&lt;%=ThisService.GameId; %&gt;
-}</template>
+      "SqlString": "![TCAModuleSqlString]",
+      "SqlEncrypted": ![TCAModuleSqlEncrypted],
+      "DebugTcAdmin": ![TCAModuleDebug],
+      "DebugTcAdminSql": ![TCAModuleDebugSql],
+      }</template>
     <enable_config_editor>1</enable_config_editor>
     <read_values>0</read_values>
     <hide_path>0</hide_path>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:Encoding" value="0" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 17:37:32" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:49:56" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:Encoding" value="0" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 17:37:32" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 21:06:11" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
     <hide_read_failure>0</hide_read_failure>
     <update_automatically>1</update_automatically>
   </tc_game_config_files>
+  <tc_custom_variables>
+    <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
+    <variable_source_id>145</variable_source_id>
+    <variable_id>6</variable_id>
+    <name>discordClientId</name>
+    <default_value />
+    <is_numeric>0</is_numeric>
+    <preserve_value>0</preserve_value>
+    <view_order>0</view_order>
+    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 20:56:00" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 22:35:11" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
+  </tc_custom_variables>
   <tc_custom_variables>
     <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
     <variable_source_id>145</variable_source_id>
@@ -318,14 +336,14 @@
     <preserve_value>1</preserve_value>
     <view_order>0</view_order>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:29:58" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 16:31:29" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:29:58" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 16:31:29" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_custom_variables>
   <tc_custom_variables>
     <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
@@ -337,14 +355,14 @@
     <preserve_value>0</preserve_value>
     <view_order>0</view_order>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:07:24" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:24:11" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:07:24" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:24:11" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_custom_variables>
   <tc_custom_variables>
     <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
@@ -356,12 +374,12 @@
     <preserve_value>0</preserve_value>
     <view_order>0</view_order>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:08:39" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:08:39" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_custom_variables>
   <tc_custom_variables>
     <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
@@ -373,14 +391,14 @@
     <preserve_value>0</preserve_value>
     <view_order>0</view_order>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:06:15" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:07:41" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:06:15" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:07:41" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_custom_variables>
   <tc_custom_variables>
     <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
@@ -392,14 +410,31 @@
     <preserve_value>0</preserve_value>
     <view_order>0</view_order>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:03:19" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:21:48" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:03:19" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:21:48" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
+  </tc_custom_variables>
+  <tc_custom_variables>
+    <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
+    <variable_source_id>145</variable_source_id>
+    <variable_id>7</variable_id>
+    <name>UpdateUrlConfigUrlFrom</name>
+    <default_value>https://gitlab.openshift.alexr03.dev/tcadmin/nexus-tcadmin-module/-/raw/master/TCAdminGameConfig/Configs/Nexus%20-%20Windows.xml</default_value>
+    <is_numeric>0</is_numeric>
+    <preserve_value>0</preserve_value>
+    <view_order>0</view_order>
+    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 21:36:25" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_custom_variables>
   <tc_game_scripts>
     <game_id>145</game_id>
@@ -411,12 +446,12 @@
     <description>Create required folders.</description>
     <script_contents>from System.IO import Directory
 
-requiredDirectories = ["Modules", "ModuleDependencies"]
+      requiredDirectories = ["Modules", "ModuleDependencies"]
 
-for x in requiredDirectories:
-  dir = ThisService.RootDirectory + x
-  if not Directory.Exists(dir):
-    Directory.CreateDirectory(dir)</script_contents>
+      for x in requiredDirectories:
+      dir = ThisService.RootDirectory + x
+      if not Directory.Exists(dir):
+      Directory.CreateDirectory(dir)</script_contents>
     <service_event>1</service_event>
     <execute_order>0</execute_order>
     <ignore_errors>1</ignore_errors>
@@ -431,12 +466,12 @@ for x in requiredDirectories:
     <prompt_variables>0</prompt_variables>
     <exec_as_service_user>1</exec_as_service_user>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:56:28" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 18:07:00" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:56:28" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 18:07:00" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
     <output_filters />
     <custom_prompt />
   </tc_game_scripts>
@@ -449,14 +484,14 @@ for x in requiredDirectories:
     <homepage_url>https://alexr03.dev</homepage_url>
     <help_url>https://community.tcadmin.com/</help_url>
     <required_mods>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfInt xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</required_mods>
+      &lt;ArrayOfInt xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</required_mods>
     <required_updates>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfInt xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</required_updates>
+      &lt;ArrayOfInt xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</required_updates>
     <incompatible_mods>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfInt xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</incompatible_mods>
+      &lt;ArrayOfInt xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</incompatible_mods>
     <install_type>2</install_type>
     <uninstallable>1</uninstallable>
-    <win_filename>https://cloud.openshift.alexr03.dev/s/Y5SnqTgfce7D2ic/download</win_filename>
+    <win_filename>https://gitlab.openshift.alexr03.dev/tcadmin/nexus-tcadmin-module/-/raw/master/TCAdminGameConfig/Mods/TCAdminModulesInstall.zip</win_filename>
     <lin_filename />
     <extract_path>/</extract_path>
     <cmdline />
@@ -464,22 +499,42 @@ for x in requiredDirectories:
     <reseller_access>1</reseller_access>
     <subadmin_access>1</subadmin_access>
     <add_lines>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfGameModAddLine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</add_lines>
+      &lt;ArrayOfGameModAddLine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</add_lines>
     <remove_lines>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfGameModRemoveLine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</remove_lines>
+      &lt;ArrayOfGameModRemoveLine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</remove_lines>
     <default_install>0</default_install>
     <post_install_msg />
     <disable_restart>0</disable_restart>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:UNIQUE_ID" value="38c6f117-20d6-472d-9719-bcac3662a5b1" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 17:36:16" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:11:34" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:UNIQUE_ID" value="38c6f117-20d6-472d-9719-bcac3662a5b1" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 17:36:16" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 20:49:16" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_game_mods>
+  <tc_game_links>
+    <game_id>145</game_id>
+    <link_id>3</link_id>
+    <mod_id>1</mod_id>
+    <url>https://gitlab.openshift.alexr03.dev/tcadmin/nexus-tcadmin-module</url>
+    <display_name>TCAdmin Module Project</display_name>
+    <description>Open source project for the TCAdmin Module</description>
+    <icon>https://cdn.discordapp.com/icons/681653781863333914/18e5f9b8d6a1d0aa1f78be437572ee26.webp?size=64</icon>
+    <new_page>1</new_page>
+    <inside_panel>0</inside_panel>
+    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+      &lt;values&gt;
+      &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 22:27:02" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 22:27:09" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
+    <view_order>100</view_order>
+  </tc_game_links>
   <tc_game_links>
     <game_id>145</game_id>
     <link_id>1</link_id>
@@ -491,14 +546,14 @@ for x in requiredDirectories:
     <new_page>1</new_page>
     <inside_panel>0</inside_panel>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 18:02:09" type="System.DateTime,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:46:05" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
-    <view_order>0</view_order>
+      &lt;values&gt;
+      &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 18:02:09" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 22:26:17" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
+    <view_order>101</view_order>
   </tc_game_links>
   <tc_game_links>
     <game_id>145</game_id>
@@ -511,11 +566,11 @@ for x in requiredDirectories:
     <new_page>1</new_page>
     <inside_panel>0</inside_panel>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 20:07:04" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 20:07:04" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
     <view_order>0</view_order>
   </tc_game_links>
   <tc_game_permissions>
@@ -831,23 +886,23 @@ for x in requiredDirectories:
     <required_message>A discord token is required.</required_message>
     <item_type>2</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="MaxLength" value="60" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Mode" value="Password" type="System.String,mscorlib" /&gt;
-  &lt;add key="Width" value="0" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Wrap" value="False" type="System.Boolean,mscorlib" /&gt;
-  &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
-  &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="MaxLength" value="60" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Mode" value="Password" type="System.String,mscorlib" /&gt;
+      &lt;add key="Width" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Wrap" value="False" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <parent_variable_source />
     <parent_variable_source_id />
     <parent_variable_id>0</parent_variable_id>
     <parent_variable_value />
     <item_label>Discord Token</item_label>
     <description>Discord bot token.
-This can be generated </description>
+      This can be generated </description>
     <custom_cmdline_template />
     <view_order>0</view_order>
     <cmdline_parameter>0</cmdline_parameter>
@@ -869,27 +924,27 @@ This can be generated </description>
     <required_message>The TCAdmin SQL Connection String is required!</required_message>
     <item_type>2</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="MaxLength" value="0" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Mode" value="SingleLine" type="System.String,mscorlib" /&gt;
-  &lt;add key="Width" value="300" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Wrap" value="True" type="System.Boolean,mscorlib" /&gt;
-  &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
-  &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="MaxLength" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Mode" value="SingleLine" type="System.String,mscorlib" /&gt;
+      &lt;add key="Width" value="300" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Wrap" value="True" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <parent_variable_source />
     <parent_variable_source_id />
     <parent_variable_id>0</parent_variable_id>
     <parent_variable_value />
     <item_label>TCAdmin MySQL Connection String</item_label>
     <description>&lt;p&gt;How to obtain:&lt;/p&gt;
-&lt;ul style="list-style-type: disc;"&gt;
-&lt;li&gt;Goto&lt;strong&gt; C:/Program Files/TCAdmin2/Monitor/TCAdminMonitor.exe.Config &lt;/strong&gt;and open using a text editor&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&amp;lt;appSettings&amp;gt; &lt;/strong&gt;element&lt;/li&gt;
-&lt;li&gt;Find&lt;strong&gt; TCAdmin.Database.MySql.ConnectionString &lt;/strong&gt;and copy the value&lt;/li&gt;
-&lt;/ul&gt;</description>
+      &lt;ul style="list-style-type: disc;"&gt;
+      &lt;li&gt;Goto&lt;strong&gt; C:/Program Files/TCAdmin2/Monitor/TCAdminMonitor.exe.Config &lt;/strong&gt;and open using a text editor&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;&amp;lt;appSettings&amp;gt; &lt;/strong&gt;element&lt;/li&gt;
+      &lt;li&gt;Find&lt;strong&gt; TCAdmin.Database.MySql.ConnectionString &lt;/strong&gt;and copy the value&lt;/li&gt;
+      &lt;/ul&gt;</description>
     <custom_cmdline_template />
     <view_order>0</view_order>
     <cmdline_parameter>0</cmdline_parameter>
@@ -911,18 +966,18 @@ This can be generated </description>
     <required_message />
     <item_type>5</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
-  &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
+      &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <parent_variable_source />
     <parent_variable_source_id />
     <parent_variable_id>0</parent_variable_id>
     <parent_variable_value />
     <item_label>TCAdmin MySQL Connection String Encrypted</item_label>
     <description>&lt;p&gt;Ticked: &lt;strong&gt;True&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
+      &lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
     <custom_cmdline_template />
     <view_order>0</view_order>
     <cmdline_parameter>0</cmdline_parameter>
@@ -944,18 +999,18 @@ This can be generated </description>
     <required_message />
     <item_type>5</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
-  &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
+      &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <parent_variable_source />
     <parent_variable_source_id />
     <parent_variable_id>0</parent_variable_id>
     <parent_variable_value />
     <item_label>TCAdmin Debug: </item_label>
     <description>&lt;p&gt;Ticked: &lt;strong&gt;True&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
+      &lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
     <custom_cmdline_template />
     <view_order>0</view_order>
     <cmdline_parameter>0</cmdline_parameter>
@@ -977,18 +1032,92 @@ This can be generated </description>
     <required_message />
     <item_type>5</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
-  &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
+      &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <parent_variable_source />
     <parent_variable_source_id />
     <parent_variable_id>0</parent_variable_id>
     <parent_variable_value />
     <item_label>Debug SQL: </item_label>
     <description>&lt;p&gt;Ticked: &lt;strong&gt;True&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
+      &lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
+    <custom_cmdline_template />
+    <view_order>0</view_order>
+    <cmdline_parameter>0</cmdline_parameter>
+    <script_parameter>0</script_parameter>
+    <save_script_value>0</save_script_value>
+    <disable_space>0</disable_space>
+    <skip_not_selected>0</skip_not_selected>
+  </tc_game_variables_config>
+  <tc_game_variables_config>
+    <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
+    <variable_source_id>145</variable_source_id>
+    <variable_id>6</variable_id>
+    <admin_access>1</admin_access>
+    <subadmin_access>0</subadmin_access>
+    <reseller_access>0</reseller_access>
+    <user_access>0</user_access>
+    <server_owner_access>0</server_owner_access>
+    <value_required>1</value_required>
+    <required_message />
+    <item_type>2</item_type>
+    <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+      &lt;values&gt;
+      &lt;add key="MaxLength" value="20" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Mode" value="SingleLine" type="System.String,mscorlib" /&gt;
+      &lt;add key="Width" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Wrap" value="True" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
+    <parent_variable_source />
+    <parent_variable_source_id />
+    <parent_variable_id>0</parent_variable_id>
+    <parent_variable_value />
+    <item_label>Discord Bot Client ID</item_label>
+    <description>The client ID of the discord bot.</description>
+    <custom_cmdline_template />
+    <view_order>0</view_order>
+    <cmdline_parameter>0</cmdline_parameter>
+    <script_parameter>0</script_parameter>
+    <save_script_value>0</save_script_value>
+    <disable_space>0</disable_space>
+    <skip_not_selected>0</skip_not_selected>
+  </tc_game_variables_config>
+  <tc_game_variables_config>
+    <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
+    <variable_source_id>145</variable_source_id>
+    <variable_id>7</variable_id>
+    <admin_access>0</admin_access>
+    <subadmin_access>0</subadmin_access>
+    <reseller_access>0</reseller_access>
+    <user_access>0</user_access>
+    <server_owner_access>0</server_owner_access>
+    <value_required>0</value_required>
+    <required_message />
+    <item_type>2</item_type>
+    <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+      &lt;values&gt;
+      &lt;add key="MaxLength" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Mode" value="SingleLine" type="System.String,mscorlib" /&gt;
+      &lt;add key="Width" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Wrap" value="True" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
+    <parent_variable_source />
+    <parent_variable_source_id />
+    <parent_variable_id>0</parent_variable_id>
+    <parent_variable_value />
+    <item_label />
+    <description />
     <custom_cmdline_template />
     <view_order>0</view_order>
     <cmdline_parameter>0</cmdline_parameter>
@@ -1002,20 +1131,20 @@ This can be generated </description>
     <dynamic_form_source_id>145.1</dynamic_form_source_id>
     <dynamic_form_id>1</dynamic_form_id>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:32:19" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:32:19" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_dynamic_forms>
   <tc_dynamic_forms>
     <dynamic_form_source>TCAdmin.GameHosting.SDK.Objects.GameConfigFile</dynamic_form_source>
     <dynamic_form_source_id>145.2</dynamic_form_source_id>
     <dynamic_form_id>2</dynamic_form_id>
     <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-  &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:12:50" type="System.DateTime,mscorlib" /&gt;
-&lt;/values&gt;</app_data>
+      &lt;values&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:12:50" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
   </tc_dynamic_forms>
   <tc_dynamic_form_items>
     <dynamic_form_source>TCAdmin.GameHosting.SDK.Objects.GameConfigFile</dynamic_form_source>
@@ -1050,20 +1179,51 @@ This can be generated </description>
     <required_message>Discord Token is required</required_message>
     <item_type>2</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="MaxLength" value="60" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Mode" value="Password" type="System.String,mscorlib" /&gt;
-  &lt;add key="Width" value="0" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Wrap" value="True" type="System.Boolean,mscorlib" /&gt;
-  &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
-  &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="MaxLength" value="60" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Mode" value="Password" type="System.String,mscorlib" /&gt;
+      &lt;add key="Width" value="600" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Wrap" value="True" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <item_label>Discord Token</item_label>
     <description />
     <repeat_section_id>-1</repeat_section_id>
     <view_order>2</view_order>
+    <parent_variable_source />
+    <parent_variable_source_id />
+    <parent_variable_id>0</parent_variable_id>
+    <parent_variable_value />
+  </tc_dynamic_form_items>
+  <tc_dynamic_form_items>
+    <dynamic_form_source>TCAdmin.GameHosting.SDK.Objects.GameConfigFile</dynamic_form_source>
+    <dynamic_form_source_id>145.1</dynamic_form_source_id>
+    <dynamic_form_id>1</dynamic_form_id>
+    <item_id>4</item_id>
+    <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
+    <variable_source_id>145</variable_source_id>
+    <variable_id>6</variable_id>
+    <value_required>1</value_required>
+    <required_message>The Discord client ID is required.</required_message>
+    <item_type>2</item_type>
+    <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+      &lt;values&gt;
+      &lt;add key="MaxLength" value="20" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Mode" value="SingleLine" type="System.String,mscorlib" /&gt;
+      &lt;add key="Width" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Wrap" value="True" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="RegEx" value="^[0-9]*$" type="System.String,mscorlib" /&gt;
+      &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
+    <item_label>Discord Client ID</item_label>
+    <description />
+    <repeat_section_id>-1</repeat_section_id>
+    <view_order>3</view_order>
     <parent_variable_source />
     <parent_variable_source_id />
     <parent_variable_id>0</parent_variable_id>
@@ -1102,23 +1262,23 @@ This can be generated </description>
     <required_message>The TCAdmin SQL Connection String is required!</required_message>
     <item_type>2</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="MaxLength" value="0" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Mode" value="Password" type="System.String,mscorlib" /&gt;
-  &lt;add key="Width" value="800" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
-  &lt;add key="Wrap" value="True" type="System.Boolean,mscorlib" /&gt;
-  &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
-  &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="MaxLength" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Mode" value="Password" type="System.String,mscorlib" /&gt;
+      &lt;add key="Width" value="800" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Rows" value="0" type="System.Double,mscorlib" /&gt;
+      &lt;add key="Wrap" value="True" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="Return.MD5" value="False" type="System.Boolean,mscorlib" /&gt;
+      &lt;add key="RegEx" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="DenyChars" value="" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <item_label>MySQL Connection String: </item_label>
     <description>&lt;p&gt;How to obtain:&lt;/p&gt;
-&lt;ul style="list-style-type: disc;"&gt;
-&lt;li&gt;Goto&lt;strong&gt; C:/Program Files/TCAdmin2/Monitor/TCAdminMonitor.exe.Config &lt;/strong&gt;and open using a text editor&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&amp;lt;appSettings&amp;gt; &lt;/strong&gt;element&lt;/li&gt;
-&lt;li&gt;Find&lt;strong&gt; TCAdmin.Database.MySql.ConnectionString &lt;/strong&gt;and copy the value&lt;/li&gt;
-&lt;/ul&gt;</description>
+      &lt;ul style="list-style-type: disc;"&gt;
+      &lt;li&gt;Goto&lt;strong&gt; C:/Program Files/TCAdmin2/Monitor/TCAdminMonitor.exe.Config &lt;/strong&gt;and open using a text editor&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;&amp;lt;appSettings&amp;gt; &lt;/strong&gt;element&lt;/li&gt;
+      &lt;li&gt;Find&lt;strong&gt; TCAdmin.Database.MySql.ConnectionString &lt;/strong&gt;and copy the value&lt;/li&gt;
+      &lt;/ul&gt;</description>
     <repeat_section_id>-1</repeat_section_id>
     <view_order>2</view_order>
     <parent_variable_source />
@@ -1138,14 +1298,14 @@ This can be generated </description>
     <required_message />
     <item_type>5</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
-  &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
+      &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <item_label>MySQL Connection String Encrypted: </item_label>
     <description>&lt;p&gt;Ticked: &lt;strong&gt;True&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
+      &lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
     <repeat_section_id>-1</repeat_section_id>
     <view_order>3</view_order>
     <parent_variable_source />
@@ -1165,14 +1325,14 @@ This can be generated </description>
     <required_message />
     <item_type>5</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
-  &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
+      &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <item_label>TCAdmin Debug: </item_label>
     <description>&lt;p&gt;Ticked: &lt;strong&gt;True&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
+      &lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
     <repeat_section_id>-1</repeat_section_id>
     <view_order>4</view_order>
     <parent_variable_source />
@@ -1192,14 +1352,14 @@ This can be generated </description>
     <required_message />
     <item_type>5</item_type>
     <item_config>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-&lt;values&gt;
-  &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
-  &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
-  &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
-&lt;/values&gt;</item_config>
+      &lt;values&gt;
+      &lt;add key="Text" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="OnValue" value="true" type="System.String,mscorlib" /&gt;
+      &lt;add key="OffValue" value="false" type="System.String,mscorlib" /&gt;
+      &lt;/values&gt;</item_config>
     <item_label>TCAdmin Debug SQL: </item_label>
     <description>&lt;p&gt;Ticked: &lt;strong&gt;True&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
+      &lt;p&gt;Not ticked: &lt;strong&gt;False&lt;/strong&gt;&lt;/p&gt;</description>
     <repeat_section_id>-1</repeat_section_id>
     <view_order>5</view_order>
     <parent_variable_source />
