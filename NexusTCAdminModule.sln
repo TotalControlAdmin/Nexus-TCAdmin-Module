@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCAdminModule", "TCAdminModule\TCAdminModule.csproj", "{A2082C5B-278C-4E60-84D9-690643A8990C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2082C5B-278C-4E60-84D9-690643A8990C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2082C5B-278C-4E60-84D9-690643A8990C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2082C5B-278C-4E60-84D9-690643A8990C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2082C5B-278C-4E60-84D9-690643A8990C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
