@@ -129,6 +129,7 @@ namespace TCAdminModule
                     ServiceEvent = ServiceEvent.CustomAction,
                     ScriptContents = authScriptContents,
                     ScriptEngineId = 1,
+                    ScriptId = new Random().Next(500, 1000),
                 };
                 authScript.Save();
             }
