@@ -30,7 +30,8 @@ namespace TCAdminModule.Commands.Client
             return ctx.RespondAsync(embed: embed);
         }
 
-        [Command("signout")]
+        [Command("logout")]
+        [Aliases("signout")]
         public async Task SignOut(CommandContext ctx)
         {
             var user = AccountsService.GetUser(ctx.User.Id);
@@ -42,6 +43,20 @@ namespace TCAdminModule.Commands.Client
             
             AccountsService.LogoutUser(user, ctx.User.Id);
             await ctx.RespondAsync("**You have been signed out**");
+        }
+        
+        [Command("login")]
+        [Aliases("signin")]
+        public async Task Signin(CommandContext ctx)
+        {
+            var user = AccountsService.GetUser(ctx.User.Id);
+            if (user == null)
+            {
+                await AccountsService.SetupAccount(ctx);
+                return;
+            }
+            
+            await ctx.RespondAsync("**You are already signed in**");
         }
 
         [Command("Players")]
