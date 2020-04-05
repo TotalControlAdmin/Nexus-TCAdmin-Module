@@ -357,8 +357,10 @@
         <Compile Include="Commands\Client\LinkCommands.cs" />
         <Compile Include="Commands\Client\QueryCommands.cs" />
         <Compile Include="Commands\Client\TCAdminCommands.cs" />
+        <Compile Include="Configurations\ServiceMenuConfiguration.cs" />
         <Compile Include="Crons\NetworkStatusCron.cs" />
         <Compile Include="Events\EventsCore.cs" />
+        <Compile Include="Models\ServiceMenuActionSettings.cs" />
         <Compile Include="ServiceMenu\Buttons\LogViewerButton.cs" />
         <Compile Include="TcAdminModule.cs" />
         <Compile Include="Exceptions\UnauthorizedAccessException.cs" />

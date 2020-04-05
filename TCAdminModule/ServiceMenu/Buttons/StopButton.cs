@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TCAdmin.GameHosting.SDK.Objects;
+using TCAdminModule.Models;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 
@@ -8,13 +9,15 @@ namespace TCAdminModule.ServiceMenu.Buttons
 {
     public class StopButton : NexusServiceMenuModule
     {
-        public StopButton()
+        public override void DefaultSettings()
         {
             this.Name = "Stop Button";
             var attribute =
                 new ActionCommandAttribute("Stop", "Stop Server", ":stop_button:", new List<string> {"StartStop"});
-            this.ViewOrder = 2;
-            this.ActionCommandAttribute = attribute;
+            this.Settings.ViewOrder = 2;
+            this.Settings.ActionCommandAttribute = attribute;
+
+            this.Configuration.SetConfiguration(this.Settings);
         }
 
         public override async Task DoAction()

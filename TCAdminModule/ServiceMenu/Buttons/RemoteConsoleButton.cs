@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DSharpPlus.Interactivity;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.Interfaces.Server;
+using TCAdminModule.Models;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 
@@ -11,14 +12,16 @@ namespace TCAdminModule.ServiceMenu.Buttons
 {
     public class RemoteConsoleButton : NexusServiceMenuModule
     {
-        public RemoteConsoleButton()
+        public override void DefaultSettings()
         {
             this.Name = "Remote Console Button";
             var attribute =
-                new ActionCommandAttribute("Remote Console", "Access the servers Remote Console", ":RemoteConsole:", new List<string> {"StartStop"},
+                new ActionCommandAttribute("Remote Console", "Access the servers Remote Console", ":desktop:",
+                    new List<string> {"StartStop"},
                     false);
-            this.ViewOrder = 7;
-            this.ActionCommandAttribute = attribute;
+            this.Settings.ViewOrder = 7;
+            this.Settings.ActionCommandAttribute = attribute;
+            this.Configuration.SetConfiguration(this.Settings);
         }
 
         public override async Task DoAction()
@@ -38,7 +41,7 @@ namespace TCAdminModule.ServiceMenu.Buttons
                 x => x.Author.Id == CommandContext.User.Id && x.Channel.Id == CommandContext.Channel.Id);
             await RconTask(command.Result.Content);
         }
-        
+
         public async Task RconTask(string command)
         {
             await CommandContext.TriggerTypingAsync();

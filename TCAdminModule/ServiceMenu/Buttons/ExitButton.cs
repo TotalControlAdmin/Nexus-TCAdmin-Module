@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TCAdminModule.Models;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 
@@ -8,12 +9,22 @@ namespace TCAdminModule.ServiceMenu.Buttons
     {
         public ExitModule()
         {
+            
+        }
+        
+        
+
+        public override void DefaultSettings()
+        {
             this.Name = "Exit";
             var attribute =
-                new ActionCommandAttribute("Exit", "Exit", ":octagonal_sign:", new List<string> {string.Empty},
+                new ActionCommandAttribute("Exit", "Exit", ":octagonal_sign:",
+                    new List<string> {string.Empty},
                     true);
-            this.ViewOrder = 0;
-            this.ActionCommandAttribute = attribute;
+            this.Settings.ViewOrder = 0;
+            this.Settings.ActionCommandAttribute = attribute;
+
+            this.Configuration.SetConfiguration(this.Settings);
         }
     }
 }

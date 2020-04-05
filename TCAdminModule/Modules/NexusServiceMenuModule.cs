@@ -1,33 +1,44 @@
 ﻿using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
+using Newtonsoft.Json;
 using Nexus.SDK.Modules;
 using TCAdminModule.Attributes;
-using TCAdminModule.Objects;
+using TCAdminModule.Models;
 
 namespace TCAdminModule.Modules
 {
     public class NexusServiceMenuModule : NexusModule
     {
-        public DiscordMessage MenuMessage { get; set; }
-        
-        public CommandContext CommandContext { get; set; }
-        
-        public ActionCommandAttribute ActionCommandAttribute { get; set; }
-        
-        public CommandAttributes.RequireAuthentication Authentication { get; internal set; }
+        [JsonIgnore] public CommandAttributes.RequireAuthentication Authentication { get; internal set; }
 
-        public int ViewOrder;
-        
+        [JsonIgnore] public NexusModuleConfiguration<ServiceMenuActionSettings> Configuration { get; }
+
+        [JsonIgnore] public DiscordMessage MenuMessage { get; set; }
+
+        [JsonIgnore] public CommandContext CommandContext { get; set; }
+
+        public ServiceMenuActionSettings Settings = new ServiceMenuActionSettings();
+
         public NexusServiceMenuModule()
         {
-            
+            Configuration = new NexusModuleConfiguration<ServiceMenuActionSettings>(this.GetType().Name,
+                "./Config/TCAdminModule/ServiceMenuButtons/");
+            var config = Configuration.GetConfiguration(false);
+
+            if (config != null)
+            {
+                this.Settings.ActionCommandAttribute = config.ActionCommandAttribute;
+                this.Settings.ViewOrder = config.ViewOrder;
+            }
+            else
+            {
+                DefaultSettings();
+            }
         }
 
-        public NexusServiceMenuModule(string name, ActionCommandAttribute actionCommandAttribute)
+        public virtual void DefaultSettings()
         {
-            this.Name = name;
-            this.ActionCommandAttribute = actionCommandAttribute;
         }
 
         /// <summary>
@@ -35,7 +46,7 @@ namespace TCAdminModule.Modules
         /// </summary>
         public virtual async Task DoAction()
         {
-            if (this.ActionCommandAttribute.DeleteMenu)
+            if (this.Settings.ActionCommandAttribute.DeleteMenu)
             {
                 await this.MenuMessage.DeleteAsync();
             }

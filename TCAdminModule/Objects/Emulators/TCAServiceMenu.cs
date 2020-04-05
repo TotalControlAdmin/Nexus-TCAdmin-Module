@@ -6,10 +6,12 @@ using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
 using DSharpPlus.Interactivity;
+using Nexus.SDK.Modules;
 using TCAdmin.Interfaces.Server;
 using TCAdmin.SDK.Mail;
 using TCAdmin.SDK.Objects;
 using TCAdminModule.Attributes;
+using TCAdminModule.Configurations;
 using NexusServiceMenuModule = TCAdminModule.Modules.NexusServiceMenuModule;
 
 namespace TCAdminModule.Objects.Emulators
@@ -18,17 +20,20 @@ namespace TCAdminModule.Objects.Emulators
     {
         private readonly string[] _sizeSuffixes = {"bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"};
 
+        private NexusModuleConfiguration<ServiceMenuConfiguration> Configuration =
+            new NexusModuleConfiguration<ServiceMenuConfiguration>("ServiceMenuConfig", "./Config/TCAdminModule/");
+
         public async Task MenuEmulation(CommandContext ctx, CommandAttributes.RequireAuthentication context)
         {
             await ctx.Message.DeleteAsync();
             await ctx.TriggerTypingAsync();
+            var config = Configuration.GetConfiguration();
 
             var ftpInfo = context.Service.FtpInfo.Split(':');
             var embedBuilder = new DiscordEmbedBuilder
             {
                 Title = context.Service.Name,
-                ThumbnailUrl =
-                    "https://cdn.discordapp.com/attachments/190120046134034432/547496887930978334/nodrips.png",
+                ThumbnailUrl = config.ThumbnailUrl,
                 Footer =
                     new DiscordEmbedBuilder.EmbedFooter
                     {
@@ -45,12 +50,19 @@ namespace TCAdminModule.Objects.Emulators
                               + $"{(context.User.UserType != UserType.User ? "**Server: **" + context.Service.ServerName : string.Empty)}\n"
             };
 
-            var currentStatistics = $"**CPU:** {context.Service.CurrentCpu}%\n";
+            var currentStatistics = config.ShowCpu ? $"**CPU:** {context.Service.CurrentCpu}%\n" : "";
             currentStatistics +=
-                $"**Memory:** {SizeSuffix(context.Service.CurrentMemory)}/{SizeSuffix(context.Service.MemoryLimitMB)} **[{context.Service.CurrentMemoryPercent}%]**\n";
-            currentStatistics += $"**Players:** {context.Service.CurrentPlayers}/{context.Service.CurrentMaxPlayers}";
+                config.ShowMemory
+                    ? $"**Memory:** {SizeSuffix(context.Service.CurrentMemory)}/{SizeSuffix(context.Service.MemoryLimitMB)} **[{context.Service.CurrentMemoryPercent}%]**\n"
+                    : "";
+            currentStatistics += config.ShowPlayers
+                ? $"**Players:** {context.Service.CurrentPlayers}/{context.Service.CurrentMaxPlayers}"
+                : "";
 
-            embedBuilder.AddField("Stats", currentStatistics, true);
+            if (!string.IsNullOrEmpty(currentStatistics))
+            {
+                embedBuilder.AddField("Stats", currentStatistics, true);
+            }
 
             switch (context.Service.Status.ServiceStatus)
             {
@@ -78,21 +90,18 @@ namespace TCAdminModule.Objects.Emulators
                     break;
             }
 
-            // embedBuilder.AddField("Stats", stats, true);
-            // embedBuilder.AddField("Actions", ActionsViewer.GenerateEmbedString(ctx.Client, enabledModules));
-
             var modules = NexusServiceMenuModules.ToList();
             embedBuilder.AddField("Actions", GenerateActions(ctx.Client, modules));
 
             var menuMsg = await ctx.RespondAsync(embed: embedBuilder);
 
-            foreach (NexusServiceMenuModule module in modules.OrderBy(x => x.ViewOrder))
+            foreach (NexusServiceMenuModule module in modules.OrderBy(x => x.Settings.ViewOrder))
             {
                 module.CommandContext = ctx;
                 module.Authentication = context;
                 module.MenuMessage = menuMsg;
                 await menuMsg.CreateReactionAsync(DiscordEmoji.FromName(ctx.Client,
-                    module.ActionCommandAttribute.EmojiName));
+                    module.Settings.ActionCommandAttribute.EmojiName));
                 await Task.Delay(250);
             }
 
@@ -107,7 +116,7 @@ namespace TCAdminModule.Objects.Emulators
                 await menuMsg.DeleteReactionAsync(reactAction.Result.Emoji, ctx.User);
 
                 var modulePressed = modules.FirstOrDefault(x =>
-                    x.ActionCommandAttribute.EmojiName == reactAction.Result.Emoji.GetDiscordName());
+                    x.Settings.ActionCommandAttribute.EmojiName == reactAction.Result.Emoji.GetDiscordName());
                 if (modulePressed != null)
                 {
 #pragma warning disable 4014
@@ -132,10 +141,10 @@ namespace TCAdminModule.Objects.Emulators
         private string GenerateActions(DiscordClient client, IEnumerable<NexusServiceMenuModule> modules)
         {
             string actions = string.Empty;
-            foreach (var module in modules.OrderBy(x => x.ViewOrder))
+            foreach (var module in modules.OrderBy(x => x.Settings.ViewOrder))
             {
                 actions +=
-                    $"**{DiscordEmoji.FromName(client, module.ActionCommandAttribute.EmojiName)} {module.ActionCommandAttribute.Description}**\n";
+                    $"**{DiscordEmoji.FromName(client, module.Settings.ActionCommandAttribute.EmojiName)} {module.Settings.ActionCommandAttribute.Description}**\n";
             }
 
             return actions;

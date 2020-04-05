@@ -33,8 +33,8 @@ namespace TCAdminModule
 
             client.SetAppSettings();
 
-            UpdateGameConfig();
-            CreateAuthenticationScript();
+            // UpdateGameConfig();
+            // CreateAuthenticationScript();
         }
 
         private void UpdateGameConfig()

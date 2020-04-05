@@ -11,15 +11,17 @@ namespace TCAdminModule.ServiceMenu.Buttons
 {
     public class LogViewerButton : NexusServiceMenuModule
     {
-        public LogViewerButton()
+        public override void DefaultSettings()
         {
             this.Name = "Log Viewer Button";
             var attribute =
-                new ActionCommandAttribute("Log Viewer", "Access server logs", ":LogViewer:",
+                new ActionCommandAttribute("Log Viewer", "Access server logs", ":file_folder:",
                     new List<string> {"LogViewer"},
                     true);
-            this.ViewOrder = 5;
-            this.ActionCommandAttribute = attribute;
+            this.Settings.ViewOrder = 5;
+            this.Settings.ActionCommandAttribute = attribute;
+
+            this.Configuration.SetConfiguration(this.Settings);
         }
 
         public override async Task DoAction()

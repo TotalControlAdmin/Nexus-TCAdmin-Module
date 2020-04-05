@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sentry;
+using TCAdminModule.Models;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 using TCAdminModule.Objects.Emulators;
@@ -10,15 +11,17 @@ namespace TCAdminModule.ServiceMenu.Buttons
 {
     public class FileManagerButton : NexusServiceMenuModule
     {
-        public FileManagerButton()
+        public override void DefaultSettings()
         {
             this.Name = "File Manager Button";
             var attribute =
-                new ActionCommandAttribute("File Manager", "Access server files", ":FileManager:",
+                new ActionCommandAttribute("File Manager", "Access server files", ":file_cabinet:",
                     new List<string> {"FileManager"},
                     true);
-            this.ViewOrder = 5;
-            this.ActionCommandAttribute = attribute;
+            this.Settings.ViewOrder = 5;
+            this.Settings.ActionCommandAttribute = attribute;
+
+            this.Configuration.SetConfiguration(this.Settings);
         }
 
         public override async Task DoAction()

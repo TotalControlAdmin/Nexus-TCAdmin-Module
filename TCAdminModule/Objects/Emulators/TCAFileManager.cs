@@ -11,8 +11,7 @@
  using TCAdminModule.Objects.FileSystem;
  using DirectoryInfo = System.IO.DirectoryInfo;
  using FileInfo = TCAdmin.SDK.Web.References.FileSystem.FileInfo;
-
-
+ 
  namespace TCAdminModule.Objects.Emulators
 {
     public class TcaFileManager : IDisposable
