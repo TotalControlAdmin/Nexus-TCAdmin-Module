@@ -95,8 +95,14 @@ namespace TCAdminModule.Services
                         await dmChannel.SendMessageAsync(embed: loginEmbed);
 
                         var tokenResponse = await ctx.Client.GetInteractivity()
-                            .WaitForMessageAsync(x => x.Author.Id == ctx.User.Id);
-                        if (tokenResponse.TimedOut || string.IsNullOrEmpty(tokenResponse.Result.Content)) return null;
+                            .WaitForMessageAsync(x => x.Author.Id == ctx.User.Id, TimeSpan.FromMinutes(5));
+                        if (tokenResponse.TimedOut || string.IsNullOrEmpty(tokenResponse.Result.Content))
+                        {
+                            await ctx.RespondAsync(
+                                "**Timeout**: To resume logging in, please do the `;login` command again. " +
+                                ctx.Channel.Mention);
+                            return null;
+                        }
 
                         var user = User.GetAllUsers(2, true)
                             .FindByCustomField("__Nexus:DiscordToken", tokenResponse.Result.Content) as User;
@@ -124,7 +130,7 @@ namespace TCAdminModule.Services
                                        $"Time Requested: <b>{DateTime.UtcNow:F}</b><br /><br />" +
                                        $"If you do not recognise this request, please immediately raise a support ticket!<br /><br />" +
                                        $"{companyInfo.SignatureHtml}",
-                            DontSendEmail = false,
+                            DontSendEmail = mailConfig.MailServer.Contains("localhost"),
                             ForceViewNotification = true,
                             ToUserIdsList = {user.UserId},
                         };
