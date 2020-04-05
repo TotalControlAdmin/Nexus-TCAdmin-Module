@@ -28,12 +28,12 @@
       &lt;values&gt;
       &lt;add key="__TCA:V1_GAME_ID" value="" type="System.String,mscorlib" /&gt;
       &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9:FileManager" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;FileManagerConfig xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EditPatterns&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.cfg&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.txt&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.ini&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.json&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/EditPatterns&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;MaxEditSize&amp;gt;102400&amp;lt;/MaxEditSize&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableDecompress&amp;gt;true&amp;lt;/EnableDecompress&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableCompress&amp;gt;true&amp;lt;/EnableCompress&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;MaxCompressSize&amp;gt;52428800&amp;lt;/MaxCompressSize&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableUpload&amp;gt;true&amp;lt;/EnableUpload&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableDownload&amp;gt;true&amp;lt;/EnableDownload&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;DefaultFileName&amp;gt;custom.cfg&amp;lt;/DefaultFileName&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;WriteBom&amp;gt;false&amp;lt;/WriteBom&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/FileManagerConfig&amp;gt;" type="TCAdmin.SDK.Web.FileManager.FileManagerConfig,TCAdmin.SDK.Web" /&gt;
+      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9:FileManager" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;FileManagerConfig xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EditPatterns&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.cfg&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.txt&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.ini&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;string&amp;gt;*.json&amp;lt;/string&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/EditPatterns&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;MaxEditSize&amp;gt;102400&amp;lt;/MaxEditSize&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableDecompress&amp;gt;true&amp;lt;/EnableDecompress&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableCompress&amp;gt;true&amp;lt;/EnableCompress&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;MaxCompressSize&amp;gt;52428800&amp;lt;/MaxCompressSize&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableUpload&amp;gt;true&amp;lt;/EnableUpload&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;EnableDownload&amp;gt;true&amp;lt;/EnableDownload&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;DefaultFileName&amp;gt;custom.json&amp;lt;/DefaultFileName&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;WriteBom&amp;gt;false&amp;lt;/WriteBom&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/FileManagerConfig&amp;gt;" type="TCAdmin.SDK.Web.FileManager.FileManagerConfig,TCAdmin.SDK.Web" /&gt;
       &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9:VirtualDirectories" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;ArrayOfVirtualDirectorySecurity xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionMode&amp;gt;Basic&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionType&amp;gt;Root&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;Permissions&amp;gt;ReadFile WriteFile DeleteFile RenameFile ListDirectory CreateDirectory DeleteDirectory RenameDirectory&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;ServerId&amp;gt;1&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;RootPhysicalPath&amp;gt;$[SubAdminFiles]&amp;lt;/RootPhysicalPath&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;VirtualDirectoryName&amp;gt;Sub Admin Files&amp;lt;/VirtualDirectoryName&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Filters&amp;gt;*.exe;*.dll;*.so;*.bat;*.sh;*.cmd;*.vbs;*.pif;*.scr;*.com&amp;lt;/Filters&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionMode&amp;gt;None&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionType&amp;gt;File&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Permissions&amp;gt;None&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionMode&amp;gt;Basic&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionType&amp;gt;Root&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;Permissions&amp;gt;ReadFile WriteFile DeleteFile RenameFile ListDirectory CreateDirectory DeleteDirectory RenameDirectory&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;ServerId&amp;gt;2&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;RootPhysicalPath&amp;gt;$[ResellerFiles]&amp;lt;/RootPhysicalPath&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;VirtualDirectoryName&amp;gt;Reseller Files&amp;lt;/VirtualDirectoryName&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Filters&amp;gt;*.exe;*.dll;*.so;*.bat;*.sh;*.cmd;*.vbs;*.pif;*.scr;*.com&amp;lt;/Filters&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionMode&amp;gt;None&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionType&amp;gt;File&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Permissions&amp;gt;None&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionMode&amp;gt;Basic&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;PermissionType&amp;gt;Root&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;Permissions&amp;gt;ReadFile WriteFile DeleteFile RenameFile ListDirectory CreateDirectory DeleteDirectory RenameDirectory&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;ServerId&amp;gt;3&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;RootPhysicalPath&amp;gt;$[UserFiles]&amp;lt;/RootPhysicalPath&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;VirtualDirectoryName&amp;gt;User Files&amp;lt;/VirtualDirectoryName&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Filters&amp;gt;*.exe;*.dll;*.so;*.bat;*.sh;*.cmd;*.vbs;*.pif;*.scr;*.com&amp;lt;/Filters&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionMode&amp;gt;None&amp;lt;/PermissionMode&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;PermissionType&amp;gt;File&amp;lt;/PermissionType&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;Permissions&amp;gt;None&amp;lt;/Permissions&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;ServerId&amp;gt;0&amp;lt;/ServerId&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;        &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;      &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;/AdditionalPermissions&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableSymlinkCheck&amp;gt;false&amp;lt;/DisableSymlinkCheck&amp;gt;&amp;#xD;&amp;#xA;    &amp;lt;DisableOwnerCheck&amp;gt;false&amp;lt;/DisableOwnerCheck&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;/VirtualDirectorySecurity&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/ArrayOfVirtualDirectorySecurity&amp;gt;" type="TCAdmin.SDK.VirtualFileSystem.VirtualDirectorySecurity[],TCAdmin.SDK" /&gt;
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-05 22:57:10" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-05 23:31:26" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_games>
   <tc_game_paths>
@@ -53,12 +53,12 @@
     <ext_script />
     <ext_license>Nexus Bot Software License Agreement
 
-      THIS IS A LEGAL AGREEMENT BETWEEN YOU, HERETOFORE REFERRED AS “THE
-      CLIENT”, AND ALEXR03.DEV HERETOFORE REFERRED AS “THE SOFTWARE CREATOR”,
-      REGARDING THE USE OF “NEXUS BOT” HERETOFORE REFERRED AS
-      “THE SOFTWARE”. BY INSTALLING, ACCESSING OR USING THIS SOFTWARE, THE CLIENT
+      THIS IS A LEGAL AGREEMENT BETWEEN YOU, HERETOFORE REFERRED AS â€œTHE
+      CLIENTâ€, AND ALEXR03.DEV HERETOFORE REFERRED AS â€œTHE SOFTWARE CREATORâ€,
+      REGARDING THE USE OF â€œNEXUS BOTâ€ HERETOFORE REFERRED AS
+      â€œTHE SOFTWAREâ€. BY INSTALLING, ACCESSING OR USING THIS SOFTWARE, THE CLIENT
       ACKNOWLEDGES THAT THE CLIENT HAS READ THIS SOFTWARE LICENSE
-      AGREEMENT (“NEXUS BOT SOFTWARE LICENSE AGREEMENT”), THAT THE CLIENT UNDERSTANDS IT, CONSENTS TO BE BOUND BY AND BECOMING A PARTY TO THIS AGREEMENT.
+      AGREEMENT (â€œNEXUS BOT SOFTWARE LICENSE AGREEMENTâ€), THAT THE CLIENT UNDERSTANDS IT, CONSENTS TO BE BOUND BY AND BECOMING A PARTY TO THIS AGREEMENT.
 
       1. GRANT OF SOFTWARE USAGE.
       ALEXR03.DEV grants to the Client non-transferable, non-exclusive right to use the Software. The client may use the software on any computer owned, leased or otherwise controlled by the client.
@@ -72,7 +72,7 @@
       v.	Authorize any third party to do any of the foregoing.
 
       3. CONTENT IN THE SOFTWARE
-      i.	The Client understands that all information (such as data files, written text, computer software, music, audio files or other sounds, photographs, videos or other images) which the Client may have access to as part of, or through the Client’s use of, the Software are the sole responsibility of the person from which such content originated. All such information is referred to below as the “Content”.
+      i.	The Client understands that all information (such as data files, written text, computer software, music, audio files or other sounds, photographs, videos or other images) which the Client may have access to as part of, or through the Clientâ€™s use of, the Software are the sole responsibility of the person from which such content originated. All such information is referred to below as the â€œContentâ€.
       ii.	The Client understands that by using this Software the Client they are doing so at their own risk, ALEXR03.DEV, TCADMIN or any third party developers are not responsible or to be held liable for you, the end user, using 3rd party software or tools.
       iii.	The Client agrees that the Client is solely responsible for (and that the Software Creator has no responsibility to the Client or to any third party for) any Content that the Client creates, transmits or displays whilst using the Software and for the consequences of the Client actions (including any loss or damage which the Software Creator may suffer) by doing so.
 
@@ -216,7 +216,7 @@
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-05 22:57:10" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-05 23:31:26" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_game_mail_templates>
   <tc_game_steam_config>
@@ -474,131 +474,6 @@
       &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_custom_variables>
-  <tc_game_scripts>
-    <game_id>145</game_id>
-    <script_id>1</script_id>
-    <mod_id>0</mod_id>
-    <update_id>0</update_id>
-    <operating_system>0</operating_system>
-    <script_engine_id>1</script_engine_id>
-    <description>Create required folders.</description>
-    <script_contents>from System.IO import Directory
-
-      requiredDirectories = ["Modules", "ModuleDependencies"]
-
-      for x in requiredDirectories:
-      dir = ThisService.RootDirectory + x
-      if not Directory.Exists(dir):
-      Directory.CreateDirectory(dir)</script_contents>
-    <service_event>1</service_event>
-    <execute_order>0</execute_order>
-    <ignore_errors>1</ignore_errors>
-    <server_owner_access>0</server_owner_access>
-    <subadmin_access>0</subadmin_access>
-    <reseller_access>0</reseller_access>
-    <user_access>0</user_access>
-    <stop_service>0</stop_service>
-    <allow_scheduling>0</allow_scheduling>
-    <display_name>Test</display_name>
-    <image_url />
-    <prompt_variables>0</prompt_variables>
-    <exec_as_service_user>1</exec_as_service_user>
-    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-      &lt;values&gt;
-      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:56:28" type="System.DateTime,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 18:07:00" type="System.DateTime,mscorlib" /&gt;
-      &lt;/values&gt;</app_data>
-    <output_filters />
-    <custom_prompt />
-  </tc_game_scripts>
-  <tc_game_scripts>
-    <game_id>145</game_id>
-    <script_id>2</script_id>
-    <mod_id>0</mod_id>
-    <update_id>0</update_id>
-    <operating_system>2</operating_system>
-    <script_engine_id>1</script_engine_id>
-    <description>Delete main after creation (for updates)</description>
-    <script_contents>import clr
-      clr.AddReference("TCAdmin.GameHosting.SDK")
-      from System.IO import Directory, DirectoryInfo, FileInfo
-      from TCAdmin.GameHosting.SDK.Objects import Game
-
-      game = Game(ThisService.GameId)
-
-      directoryInfo = DirectoryInfo("C:/TCAFiles/Games/" + game.Paths.FilesFolderName)
-
-      for file in directoryInfo.GetFiles():
-      Script.WriteToConsole("Delete file: " + file.Name)
-      file.Delete()
-
-      for dir in directoryInfo.GetDirectories():
-      Script.WriteToConsole("Delete dir: " + dir.Name)
-      dir.Delete(True)</script_contents>
-    <service_event>2</service_event>
-    <execute_order>0</execute_order>
-    <ignore_errors>1</ignore_errors>
-    <server_owner_access>0</server_owner_access>
-    <subadmin_access>0</subadmin_access>
-    <reseller_access>0</reseller_access>
-    <user_access>0</user_access>
-    <stop_service>0</stop_service>
-    <allow_scheduling>0</allow_scheduling>
-    <display_name>TestDel</display_name>
-    <image_url />
-    <prompt_variables>0</prompt_variables>
-    <exec_as_service_user>0</exec_as_service_user>
-    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-      &lt;values&gt;
-      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 23:25:45" type="System.DateTime,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 23:32:05" type="System.DateTime,mscorlib" /&gt;
-      &lt;/values&gt;</app_data>
-    <output_filters />
-    <custom_prompt />
-  </tc_game_scripts>
-  <tc_game_scripts>
-    <game_id>145</game_id>
-    <script_id>3</script_id>
-    <mod_id>0</mod_id>
-    <update_id>0</update_id>
-    <operating_system>0</operating_system>
-    <script_engine_id>1</script_engine_id>
-    <description>Create required directories</description>
-    <script_contents>from System.IO import Directory
-
-      requiredDirectories = ["Modules", "ModuleDependencies"]
-
-      for x in requiredDirectories:
-      dir = ThisService.RootDirectory + x
-      if not Directory.Exists(dir):
-      Directory.CreateDirectory(dir)</script_contents>
-    <service_event>6</service_event>
-    <execute_order>0</execute_order>
-    <ignore_errors>1</ignore_errors>
-    <server_owner_access>0</server_owner_access>
-    <subadmin_access>0</subadmin_access>
-    <reseller_access>0</reseller_access>
-    <user_access>0</user_access>
-    <stop_service>0</stop_service>
-    <allow_scheduling>0</allow_scheduling>
-    <display_name />
-    <image_url />
-    <prompt_variables>0</prompt_variables>
-    <exec_as_service_user>0</exec_as_service_user>
-    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-      &lt;values&gt;
-      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 23:33:16" type="System.DateTime,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 23:33:28" type="System.DateTime,mscorlib" /&gt;
-      &lt;/values&gt;</app_data>
-    <output_filters />
-    <custom_prompt />
-  </tc_game_scripts>
   <tc_game_mods>
     <game_id>145</game_id>
     <mod_id>1</mod_id>
@@ -694,6 +569,24 @@
       &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 20:07:04" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
+    <view_order>0</view_order>
+  </tc_game_links>
+  <tc_game_links>
+    <game_id>145</game_id>
+    <link_id>4</link_id>
+    <mod_id>0</mod_id>
+    <url>https://gitlab.openshift.alexr03.dev/nexus/nexus-bot</url>
+    <display_name>Nexus Project</display_name>
+    <description>Open-source Nexus Project</description>
+    <icon />
+    <new_page>1</new_page>
+    <inside_panel>0</inside_panel>
+    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+      &lt;values&gt;
+      &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-05 23:30:32" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
     <view_order>0</view_order>
   </tc_game_links>

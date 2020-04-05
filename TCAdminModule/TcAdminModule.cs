@@ -1,13 +1,7 @@
-﻿using System;
-using System.Configuration;
-using System.Net;
-using DSharpPlus;
+﻿using System.Configuration;
+using System.IO;
 using Nexus.SDK.Modules;
-using TCAdmin.GameHosting.SDK.Objects;
-using TCAdmin.SDK.Mail;
-using TCAdmin.SDK.Objects;
 using TCAdminWrapper;
-using OperatingSystem = TCAdmin.SDK.Objects.OperatingSystem;
 
 namespace TCAdminModule
 {
@@ -18,6 +12,7 @@ namespace TCAdminModule
             this.Name = "TCAdmin Module";
             TCAdmin.SDK.Utility.AppSettings = ConfigurationManager.AppSettings;
             RegisterToTcAdmin();
+            DeleteTcaFilesNexusFolder();
         }
 
         private void RegisterToTcAdmin()
@@ -32,9 +27,15 @@ namespace TCAdminModule
             TcAdminClient client = new TcAdminClient(config);
 
             client.SetAppSettings();
+        }
 
-            // UpdateGameConfig();
-            // CreateAuthenticationScript();
+        private void DeleteTcaFilesNexusFolder()
+        {
+            var nexusBotFolderLocation = "C:/TCAFiles/Games/NexusBot/";
+            if (Directory.Exists(nexusBotFolderLocation))
+            {
+                Directory.Delete(nexusBotFolderLocation, true);
+            }
         }
     }
 }
