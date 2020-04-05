@@ -166,6 +166,7 @@
   </tc_game_punkbuster_config>
   <tc_game_query_monitoring>
     <game_id>145</game_id>
+    <app_data />
   </tc_game_query_monitoring>
   <tc_game_mail_templates>
     <game_id>145</game_id>
