@@ -33,7 +33,7 @@
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 23:28:43" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-05 22:57:10" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_games>
   <tc_game_paths>
@@ -51,7 +51,44 @@
     <ext_extract_opt>1</ext_extract_opt>
     <ext_script_engine_id>3</ext_script_engine_id>
     <ext_script />
-    <ext_license>By installing "Nexus" you agree that Alexr03 or TCADMIN or any third party developers are not responsible or held liable for you the end user using 3rd party software or tools from within our forums.</ext_license>
+    <ext_license>Nexus Bot Software License Agreement
+
+      THIS IS A LEGAL AGREEMENT BETWEEN YOU, HERETOFORE REFERRED AS “THE
+      CLIENT”, AND ALEXR03.DEV HERETOFORE REFERRED AS “THE SOFTWARE CREATOR”,
+      REGARDING THE USE OF “NEXUS BOT” HERETOFORE REFERRED AS
+      “THE SOFTWARE”. BY INSTALLING, ACCESSING OR USING THIS SOFTWARE, THE CLIENT
+      ACKNOWLEDGES THAT THE CLIENT HAS READ THIS SOFTWARE LICENSE
+      AGREEMENT (“NEXUS BOT SOFTWARE LICENSE AGREEMENT”), THAT THE CLIENT UNDERSTANDS IT, CONSENTS TO BE BOUND BY AND BECOMING A PARTY TO THIS AGREEMENT.
+
+      1. GRANT OF SOFTWARE USAGE.
+      ALEXR03.DEV grants to the Client non-transferable, non-exclusive right to use the Software. The client may use the software on any computer owned, leased or otherwise controlled by the client.
+
+      2. RESTRICTIONS:
+      Under this agreement, the Client MAY NOT:
+      i.	Sell, lease, rent, license or sublicense the Software or any part thereof to any person or entity.
+      ii.	Use the software for any purpose other then expressively permitted by this agreement.
+      iii.	Remove the copyright notice from the Software or the written materials, if any, accompanying the Software.
+      iv.	Use the Software for any illegal purpose, or in violation of any local state, national or international law.
+      v.	Authorize any third party to do any of the foregoing.
+
+      3. CONTENT IN THE SOFTWARE
+      i.	The Client understands that all information (such as data files, written text, computer software, music, audio files or other sounds, photographs, videos or other images) which the Client may have access to as part of, or through the Client’s use of, the Software are the sole responsibility of the person from which such content originated. All such information is referred to below as the “Content”.
+      ii.	The Client understands that by using this Software the Client they are doing so at their own risk, ALEXR03.DEV, TCADMIN or any third party developers are not responsible or to be held liable for you, the end user, using 3rd party software or tools.
+      iii.	The Client agrees that the Client is solely responsible for (and that the Software Creator has no responsibility to the Client or to any third party for) any Content that the Client creates, transmits or displays whilst using the Software and for the consequences of the Client actions (including any loss or damage which the Software Creator may suffer) by doing so.
+
+      4. NO LIABILITY FOR DAMAGES
+      IN NO EVENT SHALL THE SOFTWARE CREATOR, TCADMIN OR ANY THIRD PARTY DEVELOPERS BE LIABLE FOR ANY DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, INCIDENTAL, DIRECT, INDIRECT, SPECIAL AND CONSEQUENTIAL DAMAGES, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES AND NOTWITHSTANDING FAULT, NEGLIGENCE AND THE FAILURE OF THE ESSENTIAL PURPOSE.
+
+      5. PREVAILING AGREEMENT
+      In the event of any conflict between the terms and conditions of this Agreement and the terms and conditions of any license agreements appearing with or in the software products comprising the Software, this Agreement shall prevail.
+
+      6. SEVERABILITY
+      Should any term of this Agreement be declared void or unenforceable by any court of competent jurisdiction, such declaration shall have no effect on the remaining terms hereof.
+
+      7. ENTIRE AGREEMENT; NO WAIVER
+      This Agreement represents the entire agreement concerning the Software between the Client and the Software Creator, and it supersedes any prior proposal, representation, or understanding between the parties. The failure of either party to enforce any rights granted hereunder or to take action against the other party in the event of any breach hereunder shall not be deemed a waiver by that party as to subsequent enforcement of rights or subsequent actions in the event of future breaches.
+    </ext_license>
+    <skip_exe_error>0</skip_exe_error>
   </tc_game_paths>
   <tc_game_general_config>
     <game_id>145</game_id>
@@ -179,7 +216,7 @@
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 23:28:43" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-05 22:57:10" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_game_mail_templates>
   <tc_game_steam_config>
