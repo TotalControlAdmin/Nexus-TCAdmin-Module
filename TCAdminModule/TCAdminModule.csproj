@@ -358,6 +358,8 @@
         <Compile Include="Commands\Client\QueryCommands.cs" />
         <Compile Include="Commands\Client\TCAdminCommands.cs" />
         <Compile Include="Configurations\FileManagerSettings.cs" />
+        <Compile Include="Configurations\NetworkStatusCronSettings.cs" />
+        <Compile Include="Configurations\PlayersMenuSettings.cs" />
         <Compile Include="Configurations\ServiceMenuActionSettings.cs" />
         <Compile Include="Configurations\ServiceMenuConfiguration.cs" />
         <Compile Include="Configurations\UpdateConfigurationCronSettings.cs" />

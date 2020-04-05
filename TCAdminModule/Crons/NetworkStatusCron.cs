@@ -7,6 +7,7 @@ using DSharpPlus.Entities;
 using Nexus.SDK.Modules;
 using Quartz;
 using TCAdmin.SDK.Objects;
+using TCAdminModule.Configurations;
 
 namespace TCAdminModule.Crons
 {
@@ -17,10 +18,14 @@ namespace TCAdminModule.Crons
         private DiscordClient _client;
 
         private DiscordChannel _publicStatusChannel;
-        
+
         private DiscordChannel _privateStatusChannel;
 
         private Dictionary<Datacenter, List<Server>> _serversDown;
+
+        private readonly NetworkStatusCronSettings _settings =
+            new NexusModuleConfiguration<NetworkStatusCronSettings>("NetworkStatusSettings",
+                "./Config/TCAdminModule/Crons/").GetConfiguration();
 
         public NetworkStatusCron()
         {
@@ -30,9 +35,11 @@ namespace TCAdminModule.Crons
 
         public override async Task DoAction(IJobExecutionContext context)
         {
+            if (!_settings.Enabled) return;
+
             _client = (DiscordClient) context.Scheduler.Context.Get("Client");
-            _publicStatusChannel = await _client.GetChannelAsync(631955218065522728);
-            _privateStatusChannel = await _client.GetChannelAsync(521812668684959744);
+            _publicStatusChannel = await _client.GetChannelAsync(_settings.PublicStatusChannelId);
+            _privateStatusChannel = await _client.GetChannelAsync(_settings.PrivateStatusChannelId);
             _serversDown = new Dictionary<Datacenter, List<Server>>();
 
             var publicStatusMessage = await GetPublicStatusMessage();

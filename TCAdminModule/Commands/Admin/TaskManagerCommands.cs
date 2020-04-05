@@ -9,7 +9,7 @@ using TCAdmin.GameHosting.SDK.Objects;
 using TCAdminModule.Attributes;
 using TCAdminModule.Objects.Emulators;
 
-namespace CoreModules.Commands.Admin
+namespace TCAdminModule.Commands.Admin
 {
     [Group("TaskManager")]
     [Aliases("TaskMgr")]

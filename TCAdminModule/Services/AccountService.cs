@@ -1,5 +1,6 @@
 ﻿using System;
 using DSharpPlus.Entities;
+using Nexus.SDK.Modules;
 using Nexus.Utilities;
 
 namespace TCAdminModule.Services
@@ -84,13 +85,13 @@ namespace TCAdminModule.Services
                             Description = "Please follow the instructions below in order to authenticate yourself.\n" +
                                           $"**1)** Login to **{companyInfo.ControlPanelUrl}**\n" +
                                           $"**2)** Click **\"Game Services\"** and click on any service you own.\n" +
-                                          $"**3)** Click **\"More\"** and click **\"Generate Token\"**\n" +
+                                          $"**3)** Click **\"More\"** and click **\"Nexus Authentication\"**\n" +
                                           $"**4)** Copy the token back here to me.\n" +
                                           "*See the image for reference.*",
                             Url = companyInfo.ControlPanelUrl,
                             Timestamp = DateTimeOffset.Now,
                             ImageUrl =
-                                "https://cdn.discordapp.com/attachments/612133944695193619/695281305495011408/d9da27f2-0e3c-4b35-b636-44044592790a.gif",
+                                "https://cdn.discordapp.com/attachments/612133944695193619/696486508760268870/0673e9e0-4179-4e87-be57-357199ff5e01.gif",
                         };
                         await dmChannel.SendMessageAsync(embed: loginEmbed);
 
@@ -200,5 +201,10 @@ namespace TCAdminModule.Services
                 UserCache.Remove(id);
             }
         }
+    }
+
+    public class TestConfigForAccountService
+    {
+        public string Name { get; set; } = "HEYHEY";
     }
 }

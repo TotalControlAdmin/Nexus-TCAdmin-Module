@@ -1,14 +1,14 @@
-﻿﻿using System.Text;
- using System.Threading.Tasks;
- using DSharpPlus.CommandsNext;
- using DSharpPlus.CommandsNext.Attributes;
- using DSharpPlus.Entities;
- using Nexus.SDK.Modules;
- using TCAdmin.GameHosting.SDK.Objects;
- using TCAdmin.SDK.Web.FileManager;
- using TCAdminModule.Attributes;
+﻿using System.Text;
+using System.Threading.Tasks;
+using DSharpPlus.CommandsNext;
+using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.Entities;
+using Nexus.SDK.Modules;
+using TCAdmin.GameHosting.SDK.Objects;
+using TCAdmin.SDK.Web.FileManager;
+using TCAdminModule.Attributes;
 
- namespace CoreModules.Commands.Admin
+namespace TCAdminModule.Commands.Admin
 {
     [Group("Node")]
     [Description("Node Commands")]

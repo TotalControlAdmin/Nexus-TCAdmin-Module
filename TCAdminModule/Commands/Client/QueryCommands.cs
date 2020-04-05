@@ -7,6 +7,7 @@ using DSharpPlus.Entities;
 using Nexus.SDK.Modules;
 using TCAdmin.GameHosting.SDK.GameMonitor;
 using TCAdmin.GameHosting.SDK.Objects;
+using TCAdminModule.Configurations;
 using TCAdminModule.Services;
 
 namespace TCAdminModule.Commands.Client
@@ -40,11 +41,11 @@ namespace TCAdminModule.Commands.Client
                 await ctx.RespondAsync("**You have to be signed in, in order to sign out.**");
                 return;
             }
-            
+
             AccountsService.LogoutUser(user, ctx.User.Id);
             await ctx.RespondAsync("**You have been signed out**");
         }
-        
+
         [Command("login")]
         [Aliases("signin")]
         public async Task Signin(CommandContext ctx)
@@ -55,7 +56,7 @@ namespace TCAdminModule.Commands.Client
                 await AccountsService.SetupAccount(ctx);
                 return;
             }
-            
+
             await ctx.RespondAsync("**You are already signed in**");
         }
 
@@ -64,6 +65,7 @@ namespace TCAdminModule.Commands.Client
         [Cooldown(1, 15.0, CooldownBucketType.User)]
         public async Task PlayersTask(CommandContext ctx)
         {
+            var settings = new NexusModuleConfiguration<PlayersMenuSettings>("PlayerMenuSettings", "./Config/TCAdminModule/").GetConfiguration();
             await ctx.TriggerTypingAsync();
             var service = await DiscordService.GetService(ctx);
             var server = new Server(service.ServerId);
@@ -85,9 +87,9 @@ namespace TCAdminModule.Commands.Client
             var embed = new DiscordEmbedBuilder
             {
                 Title = $"{service.Name} | Players: {query.NumPlayers}/{query.MaxPlayers}",
-                Color = DiscordColor.Blue,
+                Color = settings.Color,
                 Timestamp = DateTime.Now,
-                ThumbnailUrl = "https://cdn.alexr03.com/images/controller-clipart-simple-3.png"
+                ThumbnailUrl = settings.ThumbnailUrl
             };
 
             if (query.NumPlayers <= 24)
