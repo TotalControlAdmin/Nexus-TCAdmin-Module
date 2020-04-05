@@ -1,6 +1,6 @@
 ﻿using TCAdminModule.Objects;
 
-namespace TCAdminModule.Models
+namespace TCAdminModule.Configurations
 {
     public class ServiceMenuActionSettings
     {

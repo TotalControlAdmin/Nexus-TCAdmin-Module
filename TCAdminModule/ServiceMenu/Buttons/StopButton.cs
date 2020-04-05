@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TCAdmin.GameHosting.SDK.Objects;
-using TCAdminModule.Models;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 

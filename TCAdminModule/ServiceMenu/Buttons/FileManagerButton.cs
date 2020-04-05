@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sentry;
-using TCAdminModule.Models;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 using TCAdminModule.Objects.Emulators;

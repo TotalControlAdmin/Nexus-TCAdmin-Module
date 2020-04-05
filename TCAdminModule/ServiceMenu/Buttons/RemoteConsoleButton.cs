@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using DSharpPlus.Interactivity;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.Interfaces.Server;
-using TCAdminModule.Models;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 

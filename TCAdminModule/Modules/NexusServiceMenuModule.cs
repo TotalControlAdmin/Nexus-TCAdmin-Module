@@ -1,24 +1,23 @@
 ﻿using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
-using Newtonsoft.Json;
 using Nexus.SDK.Modules;
 using TCAdminModule.Attributes;
-using TCAdminModule.Models;
+using TCAdminModule.Configurations;
 
 namespace TCAdminModule.Modules
 {
     public class NexusServiceMenuModule : NexusModule
     {
-        [JsonIgnore] public CommandAttributes.RequireAuthentication Authentication { get; internal set; }
+        public CommandAttributes.RequireAuthentication Authentication { get; internal set; }
 
-        [JsonIgnore] public NexusModuleConfiguration<ServiceMenuActionSettings> Configuration { get; }
+        public NexusModuleConfiguration<ServiceMenuActionSettings> Configuration { get; }
 
-        [JsonIgnore] public DiscordMessage MenuMessage { get; set; }
+        public DiscordMessage MenuMessage { get; set; }
 
-        [JsonIgnore] public CommandContext CommandContext { get; set; }
+        public CommandContext CommandContext { get; set; }
 
-        public ServiceMenuActionSettings Settings = new ServiceMenuActionSettings();
+        public readonly ServiceMenuActionSettings Settings = new ServiceMenuActionSettings();
 
         public NexusServiceMenuModule()
         {

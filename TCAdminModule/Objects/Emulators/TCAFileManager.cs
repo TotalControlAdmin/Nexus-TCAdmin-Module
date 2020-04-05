@@ -1,5 +1,6 @@
 ﻿ using System;
  using System.IO;
+ using System.Linq;
  using System.Threading.Tasks;
  using DSharpPlus.CommandsNext;
  using DSharpPlus.Entities;
@@ -8,6 +9,7 @@
  using TCAdmin.GameHosting.SDK.Objects;
  using TCAdmin.SDK.Web.References.FileSystem;
  using TCAdminModule.Attributes;
+ using TCAdminModule.Configurations;
  using TCAdminModule.Objects.FileSystem;
  using DirectoryInfo = System.IO.DirectoryInfo;
  using FileInfo = TCAdmin.SDK.Web.References.FileSystem.FileInfo;
@@ -70,7 +72,9 @@
         private CommandAttributes.RequireAuthentication AuthenticationService { get; }
 
         private FileSystemUtilities FileSystemUtilities { get; }
-
+        
+        private FileManagerSettings _settings = new NexusModuleConfiguration<FileManagerSettings>("FileManagerSettings", "./Config/TCAdminModule/").GetConfiguration();
+        
         private bool IsServer { get; }
 
         public void Dispose()
@@ -115,14 +119,14 @@
                 var message = choice.Result.Content.ToLower();
                 await choice.Result.DeleteAsync();
 
-                if (message == "q" || message == "quit" || message == "cancel")
+                if (_settings.ExitCommand.Contains(message))
                 {
                     await ListingMessage.DeleteAsync();
 
                     return;
                 }
 
-                if (message == "..")
+                if (_settings.GoBackCommand.Contains(message))
                 {
                     if (currentlyInFile)
                     {
@@ -258,7 +262,7 @@
         private DiscordEmbedBuilder UpdateEmbedListing(DiscordEmbedBuilder embed)
         {
             embed.ClearFields();
-            embed.Description = $"**Navigating {CurrentDirectory}\n\nDo `..` to go back a directory\nType Q at anytime to quit.**\n\n";
+            embed.Description = $"**Navigating {CurrentDirectory}\n\nType `{_settings.GoBackCommand[0]}` to go back a directory\nType {_settings.ExitCommand[0]} at anytime to quit.**\n\n";
             var id = 1;
 
             foreach (var directory in CurrentListing.Directories)
@@ -293,7 +297,7 @@
 
         private DiscordEmbedBuilder UpdateEmbedListing(FileInfo file, DiscordEmbedBuilder embed)
         {
-            embed.Description = $"Current File: **{file.Name}\n\n" + "Type `..` to go back.\nType Q to quit.**\n\n";
+            embed.Description = $"Current File: **{file.Name}\n\nType `{_settings.GoBackCommand[0]}` to go back a directory\nType {_settings.ExitCommand[0]} at anytime to quit.**\n\n";
 
             var fileContent = FileSystemUtilities.GetFileContent(FileSystemUtilities.GetFile(file.Directory, file.Name));
             embed.Description += fileContent.Length > 1200 ? fileContent.Substring(0, 1200) + "\n__***Too large to view further...***__" : fileContent;
