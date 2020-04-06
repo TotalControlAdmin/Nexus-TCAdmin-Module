@@ -300,7 +300,13 @@
       "DiscordToken": "![discordToken]",
       "Prefixes": [
       ";"
-      ]
+      ],
+      "PlayingStatus": "Working!",
+      "PlayingType": 1,
+      "Diagnostics": {
+      "EnableSendingDiagnostics": true,
+      "DebugMode": false
+      }
       }</template>
     <enable_config_editor>1</enable_config_editor>
     <read_values>0</read_values>
@@ -312,7 +318,7 @@
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:22:40" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 16:51:20" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-06 00:47:41" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
     <hide_read_failure>0</hide_read_failure>
     <update_automatically>1</update_automatically>
