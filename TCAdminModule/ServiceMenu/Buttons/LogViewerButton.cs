@@ -39,10 +39,13 @@ namespace TCAdminModule.ServiceMenu.Buttons
             try
             {
                 var logFileDirectory = Path.GetDirectoryName(game.WebConsole.LogFile);
-                await CommandContext.RespondAsync(logFileDirectory);
                 var tcaFileManager = new TcaFileManager(CommandContext, Authentication,
                     Authentication.Service.RootDirectory + "\\" + logFileDirectory, true);
                 await tcaFileManager.InitializeFileManagerAsync();
+            }
+            catch (ArgumentException)
+            {
+                await this.CommandContext.RespondAsync($"**The path for the logs contains too many files to show.");
             }
             catch (Exception ex)
             {

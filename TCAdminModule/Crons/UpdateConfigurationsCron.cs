@@ -14,7 +14,7 @@ namespace TCAdminModule.Crons
 {
     public class UpdateConfigurationsCron : NexusScheduledTaskModule
     {
-        private readonly UpdateConfigurationCronSettings _cronSettings =
+        private readonly UpdateConfigurationCronSettings _settings =
             new NexusModuleConfiguration<UpdateConfigurationCronSettings>("UpdateConfigurations",
                 "./Config/TCAdminModule/Crons/").GetConfiguration();
 
@@ -23,14 +23,15 @@ namespace TCAdminModule.Crons
         public UpdateConfigurationsCron()
         {
             this.Name = "Update Configuration";
-            this.RepeatEveryMilliseconds = _cronSettings.UpdateEverySeconds;
+            this.RepeatEveryMilliseconds = _settings.UpdateEverySeconds;
         }
 
         public async override Task DoAction(IJobExecutionContext context)
         {
-            if (!_cronSettings.Enable)
+            if (!_settings.Enable)
             {
                 _logger.LogMessage("UpdateConfiguration is disabled. Skipping cron.");
+                return;
             }
 
             UpdateGameConfig();

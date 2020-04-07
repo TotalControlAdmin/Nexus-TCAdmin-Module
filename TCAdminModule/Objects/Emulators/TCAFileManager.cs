@@ -1,27 +1,28 @@
-﻿ using System;
- using System.IO;
- using System.Linq;
- using System.Threading.Tasks;
- using DSharpPlus.CommandsNext;
- using DSharpPlus.Entities;
- using DSharpPlus.Interactivity;
- using Nexus.SDK.Modules;
- using TCAdmin.GameHosting.SDK.Objects;
- using TCAdmin.SDK.Web.References.FileSystem;
- using TCAdminModule.Attributes;
- using TCAdminModule.Configurations;
- using TCAdminModule.Objects.FileSystem;
- using DirectoryInfo = System.IO.DirectoryInfo;
- using FileInfo = TCAdmin.SDK.Web.References.FileSystem.FileInfo;
- 
- namespace TCAdminModule.Objects.Emulators
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using DSharpPlus.CommandsNext;
+using DSharpPlus.Entities;
+using DSharpPlus.Interactivity;
+using Nexus.SDK.Modules;
+using TCAdmin.GameHosting.SDK.Objects;
+using TCAdmin.SDK.Web.References.FileSystem;
+using TCAdminModule.Attributes;
+using TCAdminModule.Configurations;
+using TCAdminModule.Objects.FileSystem;
+using DirectoryInfo = System.IO.DirectoryInfo;
+using FileInfo = TCAdmin.SDK.Web.References.FileSystem.FileInfo;
+
+namespace TCAdminModule.Objects.Emulators
 {
     public class TcaFileManager : IDisposable
     {
-        public TcaFileManager(CommandContext ctx, CommandAttributes.RequireAuthentication authenticationService, string rootDir, bool lockDirectory = false)
+        public TcaFileManager(CommandContext ctx, CommandAttributes.RequireAuthentication authenticationService,
+            string rootDir, bool lockDirectory = false)
         {
             AuthenticationService = authenticationService;
-
+            
             var service = authenticationService.Service;
             var user = authenticationService.User;
 
@@ -30,7 +31,8 @@
             CurrentDirectory = rootDir + "\\";
             LockDirectory = lockDirectory;
 
-            VirtualDirectorySecurity = new VirtualDirectorySecurity(FileSystem, CurrentDirectory, user.UserType, service.GameId);
+            VirtualDirectorySecurity =
+                new VirtualDirectorySecurity(FileSystem, CurrentDirectory, user.UserType, service.GameId);
             FileSystemUtilities = new FileSystemUtilities(VirtualDirectorySecurity, Server, service, ctx);
             CurrentListing = FileSystemUtilities.GenerateListingDirectory(CurrentDirectory, VirtualDirectorySecurity);
             CommandContext = ctx;
@@ -62,9 +64,9 @@
         private DiscordMessage ListingMessage { get; set; }
 
         private bool LockDirectory { get; set; }
-        
+
         private DirectoryListing CurrentListing { get; set; }
-        
+
         private Server Server { get; }
 
         private CommandContext CommandContext { get; }
@@ -72,9 +74,11 @@
         private CommandAttributes.RequireAuthentication AuthenticationService { get; }
 
         private FileSystemUtilities FileSystemUtilities { get; }
-        
-        private FileManagerSettings _settings = new NexusModuleConfiguration<FileManagerSettings>("FileManagerSettings", "./Config/TCAdminModule/").GetConfiguration();
-        
+
+        private readonly FileManagerSettings _settings =
+            new NexusModuleConfiguration<FileManagerSettings>("FileManagerSettings", "./Config/TCAdminModule/")
+                .GetConfiguration();
+
         private bool IsServer { get; }
 
         public void Dispose()
@@ -95,7 +99,8 @@
 
             var embed = new DiscordEmbedBuilder
             {
-                Title = "File Manager", Color = DiscordColor.None, Description = $"**Navigating {CurrentDirectory}**\n\n"
+                Title = "File Manager", Color = DiscordColor.None,
+                Description = $"**Navigating {CurrentDirectory}**\n\n"
             };
             embed = UpdateEmbedListing(embed);
 
@@ -108,14 +113,15 @@
             FileInfo currentFileInfo = null;
             while (navigating)
             {
-                var choice = await interactivity.WaitForMessageAsync(x => x.Author.Id == CommandContext.User.Id && x.Channel.Id == CommandContext.Channel.Id);
+                var choice = await interactivity.WaitForMessageAsync(x =>
+                    x.Author.Id == CommandContext.User.Id && x.Channel.Id == CommandContext.Channel.Id);
                 if (choice.TimedOut)
                 {
                     await CommandContext.RespondAsync("Ended action");
                     navigating = false;
                     continue;
                 }
-
+                
                 var message = choice.Result.Content.ToLower();
                 await choice.Result.DeleteAsync();
 
@@ -147,7 +153,8 @@
                             continue;
                         }
 
-                        if (FileSystemUtilities.CanGoBack(CurrentDirectory + "\\", AuthenticationService.Service.ServiceId) && !LockDirectory)
+                        if (FileSystemUtilities.CanGoBack(CurrentDirectory + "\\",
+                            AuthenticationService.Service.ServiceId) && !LockDirectory)
                         {
                             CurrentListing = FileSystemUtilities.NavigateBackFolder(CurrentDirectory + "\\");
                             CurrentDirectory = new DirectoryInfo(CurrentDirectory).Parent?.FullName + "\\";
@@ -166,12 +173,8 @@
                         var fileAction = (FileSystemUtilities.EFileActions) index;
                         if (await FileSystemUtilities.FileAction(currentFileInfo, fileAction))
                         {
-                            VirtualDirectorySecurity.AddAction(
-                                $"{CommandContext.Member}\n{CommandContext.Channel}",
-                                $"Action: {fileAction.ToString()}\nAffected file: {currentFileInfo.FullName}",
-                                DateTime.UtcNow);
-
-                            if (fileAction == FileSystemUtilities.EFileActions.Extract || fileAction == FileSystemUtilities.EFileActions.Delete)
+                            if (fileAction == FileSystemUtilities.EFileActions.Extract ||
+                                fileAction == FileSystemUtilities.EFileActions.Delete)
                             {
                                 CurrentListing = FileSystemUtilities.NavigateCurrentFolder(CurrentDirectory);
                                 var updatedEmbed = UpdateEmbedListing(embed);
@@ -200,7 +203,8 @@
                     }
                     else
                     {
-                        var fileInfo = FileSystemUtilities.GetFileInfo(index - CurrentListing.Directories.Length, CurrentListing);
+                        var fileInfo = FileSystemUtilities.GetFileInfo(index - CurrentListing.Directories.Length,
+                            CurrentListing);
                         currentFileInfo = fileInfo;
                         currentlyInFile = true;
                         var updatedEmbed = UpdateEmbedListing(fileInfo, embed);
@@ -222,11 +226,6 @@
 
                     if (await FileSystemUtilities.DirectoryAction(action, CurrentListing, CurrentDirectory))
                     {
-                        VirtualDirectorySecurity.AddAction(
-                            $"{CommandContext.Member}\n{CommandContext.Channel}",
-                            $"Action: {action.ToString()}\nAffected directory: {CurrentDirectory}",
-                            DateTime.UtcNow);
-
                         if (action == FileSystemUtilities.EDirectoryActions.DeleteFolder)
                         {
                             CurrentListing = FileSystemUtilities.NavigateBackFolder(CurrentDirectory);
@@ -262,7 +261,8 @@
         private DiscordEmbedBuilder UpdateEmbedListing(DiscordEmbedBuilder embed)
         {
             embed.ClearFields();
-            embed.Description = $"**Navigating {CurrentDirectory}\n\nType `{_settings.GoBackCommand[0]}` to go back a directory\nType {_settings.ExitCommand[0]} at anytime to quit.**\n\n";
+            embed.Description =
+                $"**Navigating {CurrentDirectory}\n\nType `{_settings.GoBackCommand[0]}` to go back a directory\nType {_settings.ExitCommand[0]} at anytime to quit.**\n\n";
             var id = 1;
 
             foreach (var directory in CurrentListing.Directories)
@@ -277,7 +277,7 @@
                 id++;
             }
 
-            if (embed.Description.Length > 1800)
+            if (embed.Description.Length > 2000)
             {
                 embed.Description = "**Cannot view contents of this directory!**";
             }
@@ -285,7 +285,8 @@
             var actions = string.Empty;
             foreach (var action in Enum.GetNames(typeof(FileSystemUtilities.EDirectoryActions)))
             {
-                var val = (FileSystemUtilities.EDirectoryActions) Enum.Parse(typeof(FileSystemUtilities.EDirectoryActions), action);
+                var val = (FileSystemUtilities.EDirectoryActions) Enum.Parse(
+                    typeof(FileSystemUtilities.EDirectoryActions), action);
                 var ch = (char) val;
                 actions += $"{ch}) {action}\n";
             }
@@ -297,10 +298,14 @@
 
         private DiscordEmbedBuilder UpdateEmbedListing(FileInfo file, DiscordEmbedBuilder embed)
         {
-            embed.Description = $"Current File: **{file.Name}\n\nType `{_settings.GoBackCommand[0]}` to go back a directory\nType {_settings.ExitCommand[0]} at anytime to quit.**\n\n";
+            embed.Description =
+                $"Current File: **{file.Name}\n\nType `{_settings.GoBackCommand[0]}` to go back a directory\nType {_settings.ExitCommand[0]} at anytime to quit.**\n\n";
 
-            var fileContent = FileSystemUtilities.GetFileContent(FileSystemUtilities.GetFile(file.Directory, file.Name));
-            embed.Description += fileContent.Length > 1200 ? fileContent.Substring(0, 1200) + "\n__***Too large to view further...***__" : fileContent;
+            var fileContent =
+                FileSystemUtilities.GetFileContent(FileSystemUtilities.GetFile(file.Directory, file.Name));
+            embed.Description += fileContent.Length > 1200
+                ? fileContent.Substring(0, 1200) + "\n__***Too large to view further...***__"
+                : fileContent;
 
             var actions = string.Empty;
             var id = 1;

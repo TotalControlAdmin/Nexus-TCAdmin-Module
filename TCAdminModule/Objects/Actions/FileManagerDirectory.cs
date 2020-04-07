@@ -35,7 +35,7 @@ namespace TCAdminModule.Objects.Actions
 
         public async Task Compress()
         {
-            var msg = await CommandContext.RespondAsync("**Compressing...**");
+            var msg = await CommandContext.RespondAsync("**Compressing...** *Please Wait*");
 
             var directorySecurity = new VirtualDirectorySecurity(CurrentDirectory);
 

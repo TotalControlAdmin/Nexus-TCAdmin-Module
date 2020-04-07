@@ -130,8 +130,6 @@ namespace TCAdminModule.Objects.FileSystem
                     await directory.DeleteDirectory();
                     return true;
                 case EDirectoryActions.Compress:
-                    // await CommandContext.RespondAsync("**Not implemented yet**");
-                    // return;
                     await directory.Compress();
                     return true;
             }

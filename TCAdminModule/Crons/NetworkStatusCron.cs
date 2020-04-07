@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.Entities;
+using Nexus;
 using Nexus.SDK.Modules;
 using Quartz;
 using TCAdmin.SDK.Objects;
@@ -22,6 +23,8 @@ namespace TCAdminModule.Crons
         private DiscordChannel _privateStatusChannel;
 
         private Dictionary<Datacenter, List<Server>> _serversDown;
+        
+        private readonly Logger _logger = new Logger("NetworkStatusCron");
 
         private readonly NetworkStatusCronSettings _settings =
             new NexusModuleConfiguration<NetworkStatusCronSettings>("NetworkStatusSettings",
@@ -35,7 +38,11 @@ namespace TCAdminModule.Crons
 
         public override async Task DoAction(IJobExecutionContext context)
         {
-            if (!_settings.Enabled) return;
+            if (!_settings.Enabled)
+            {
+                _logger.LogMessage("NetworkStatus is disabled. Skipping cron.");
+                
+            }
 
             _client = (DiscordClient) context.Scheduler.Context.Get("Client");
             _publicStatusChannel = await _client.GetChannelAsync(_settings.PublicStatusChannelId);

@@ -13,7 +13,7 @@ namespace TCAdminModule
 
         public TcAdminModuleConfig()
         {
-            this.SqlString = "SQL string from \"TCAdmin.Monitor.exe.config\" goes here.";
+            this.SqlString = "";
             this.SqlEncrypted = false;
             this.DebugTcAdmin = false;
             this.DebugTcAdminSql = false;
