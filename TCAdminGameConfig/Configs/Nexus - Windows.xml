@@ -33,7 +33,7 @@
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-05 23:31:26" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-07 22:09:45" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_games>
   <tc_game_paths>
@@ -51,44 +51,172 @@
     <ext_extract_opt>1</ext_extract_opt>
     <ext_script_engine_id>3</ext_script_engine_id>
     <ext_script />
-    <ext_license>Nexus Bot Software License Agreement
+    <ext_license>                   GNU LESSER GENERAL PUBLIC LICENSE
+      Version 3, 29 June 2007
 
-      THIS IS A LEGAL AGREEMENT BETWEEN YOU, HERETOFORE REFERRED AS â€œTHE
-      CLIENTâ€, AND ALEXR03.DEV HERETOFORE REFERRED AS â€œTHE SOFTWARE CREATORâ€,
-      REGARDING THE USE OF â€œNEXUS BOTâ€ HERETOFORE REFERRED AS
-      â€œTHE SOFTWAREâ€. BY INSTALLING, ACCESSING OR USING THIS SOFTWARE, THE CLIENT
-      ACKNOWLEDGES THAT THE CLIENT HAS READ THIS SOFTWARE LICENSE
-      AGREEMENT (â€œNEXUS BOT SOFTWARE LICENSE AGREEMENTâ€), THAT THE CLIENT UNDERSTANDS IT, CONSENTS TO BE BOUND BY AND BECOMING A PARTY TO THIS AGREEMENT.
+      Copyright (C) 2007 Free Software Foundation, Inc. &lt;http://fsf.org/&gt;
+      Everyone is permitted to copy and distribute verbatim copies
+      of this license document, but changing it is not allowed.
 
-      1. GRANT OF SOFTWARE USAGE.
-      ALEXR03.DEV grants to the Client non-transferable, non-exclusive right to use the Software. The client may use the software on any computer owned, leased or otherwise controlled by the client.
 
-      2. RESTRICTIONS:
-      Under this agreement, the Client MAY NOT:
-      i.	Sell, lease, rent, license or sublicense the Software or any part thereof to any person or entity.
-      ii.	Use the software for any purpose other then expressively permitted by this agreement.
-      iii.	Remove the copyright notice from the Software or the written materials, if any, accompanying the Software.
-      iv.	Use the Software for any illegal purpose, or in violation of any local state, national or international law.
-      v.	Authorize any third party to do any of the foregoing.
+      This version of the GNU Lesser General Public License incorporates
+      the terms and conditions of version 3 of the GNU General Public
+      License, supplemented by the additional permissions listed below.
 
-      3. CONTENT IN THE SOFTWARE
-      i.	The Client understands that all information (such as data files, written text, computer software, music, audio files or other sounds, photographs, videos or other images) which the Client may have access to as part of, or through the Clientâ€™s use of, the Software are the sole responsibility of the person from which such content originated. All such information is referred to below as the â€œContentâ€.
-      ii.	The Client understands that by using this Software the Client they are doing so at their own risk, ALEXR03.DEV, TCADMIN or any third party developers are not responsible or to be held liable for you, the end user, using 3rd party software or tools.
-      iii.	The Client agrees that the Client is solely responsible for (and that the Software Creator has no responsibility to the Client or to any third party for) any Content that the Client creates, transmits or displays whilst using the Software and for the consequences of the Client actions (including any loss or damage which the Software Creator may suffer) by doing so.
+      0. Additional Definitions.
 
-      4. NO LIABILITY FOR DAMAGES
-      IN NO EVENT SHALL THE SOFTWARE CREATOR, TCADMIN OR ANY THIRD PARTY DEVELOPERS BE LIABLE FOR ANY DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, INCIDENTAL, DIRECT, INDIRECT, SPECIAL AND CONSEQUENTIAL DAMAGES, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES AND NOTWITHSTANDING FAULT, NEGLIGENCE AND THE FAILURE OF THE ESSENTIAL PURPOSE.
+      As used herein, "this License" refers to version 3 of the GNU Lesser
+      General Public License, and the "GNU GPL" refers to version 3 of the GNU
+      General Public License.
 
-      5. PREVAILING AGREEMENT
-      In the event of any conflict between the terms and conditions of this Agreement and the terms and conditions of any license agreements appearing with or in the software products comprising the Software, this Agreement shall prevail.
+      "The Library" refers to a covered work governed by this License,
+      other than an Application or a Combined Work as defined below.
 
-      6. SEVERABILITY
-      Should any term of this Agreement be declared void or unenforceable by any court of competent jurisdiction, such declaration shall have no effect on the remaining terms hereof.
+      An "Application" is any work that makes use of an interface provided
+      by the Library, but which is not otherwise based on the Library.
+      Defining a subclass of a class defined by the Library is deemed a mode
+      of using an interface provided by the Library.
 
-      7. ENTIRE AGREEMENT; NO WAIVER
-      This Agreement represents the entire agreement concerning the Software between the Client and the Software Creator, and it supersedes any prior proposal, representation, or understanding between the parties. The failure of either party to enforce any rights granted hereunder or to take action against the other party in the event of any breach hereunder shall not be deemed a waiver by that party as to subsequent enforcement of rights or subsequent actions in the event of future breaches.
+      A "Combined Work" is a work produced by combining or linking an
+      Application with the Library.  The particular version of the Library
+      with which the Combined Work was made is also called the "Linked
+      Version".
+
+      The "Minimal Corresponding Source" for a Combined Work means the
+      Corresponding Source for the Combined Work, excluding any source code
+      for portions of the Combined Work that, considered in isolation, are
+      based on the Application, and not on the Linked Version.
+
+      The "Corresponding Application Code" for a Combined Work means the
+      object code and/or source code for the Application, including any data
+      and utility programs needed for reproducing the Combined Work from the
+      Application, but excluding the System Libraries of the Combined Work.
+
+      1. Exception to Section 3 of the GNU GPL.
+
+      You may convey a covered work under sections 3 and 4 of this License
+      without being bound by section 3 of the GNU GPL.
+
+      2. Conveying Modified Versions.
+
+      If you modify a copy of the Library, and, in your modifications, a
+      facility refers to a function or data to be supplied by an Application
+      that uses the facility (other than as an argument passed when the
+      facility is invoked), then you may convey a copy of the modified
+      version:
+
+      a) under this License, provided that you make a good faith effort to
+      ensure that, in the event an Application does not supply the
+      function or data, the facility still operates, and performs
+      whatever part of its purpose remains meaningful, or
+
+      b) under the GNU GPL, with none of the additional permissions of
+      this License applicable to that copy.
+
+      3. Object Code Incorporating Material from Library Header Files.
+
+      The object code form of an Application may incorporate material from
+      a header file that is part of the Library.  You may convey such object
+      code under terms of your choice, provided that, if the incorporated
+      material is not limited to numerical parameters, data structure
+      layouts and accessors, or small macros, inline functions and templates
+      (ten or fewer lines in length), you do both of the following:
+
+      a) Give prominent notice with each copy of the object code that the
+      Library is used in it and that the Library and its use are
+      covered by this License.
+
+      b) Accompany the object code with a copy of the GNU GPL and this license
+      document.
+
+      4. Combined Works.
+
+      You may convey a Combined Work under terms of your choice that,
+      taken together, effectively do not restrict modification of the
+      portions of the Library contained in the Combined Work and reverse
+      engineering for debugging such modifications, if you also do each of
+      the following:
+
+      a) Give prominent notice with each copy of the Combined Work that
+      the Library is used in it and that the Library and its use are
+      covered by this License.
+
+      b) Accompany the Combined Work with a copy of the GNU GPL and this license
+      document.
+
+      c) For a Combined Work that displays copyright notices during
+      execution, include the copyright notice for the Library among
+      these notices, as well as a reference directing the user to the
+      copies of the GNU GPL and this license document.
+
+      d) Do one of the following:
+
+      0) Convey the Minimal Corresponding Source under the terms of this
+      License, and the Corresponding Application Code in a form
+      suitable for, and under terms that permit, the user to
+      recombine or relink the Application with a modified version of
+      the Linked Version to produce a modified Combined Work, in the
+      manner specified by section 6 of the GNU GPL for conveying
+      Corresponding Source.
+
+      1) Use a suitable shared library mechanism for linking with the
+      Library.  A suitable mechanism is one that (a) uses at run time
+      a copy of the Library already present on the user's computer
+      system, and (b) will operate properly with a modified version
+      of the Library that is interface-compatible with the Linked
+      Version.
+
+      e) Provide Installation Information, but only if you would otherwise
+      be required to provide such information under section 6 of the
+      GNU GPL, and only to the extent that such information is
+      necessary to install and execute a modified version of the
+      Combined Work produced by recombining or relinking the
+      Application with a modified version of the Linked Version. (If
+      you use option 4d0, the Installation Information must accompany
+      the Minimal Corresponding Source and Corresponding Application
+      Code. If you use option 4d1, you must provide the Installation
+      Information in the manner specified by section 6 of the GNU GPL
+      for conveying Corresponding Source.)
+
+      5. Combined Libraries.
+
+      You may place library facilities that are a work based on the
+      Library side by side in a single library together with other library
+      facilities that are not Applications and are not covered by this
+      License, and convey such a combined library under terms of your
+      choice, if you do both of the following:
+
+      a) Accompany the combined library with a copy of the same work based
+      on the Library, uncombined with any other library facilities,
+      conveyed under the terms of this License.
+
+      b) Give prominent notice with the combined library that part of it
+      is a work based on the Library, and explaining where to find the
+      accompanying uncombined form of the same work.
+
+      6. Revised Versions of the GNU Lesser General Public License.
+
+      The Free Software Foundation may publish revised and/or new versions
+      of the GNU Lesser General Public License from time to time. Such new
+      versions will be similar in spirit to the present version, but may
+      differ in detail to address new problems or concerns.
+
+      Each version is given a distinguishing version number. If the
+      Library as you received it specifies that a certain numbered version
+      of the GNU Lesser General Public License "or any later version"
+      applies to it, you have the option of following the terms and
+      conditions either of that published version or of any later version
+      published by the Free Software Foundation. If the Library as you
+      received it does not specify a version number of the GNU Lesser
+      General Public License, you may choose any version of the GNU Lesser
+      General Public License ever published by the Free Software Foundation.
+
+      If the Library as you received it specifies that a proxy can decide
+      whether future versions of the GNU Lesser General Public License shall
+      apply, that proxy's public statement of acceptance of any version is
+      permanent authorization for you to choose that version for the
+      Library.
     </ext_license>
-    <skip_exe_error>0</skip_exe_error>
   </tc_game_paths>
   <tc_game_general_config>
     <game_id>145</game_id>
@@ -216,7 +344,7 @@
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 16:10:43" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-05 23:31:26" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-07 22:09:45" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_game_mail_templates>
   <tc_game_steam_config>
@@ -449,7 +577,7 @@
     <variable_source_id>145</variable_source_id>
     <variable_id>2</variable_id>
     <name>TCAModuleSqlString</name>
-    <default_value>"Hover to see how to obtain."</default_value>
+    <default_value />
     <is_numeric>0</is_numeric>
     <preserve_value>0</preserve_value>
     <view_order>0</view_order>
@@ -460,24 +588,7 @@
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 19:03:19" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 19:21:48" type="System.DateTime,mscorlib" /&gt;
-      &lt;/values&gt;</app_data>
-  </tc_custom_variables>
-  <tc_custom_variables>
-    <variable_source>TCAdmin.GameHosting.SDK.Objects.Game</variable_source>
-    <variable_source_id>145</variable_source_id>
-    <variable_id>7</variable_id>
-    <name>UpdateUrlConfigUrlFrom</name>
-    <default_value>https://gitlab.openshift.alexr03.dev/tcadmin/nexus-tcadmin-module/-/raw/master/TCAdminGameConfig/Configs/Nexus%20-%20Windows.xml</default_value>
-    <is_numeric>0</is_numeric>
-    <preserve_value>0</preserve_value>
-    <view_order>0</view_order>
-    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-      &lt;values&gt;
-      &lt;add key="__TCA:NOTES" value="" type="System.String,mscorlib" /&gt;
-      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 21:36:25" type="System.DateTime,mscorlib" /&gt;
-      &lt;add key="d3b2aa93-7e2b-4e0d-8080-67d14b2fa8a9" value="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-16&amp;quot; standalone=&amp;quot;yes&amp;quot;?&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;values&amp;gt;&amp;#xD;&amp;#xA;  &amp;lt;add key=&amp;quot;MaxMemoryVariable&amp;quot; value=&amp;quot;False&amp;quot; type=&amp;quot;System.Boolean,mscorlib&amp;quot; /&amp;gt;&amp;#xD;&amp;#xA;&amp;lt;/values&amp;gt;" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-07 22:17:01" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_custom_variables>
   <tc_game_mods>
@@ -487,7 +598,7 @@
     <group_name />
     <comments />
     <homepage_url>https://alexr03.dev</homepage_url>
-    <help_url>https://community.tcadmin.com/</help_url>
+    <help_url>https://community.tcadmin.com/topic/11283-nexus-discord-bot/</help_url>
     <required_mods>&lt;?xml version="1.0" encoding="utf-16"?&gt;
       &lt;ArrayOfInt xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</required_mods>
     <required_updates>&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -517,7 +628,7 @@
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-04 17:36:16" type="System.DateTime,mscorlib" /&gt;
       &lt;add key="__TCA:MODIFIED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-04 20:49:16" type="System.DateTime,mscorlib" /&gt;
+      &lt;add key="__TCA:MODIFIED_ON" value="2020-04-07 22:18:57" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
   </tc_game_mods>
   <tc_game_links>
@@ -562,24 +673,6 @@
   </tc_game_links>
   <tc_game_links>
     <game_id>145</game_id>
-    <link_id>2</link_id>
-    <mod_id>0</mod_id>
-    <url>https://discordapp.com/oauth2/authorize?client_id=![discordClientId]&amp;scope=bot&amp;permissions=8</url>
-    <display_name>Invite To Discord Server</display_name>
-    <description>The link to invite the discord bot to your discord server. Clients will use the same link.</description>
-    <icon>https://cdn.iconscout.com/icon/free/png-64/discord-3-569463.png</icon>
-    <new_page>1</new_page>
-    <inside_panel>0</inside_panel>
-    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
-      &lt;values&gt;
-      &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
-      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
-      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 20:07:04" type="System.DateTime,mscorlib" /&gt;
-      &lt;/values&gt;</app_data>
-    <view_order>0</view_order>
-  </tc_game_links>
-  <tc_game_links>
-    <game_id>145</game_id>
     <link_id>4</link_id>
     <mod_id>0</mod_id>
     <url>https://gitlab.openshift.alexr03.dev/nexus/nexus-bot</url>
@@ -593,6 +686,24 @@
       &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
       &lt;add key="__TCA:CREATED_ON" value="2020-04-05 23:30:32" type="System.DateTime,mscorlib" /&gt;
+      &lt;/values&gt;</app_data>
+    <view_order>0</view_order>
+  </tc_game_links>
+  <tc_game_links>
+    <game_id>145</game_id>
+    <link_id>2</link_id>
+    <mod_id>0</mod_id>
+    <url>https://discordapp.com/oauth2/authorize?client_id=![discordClientId]&amp;scope=bot&amp;permissions=8</url>
+    <display_name>Invite To Discord Server</display_name>
+    <description>The link to invite the discord bot to your discord server. Clients will use the same link.</description>
+    <icon>https://cdn.iconscout.com/icon/free/png-64/discord-3-569463.png</icon>
+    <new_page>1</new_page>
+    <inside_panel>0</inside_panel>
+    <app_data>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+      &lt;values&gt;
+      &lt;add key="Style" value="" type="System.String,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_BY" value="3" type="System.Int32,mscorlib" /&gt;
+      &lt;add key="__TCA:CREATED_ON" value="2020-04-04 20:07:04" type="System.DateTime,mscorlib" /&gt;
       &lt;/values&gt;</app_data>
     <view_order>0</view_order>
   </tc_game_links>
