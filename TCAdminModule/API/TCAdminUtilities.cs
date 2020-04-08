@@ -6,6 +6,7 @@ using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.SDK.Misc.Graphs;
+using TCAdminModule.Helpers;
 
 namespace TCAdminModule.API
 {
@@ -16,8 +17,8 @@ namespace TCAdminModule.API
             var interactivity = ctx.Client.GetInteractivity();
             ServiceChartType chartType;
 
-            await ctx.RespondAsync("What graph would you like to see?\n" + "**1**) Players\n" + "**2**) CPU Usage\n" +
-                                   "**3**) RAM Usage\n");
+            var options = "**1**) Players\n**2**) CPU Usage\n**3**) RAM Usage";
+            await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed($"Selection", "**Please choose an option:**\n\n" + options));
 
             var graphChoice = await interactivity.WaitForMessageAsync(x => x.Author.Id == ctx.User.Id);
             switch (graphChoice.Result.Content.ToLower())
@@ -32,7 +33,7 @@ namespace TCAdminModule.API
                     chartType = ServiceChartType.Memory;
                     break;
                 default:
-                    await ctx.RespondAsync("Invalid response, reverting to default `Players`");
+                    await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Unknown Option", "Defaulting to Players graph"));
                     chartType = ServiceChartType.Players;
                     break;
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TCAdmin.GameHosting.SDK.Objects;
+using TCAdminModule.Helpers;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 
@@ -25,7 +26,8 @@ namespace TCAdminModule.ServiceMenu.Buttons
             await base.DoAction();
             Service service = this.Authentication.Service;
             service.Restart("Restarted by Nexus.");
-            await CommandContext.RespondAsync($"**{service.NameNoHtml} has been restarted**");
+            var embed = EmbedTemplates.CreateSuccessEmbed($"{service.NameNoHtml}", "**Restarted successfully**");
+            await CommandContext.RespondAsync(embed: embed);
         }
     }
 }

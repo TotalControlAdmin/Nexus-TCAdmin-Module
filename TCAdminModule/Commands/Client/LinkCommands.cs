@@ -4,6 +4,7 @@ using DSharpPlus.CommandsNext.Attributes;
 using Nexus.SDK.Modules;
 using TCAdmin.SDK.Objects;
 using TCAdminModule.Attributes;
+using TCAdminModule.Helpers;
 using TCAdminModule.Services;
 
 namespace TCAdminModule.Commands.Client
@@ -20,7 +21,7 @@ namespace TCAdminModule.Commands.Client
             var user = await AccountsService.GetUser(ctx);
             var service = await DiscordService.LinkService(ctx, user);
 
-            await ctx.RespondAsync($"**{service.Name}** has been linked to **{ctx.Guild.Name}**\nOwned by: **{service.UserNameNormalized}**");
+            await ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed(service.Name, "Link Successful!"));
         }
     }
 }

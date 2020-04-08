@@ -82,8 +82,8 @@
           <HintPath>C:\Users\alexr\RiderProjects\Nexus\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="Nexus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Users\alexr\RiderProjects\Nexus\packages\Nexus.4.1.1\lib\net461\Nexus.exe</HintPath>
+        <Reference Include="Nexus, Version=4.1.4.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>C:\Users\alexr\RiderProjects\Nexus\packages\Nexus.4.1.4\lib\net461\Nexus.exe</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nito.AsyncEx.Context, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -353,7 +353,12 @@
         <Compile Include="Commands\Client\LinkCommands.cs" />
         <Compile Include="Commands\Client\QueryCommands.cs" />
         <Compile Include="Commands\Client\TCAdminCommands.cs" />
+        <Compile Include="Configurations\EmbedTemplates\EmbedTemplateSettings.cs" />
+        <Compile Include="Configurations\EmbedTemplates\ErrorEmbedSettings.cs" />
+        <Compile Include="Configurations\EmbedTemplates\InfoEmbedSettings.cs" />
+        <Compile Include="Configurations\EmbedTemplates\SuccessEmbedSettings.cs" />
         <Compile Include="Configurations\FileManagerSettings.cs" />
+        <Compile Include="Configurations\LoginNotificationSettings.cs" />
         <Compile Include="Configurations\NetworkStatusCronSettings.cs" />
         <Compile Include="Configurations\PlayersMenuSettings.cs" />
         <Compile Include="Configurations\ServiceMenuActionSettings.cs" />
@@ -362,10 +367,10 @@
         <Compile Include="Crons\NetworkStatusCron.cs" />
         <Compile Include="Crons\UpdateConfigurationsCron.cs" />
         <Compile Include="Events\EventsCore.cs" />
+        <Compile Include="Helpers\EmbedTemplates.cs" />
+        <Compile Include="Helpers\VariableReplacements.cs" />
         <Compile Include="ServiceMenu\Buttons\LogViewerButton.cs" />
         <Compile Include="TcAdminModule.cs" />
-        <Compile Include="Exceptions\UnauthorizedAccessException.cs" />
-        <Compile Include="Exceptions\UnauthorizedAccountException.cs" />
         <Compile Include="Modules\NexusServiceMenuModule.cs" />
         <Compile Include="Objects\ActionCommandAttribute.cs" />
         <Compile Include="Objects\Actions\FileManagerDirectory.cs" />

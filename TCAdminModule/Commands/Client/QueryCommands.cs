@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
@@ -8,6 +9,7 @@ using Nexus.SDK.Modules;
 using TCAdmin.GameHosting.SDK.GameMonitor;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdminModule.Configurations;
+using TCAdminModule.Helpers;
 using TCAdminModule.Services;
 
 namespace TCAdminModule.Commands.Client
@@ -38,12 +40,12 @@ namespace TCAdminModule.Commands.Client
             var user = AccountsService.GetUser(ctx.User.Id);
             if (user == null)
             {
-                await ctx.RespondAsync("**You have to be signed in, in order to sign out.**");
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Logout", "**You have to be signed in, in order to logout.**"));
                 return;
             }
 
             AccountsService.LogoutUser(user, ctx.User.Id);
-            await ctx.RespondAsync("**You have been signed out**");
+            await ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed("Logout", "**You have been logged out**"));
         }
 
         [Command("login")]
@@ -57,7 +59,7 @@ namespace TCAdminModule.Commands.Client
                 return;
             }
 
-            await ctx.RespondAsync("**You are already signed in**");
+            await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Login", "**You are already logged in**"));
         }
 
         [Command("Players")]

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
 using Nexus.SDK.Modules;
-using TCAdmin.SDK.Mail;
 using TCAdmin.SDK.Objects;
-using TCAdmin.SDK.Web.MVC.Extensions;
 using TCAdminModule.Attributes;
+using TCAdminModule.Helpers;
 using TCAdminModule.Services;
-using Service = TCAdmin.GameHosting.SDK.Objects.Service;
 
 namespace TCAdminModule.Commands.Admin
 {
@@ -24,13 +21,16 @@ namespace TCAdminModule.Commands.Admin
             var user = User.GetAllUsers(2, true).FindByCustomField("__Nexus:DiscordUserId", member.Id) as User;
             if (user == null || !user.Find())
             {
-                await ctx.RespondAsync("**Cannot find user.**");
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed(description: "User not found"));
                 return;
             }
 
-            await ctx.RespondAsync($"**User: {user.UserName} ({user.UserId})**");
-            await ctx.RespondAsync($"**Owner: {user.OwnerId} Sub: {user.SubUserOwnerId}**");
-            await ctx.RespondAsync($"**Role ID: {user.RoleId} Name: {user.RoleName}**");
+            var userInfo = $"**User: {user.UserName} ({user.UserId})**\n" +
+                           $"**Owner: {user.OwnerId} Sub: {user.SubUserOwnerId}**\n" +
+                           $"**Role ID: {user.RoleId} Name: {user.RoleName}**\n";
+            var embed = EmbedTemplates.CreateInfoEmbed("User Information: " + user.FullName, userInfo);
+
+            await ctx.RespondAsync(embed: embed);
         }
 
         [Command("EmulateAs")]
@@ -39,14 +39,14 @@ namespace TCAdminModule.Commands.Admin
             var user = User.GetAllUsers(2, true).FindByCustomField("__Nexus:DiscordUserId", member.Id) as User;
             if (user == null || !user.Find())
             {
-                await ctx.RespondAsync("**Cannot find user.**");
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed(description: "User not found"));
                 return;
             }
 
             AccountsService.AddUserToEmulation(ctx.User.Id, user);
 
-            await ctx.RespondAsync(
-                $"You are now emulating as: {member.Username}#{member.Discriminator} ({user.UserName})");
+            await ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed(
+                description: $"You are now emulating as: {member.Username}#{member.Discriminator} ({user.UserName})"));
         }
 
         [Command("StopEmulation")]
@@ -54,7 +54,21 @@ namespace TCAdminModule.Commands.Admin
         {
             AccountsService.RemoveUserFromEmulation(ctx.User.Id);
 
-            return ctx.RespondAsync("Emulation Stopped");
+            return ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed(description: "Emulation Stopped"));
+        }
+
+        [Command("LoginAs")]
+        public async Task LoginAs(CommandContext ctx, string username)
+        {
+            User user = User.GetUserByUserName(username);
+            if (!user.Find())
+            {
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Login As", "Cannot find user"));
+            }
+
+            AccountsService.AddUserToEmulation(ctx.User.Id, user);
+            await ctx.RespondAsync(
+                embed: EmbedTemplates.CreateSuccessEmbed(description: "Logged in as " + user.UserName));
         }
 
         [Command("ForceLink")]
@@ -64,20 +78,24 @@ namespace TCAdminModule.Commands.Admin
 
             if (DiscordService.LinkService(ctx.Guild.Id, serviceId))
             {
-                await ctx.RespondAsync("**Linked service**");
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed(description: "**Linked Service**"));
             }
             else
             {
-                await ctx.RespondAsync("**Failed to link**");
+                await ctx.RespondAsync(
+                    embed: EmbedTemplates.CreateErrorEmbed(description: "**Failed to link service**"));
             }
         }
 
         [Command("UnlinkServices")]
         public async Task UnlinkServices(CommandContext ctx)
         {
-            await ctx.RespondAsync("**Unlinking all services.**");
+            var msg = await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Unlink Services",
+                "Unlinking all services. Please wait..."));
             DiscordService.ResetAllServices(ctx);
-            await ctx.RespondAsync("**Unlinked all Services.**");
+            await msg.ModifyAsync(
+                embed: new Optional<DiscordEmbed>(
+                    EmbedTemplates.CreateSuccessEmbed(description: "Unlinked all services.")));
         }
 
         [Command("LogoutUser")]
@@ -87,7 +105,9 @@ namespace TCAdminModule.Commands.Admin
 
             user.CustomFields["__Nexus:DiscordUserId"] = 0;
             user.Save();
-            return ctx.RespondAsync($"**Successfully logged {user.UserName} out.**");
+            return ctx.RespondAsync(
+                embed: EmbedTemplates.CreateSuccessEmbed(
+                    description: $"**{user.FullName} has been unlinked and logged out."));
         }
 
         [Command("LogoutUser")]
@@ -97,7 +117,9 @@ namespace TCAdminModule.Commands.Admin
 
             user.CustomFields["__Nexus:DiscordUserId"] = 0;
             user.Save();
-            return ctx.RespondAsync($"Successfully logged {user.UserName} out.");
+            return ctx.RespondAsync(
+                embed: EmbedTemplates.CreateSuccessEmbed(
+                    description: $"**{user.FullName} has been unlinked and logged out."));
         }
     }
 }

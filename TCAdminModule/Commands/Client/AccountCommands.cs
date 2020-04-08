@@ -2,6 +2,7 @@
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using Nexus.SDK.Modules;
+using TCAdminModule.Helpers;
 using TCAdminModule.Services;
 
 namespace TCAdminModule.Commands.Client
@@ -10,11 +11,12 @@ namespace TCAdminModule.Commands.Client
     [Description("Account Commands.")]
     public class AccountCommands : NexusCommandModule
     {
-        [Command("who")]
+        [Command("Who")]
         public async Task Who(CommandContext ctx)
         {
             var user = AccountsService.GetUser(ctx.User.Id);
-            await ctx.RespondAsync(user.UserName);
+            await ctx.RespondAsync(
+                embed: EmbedTemplates.CreateInfoEmbed("User Information", $"You are: **{user.UserName}**"));
         }
     }
 }

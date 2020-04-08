@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TCAdmin.GameHosting.SDK.Objects;
+using TCAdminModule.Helpers;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 
 namespace TCAdminModule.ServiceMenu.Buttons
 {
-    public class StartModule : NexusServiceMenuModule
+    public class StartButton : NexusServiceMenuModule
     {
         public override void DefaultSettings()
         {
@@ -26,7 +27,8 @@ namespace TCAdminModule.ServiceMenu.Buttons
             await base.DoAction();
             Service service = this.Authentication.Service;
             service.Start("Started by Nexus.");
-            await CommandContext.RespondAsync($"**{service.NameNoHtml} has been started**");
+            var embed = EmbedTemplates.CreateSuccessEmbed($"{service.NameNoHtml}", "**Started successfully**");
+            await CommandContext.RespondAsync(embed: embed);
         }
     }
 }

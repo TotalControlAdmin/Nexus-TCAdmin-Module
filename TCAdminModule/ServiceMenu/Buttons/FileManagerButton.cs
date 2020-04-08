@@ -14,7 +14,7 @@ namespace TCAdminModule.ServiceMenu.Buttons
         {
             this.Name = "File Manager Button";
             var attribute =
-                new ActionCommandAttribute("File Manager", "Access server files", ":file_cabinet:",
+                new ActionCommandAttribute("File Manager", "Access server files", ":file_folder:",
                     new List<string> {"FileManager"},
                     true);
             this.Settings.ViewOrder = 5;

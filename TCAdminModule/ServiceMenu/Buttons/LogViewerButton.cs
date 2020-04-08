@@ -15,7 +15,7 @@ namespace TCAdminModule.ServiceMenu.Buttons
         {
             this.Name = "Log Viewer Button";
             var attribute =
-                new ActionCommandAttribute("Log Viewer", "Access server logs", ":file_folder:",
+                new ActionCommandAttribute("Log Viewer", "Access server logs", ":file_cabinet:",
                     new List<string> {"LogViewer"},
                     true);
             this.Settings.ViewOrder = 5;

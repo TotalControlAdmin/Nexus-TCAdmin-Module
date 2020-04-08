@@ -23,7 +23,7 @@ namespace TCAdminModule.Commands.Client
             await new TcaServiceMenu().MenuEmulation(ctx, context);
         }
 
-        [Command("rcon")]
+        [Command("RCon")]
         public async Task RemoteConsoleCommand(CommandContext ctx, [RemainingText] string command)
         {
             var context = new CommandAttributes.RequireAuthentication();
