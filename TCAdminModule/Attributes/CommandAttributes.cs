@@ -5,9 +5,12 @@ using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
+using Nexus;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.SDK.Objects;
 using Nexus.Exceptions;
+using TCAdmin.SDK.Mail;
+using TCAdminModule.Helpers;
 using TCAdminModule.Services;
 using Service = TCAdmin.GameHosting.SDK.Objects.Service;
 
@@ -42,27 +45,47 @@ namespace TCAdminModule.Attributes
         [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
         public class RequireAdministrator : CheckBaseAttribute
         {
-            public override Task<bool> ExecuteCheckAsync(CommandContext ctx, bool help)
+            public override async Task<bool> ExecuteCheckAsync(CommandContext ctx, bool help)
             {
-                return IsAdministrator(ctx);
+                if (await IsAdministrator(ctx))
+                {
+                    return true;
+                }
+
+                throw new CustomMessageException(
+                    "**You require `Administrator` permissions to execute this command.**");
             }
         }
 
         [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
         public class RequireTcAdministrator : CheckBaseAttribute
         {
-            public override Task<bool> ExecuteCheckAsync(CommandContext ctx, bool help)
+            public override async Task<bool> ExecuteCheckAsync(CommandContext ctx, bool help)
             {
-                return IsTcAdministrator(ctx);
+                if (await IsTcAdministrator(ctx))
+                {
+                    return true;
+                }
+
+                var companyInfo = new CompanyInfo(2);
+                throw new CustomMessageException(
+                    $"**You do not have the correct Access Group in `{companyInfo.ControlPanelUrl}` to use this command.**");
             }
         }
 
         [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
         public class RequireTcSubAdministrator : CheckBaseAttribute
         {
-            public override Task<bool> ExecuteCheckAsync(CommandContext ctx, bool help)
+            public override async Task<bool> ExecuteCheckAsync(CommandContext ctx, bool help)
             {
-                return IsTcSubAdministrator(ctx);
+                if (await IsTcSubAdministrator(ctx))
+                {
+                    return true;
+                }
+
+                var companyInfo = new CompanyInfo(2);
+                throw new CustomMessageException(
+                    $"**You do not have the correct Access Group in `{companyInfo.ControlPanelUrl}` to use this command.**");
             }
         }
 
@@ -74,38 +97,13 @@ namespace TCAdminModule.Attributes
                 GamePermissionKey = new List<string> {"GeneralAccess"};
             }
 
-            public List<string> GamePermissionKey { get; private set; }
+            private List<string> GamePermissionKey { get; }
 
             public Service Service { get; private set; }
 
             public User User { get; private set; }
 
             private CommandContext CommandContext { get; set; }
-
-            public void SetProperties(Service service = null, User user = null)
-            {
-                if (service != null)
-                {
-                    Service = service;
-                }
-
-                if (user != null)
-                {
-                    User = user;
-                }
-            }
-
-            public async Task<bool> HasPermission(string key)
-            {
-                GamePermissionKey = new List<string> {key};
-                return await HasAccess();
-            }
-
-            public async Task<bool> HasPermission(List<string> newKeys)
-            {
-                GamePermissionKey = newKeys;
-                return await HasAccess();
-            }
 
             public override async Task<bool> ExecuteCheckAsync(CommandContext ctx, bool help)
             {
@@ -136,12 +134,21 @@ namespace TCAdminModule.Attributes
 
                 if (User.UserType == UserType.Admin) return true;
 
-                if (GamePermissionKey.Contains("GeneralAccess")) return true;
+                //todo Do NOT just assume that the user has GeneralAccess. Sort it out Alex.
+                if ((GamePermissionKey.Contains("GeneralAccess") && User.UserId == Service.UserId) ||
+                    User.OwnerId == 2 && User.IsTopLevelSubAdmin()) return true;
 
                 var failedPermissions = new List<string>();
 
                 foreach (var permission in GamePermissionKey)
                 {
+                    if (GamePermissionKey.Contains("GeneralAccess"))
+                    {
+                        failedPermissions.Add("GeneralAccess");
+
+                        continue;
+                    }
+
                     if (User.UserType == UserType.SubAdmin)
                     {
                         if (!SubAdminPermission(permission))
@@ -168,15 +175,14 @@ namespace TCAdminModule.Attributes
 
                     else
                     {
-                        throw new UnauthorizedAccountException(User.UserName,
-                            "**Access Denied | Error code: 0x0401-EM**");
+                        ThrowAccessDeniedError();
                     }
                 }
 
                 if (failedPermissions.Any())
                 {
-                    throw new CustomMessageException(
-                        $"{User.UserName} lacks permission to: **[{string.Join(", ", failedPermissions)}]**");
+                    ThrowAccessDeniedError(
+                        $"**{User.UserName}** lacks permission to: **[{string.Join(", ", failedPermissions)}]**");
                 }
 
                 return true;
@@ -184,51 +190,30 @@ namespace TCAdminModule.Attributes
 
             private bool SubAdminPermission(string permission)
             {
-                if (permission == "GeneralAccess")
-                {
-                    return true;
-                }
-
                 var servicePermissions = GamePermission.GetGamePermissions(Service.GameId);
 
                 if (servicePermissions.Count == 0)
                 {
-                    throw new UnauthorizedAccountException(User.UserName,
-                        "No permissions linked to the service was found for this user.");
+                    ThrowAccessDeniedError("No GamePermissions found for Sub Admins for this game.");
                 }
 
-                foreach (GamePermission gp in servicePermissions)
-                {
-                    if (gp.SubAdminAccess && gp.PermissionKey == permission)
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
+                return servicePermissions.Cast<GamePermission>()
+                    .Any(gp => gp.SubAdminAccess && gp.PermissionKey == permission);
             }
 
             private bool UserPermission(string permission)
             {
-                var servicePermissions = GamePermission.GetGamePermissions(Service.GameId);
+                var gamePermissions = GamePermission.GetGamePermissions(Service.GameId);
 
-                if (servicePermissions.Count == 0)
+                if (gamePermissions.Count == 0)
                 {
-                    throw new UnauthorizedAccountException(User.UserName,
-                        "No permissions linked to the service was found for this user.");
+                    ThrowAccessDeniedError("No permissions linked to the service was found for this user.");
                 }
 
                 if (permission == "StartStop") return true;
 
-                foreach (GamePermission gp in servicePermissions)
-                {
-                    if (gp.UserAccess && gp.PermissionKey == permission)
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
+                return gamePermissions.Cast<GamePermission>()
+                    .Any(gp => gp.UserAccess && gp.PermissionKey == permission && gp.ServiceId == Service.ServiceId);
             }
 
             private bool SubUserPermission(string permission)
@@ -236,19 +221,16 @@ namespace TCAdminModule.Attributes
                 var servicePermissions = GamePermission.GetServicePermissions(Service.ServiceId);
                 if (servicePermissions.Count == 0)
                 {
-                    throw new UnauthorizedAccountException(User.UserName,
-                        "No permissions linked to the service was found for this user.");
+                    ThrowAccessDeniedError("No permissions linked to the service was found for this user.");
                 }
 
-                foreach (GamePermission gp in servicePermissions)
-                {
-                    if (gp.UserId == User.UserId && gp.SubUserAccess && gp.PermissionKey == permission)
-                    {
-                        return true;
-                    }
-                }
+                return servicePermissions.Cast<GamePermission>().Any(gp =>
+                    gp.UserId == User.UserId && gp.SubUserAccess && gp.PermissionKey == permission);
+            }
 
-                return false;
+            private void ThrowAccessDeniedError(string message = "")
+            {
+                throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Access Denied", message));
             }
         }
     }
