@@ -7,6 +7,7 @@ using DSharpPlus.Interactivity;
 using Nexus.SDK.Modules;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdminModule.Attributes;
+using TCAdminModule.Helpers;
 using TCAdminModule.Objects.Emulators;
 
 namespace TCAdminModule.Commands.Admin
@@ -16,16 +17,21 @@ namespace TCAdminModule.Commands.Admin
     [CommandAttributes.RequireTcSubAdministrator]
     public class TaskManagerCommands : NexusCommandModule
     {
+        [GroupCommand]
         [Command("Task")]
         [Description("Show the live status of a task")]
         public async Task TaskViewer(CommandContext ctx, int taskId)
         {
             await ctx.TriggerTypingAsync();
 
-            var taskManager = new TcaTaskManager(await ctx.RespondAsync("Initialize..."), taskId);
+            var taskManager =
+                new TcaTaskManager(
+                    await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Task Manager", "Initialize...")),
+                    taskId);
             await taskManager.Initialize();
         }
 
+        [GroupCommand]
         [Command("Task")]
         [Description("Show the live status of a task")]
         public async Task TaskViewer(CommandContext ctx, string serviceConnectionInfo)
@@ -34,8 +40,8 @@ namespace TCAdminModule.Commands.Admin
 
             if (!(Service.GetGameServices(serviceConnectionInfo)[0] is Service service) || !service.Find())
             {
-                await ctx.RespondAsync("**Cannot find service with search criteria: ** *" + serviceConnectionInfo +
-                                       "*");
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Task Manager",
+                    "**Cannot find service with search criteria: ** *" + serviceConnectionInfo + "*"));
                 return;
             }
 
@@ -48,22 +54,25 @@ namespace TCAdminModule.Commands.Admin
 
             if (servicesTask.Count == 0)
             {
-                await ctx.RespondAsync("**No tasks found**");
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Task Manager", "No Tasks Found"));
                 return;
             }
 
-            var taskManager = new TcaTaskManager(await ctx.RespondAsync("Initialize..."), servicesTask.Last().TaskId);
+            var taskManager =
+                new TcaTaskManager(
+                    await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Task Manager", "Initialize...")),
+                    servicesTask.Last().TaskId);
             await taskManager.Initialize();
         }
 
-        [Command("TaskList")]
+        [Command("List")]
         [Description("Show the live status of a task")]
         public Task TaskList(CommandContext ctx, string serviceConnectionInfo)
         {
             return TaskList(ctx, serviceConnectionInfo, 10);
         }
 
-        [Command("TaskList")]
+        [Command("List")]
         [Description("Show the live status of a task")]
         public async Task TaskList(CommandContext ctx, string serviceConnectionInfo, int amountOfTasks)
         {
@@ -72,7 +81,8 @@ namespace TCAdminModule.Commands.Admin
 
             if (!(Service.GetGameServices(serviceConnectionInfo)[0] is Service service) || !service.Find())
             {
-                await ctx.RespondAsync("**Cannot find service with search criteria: **" + serviceConnectionInfo);
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Task Manager",
+                    "**Cannot find service with search criteria: ** *" + serviceConnectionInfo + "*"));
                 return;
             }
 
@@ -85,7 +95,7 @@ namespace TCAdminModule.Commands.Admin
 
             if (servicesTask.Count == 0)
             {
-                await ctx.RespondAsync("**No tasks found**");
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Task Manager", "No Tasks Found"));
                 return;
             }
 
@@ -94,17 +104,18 @@ namespace TCAdminModule.Commands.Admin
             tasksList = servicesTask.Take(amountOfTasks).Aggregate(tasksList,
                 (current, task) => current + $"**{taskIdList++}**) {task.Name} [{task.ScheduledTime:f}]\n");
 
-            await ctx.RespondAsync(tasksList);
+            await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Task Picker", tasksList));
             var msg = await interactivity.WaitForMessageAsync(x => x.Channel == ctx.Channel && x.Author == ctx.User);
             if (int.TryParse(msg.Result.Content, out var result))
             {
-                var taskManager = new TcaTaskManager(await ctx.RespondAsync("Initialize..."),
+                var taskManager = new TcaTaskManager(
+                    await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Task Manager", "Initialize...")),
                     servicesTask[result - 1].TaskId);
                 await taskManager.Initialize();
             }
             else
             {
-                await ctx.RespondAsync("Not a valid choice.");
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Task Manager", "Invalid Option"));
             }
         }
     }

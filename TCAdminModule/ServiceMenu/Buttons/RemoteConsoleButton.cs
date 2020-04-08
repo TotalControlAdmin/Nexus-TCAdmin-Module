@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DSharpPlus.Interactivity;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.Interfaces.Server;
+using TCAdminModule.Helpers;
 using TCAdminModule.Modules;
 using TCAdminModule.Objects;
 
@@ -16,8 +17,7 @@ namespace TCAdminModule.ServiceMenu.Buttons
             this.Name = "Remote Console Button";
             var attribute =
                 new ActionCommandAttribute("Remote Console", "Access the servers Remote Console", ":desktop:",
-                    new List<string> {"StartStop"},
-                    false);
+                    new List<string> {"StartStop"});
             this.Settings.ViewOrder = 7;
             this.Settings.ActionCommandAttribute = attribute;
             this.Configuration.SetConfiguration(this.Settings);
@@ -34,7 +34,8 @@ namespace TCAdminModule.ServiceMenu.Buttons
         public async Task RconTask()
         {
             var interactivity = CommandContext.Client.GetInteractivity();
-            await CommandContext.RespondAsync("Please enter the RCON command to send to the server.");
+            await CommandContext.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Remote Console",
+                "Please enter the RCON command to send to the server."));
 
             var command = await interactivity.WaitForMessageAsync(
                 x => x.Author.Id == CommandContext.User.Id && x.Channel.Id == CommandContext.Channel.Id);
@@ -47,59 +48,18 @@ namespace TCAdminModule.ServiceMenu.Buttons
 
             if (Authentication.Service.Status.ServiceStatus != ServiceStatus.Running)
             {
-                await CommandContext.RespondAsync("**RCON Commands cannot be sent when the service is offline.**");
+                await CommandContext.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Remote Console",
+                    $"{Authentication.Service.NameNoHtml} is **Offline**"));
                 return;
             }
 
-            try
-            {
-                var server = new Server(Authentication.Service.ServerId);
+            var server = new Server(Authentication.Service.ServerId);
 
-                var rconResponse = server.GameAdminService.ExecuteRConCommand(Authentication.Service.ServiceId,
-                    Authentication.Service.Variables["RConPassword"].ToString(), command);
+            var rconResponse = server.GameAdminService.ExecuteRConCommand(Authentication.Service.ServiceId,
+                Authentication.Service.Variables["RConPassword"].ToString(), command);
 
-                await CommandContext.RespondAsync("RCON RESPONSE: " + rconResponse);
-
-                if (string.IsNullOrWhiteSpace(rconResponse) || rconResponse.Contains("Invalid password!"))
-                {
-                    var interactivity = CommandContext.Client.GetInteractivity();
-                    await CommandContext.RespondAsync(
-                        "**Sending RCON commands doesn't seem to work! It's possible that I may have your RCON Password Incorrect, would you like to set it? [Y/N]**");
-
-                    var choice = await interactivity.WaitForMessageAsync(x =>
-                        x.Channel.Id == CommandContext.Channel.Id && x.Author.Id == CommandContext.User.Id);
-                    switch (choice.Result.Content.ToLower())
-                    {
-                        case "y":
-                        case "yes:":
-                            await CommandContext.RespondAsync("**Please enter a RCON password for me to remember**");
-                            var pass = await interactivity.WaitForMessageAsync(x =>
-                                x.Channel.Id == CommandContext.Channel.Id && x.Author.Id == CommandContext.User.Id);
-
-                            await pass.Result.DeleteAsync("Password Protection");
-                            await CommandContext.RespondAsync("**Saving new password...**");
-                            Authentication.Service.Variables["RConPassword"] = pass.Result.Content;
-                            Authentication.Service.Configure();
-                            Authentication.Service.Save();
-                            await CommandContext.RespondAsync(
-                                "**Password has been saved. If RCON continues to not function, ensure that you can send commands with Web Console.**");
-                            return;
-                        case "n":
-                        case "no":
-                            await CommandContext.RespondAsync("Aborting...");
-                            return;
-                    }
-
-                    return;
-                }
-
-                rconResponse = rconResponse.Length > 1500 ? rconResponse.Substring(0, 1500) : rconResponse;
-                await CommandContext.RespondAsync($"```yaml\n{rconResponse}\n```");
-            }
-            catch (Exception e)
-            {
-                await CommandContext.RespondAsync("ERROR:\n" + e.Message + "\n" + e.StackTrace);
-            }
+            rconResponse = rconResponse.Length > 1500 ? rconResponse.Substring(0, 1500) : rconResponse;
+            await CommandContext.RespondAsync($"```yaml\n{rconResponse}\n```");
         }
     }
 }

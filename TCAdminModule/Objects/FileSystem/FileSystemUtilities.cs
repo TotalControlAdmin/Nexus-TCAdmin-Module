@@ -13,6 +13,7 @@ using TCAdmin.SDK.Objects;
 using TCAdmin.SDK.VirtualFileSystem;
 using TCAdmin.SDK.Web.FileManager;
 using TCAdmin.SDK.Web.References.FileSystem;
+using TCAdminModule.Helpers;
 using FileManagerDirectory = TCAdminModule.Objects.Actions.FileManagerDirectory;
 
 namespace TCAdminModule.Objects.FileSystem
@@ -160,16 +161,15 @@ namespace TCAdminModule.Objects.FileSystem
 
             if (file.Length / 1024 > 8)
             {
-                await CommandContext.RespondAsync($"Download: <{download.GetDownloadUrl()}>");
+                await CommandContext.RespondAsync(
+                    embed: EmbedTemplates.CreateSuccessEmbed(
+                        $"[<{download.GetDownloadUrl()}>](**Click here to download {file.Name}**)"));
             }
             else
             {
                 using (var client = new WebClient())
                 {
-                    client.DownloadFileCompleted += delegate
-                    {
-                        CommandContext.RespondWithFileAsync(file.Name);
-                    };
+                    client.DownloadFileCompleted += delegate { CommandContext.RespondWithFileAsync(file.Name); };
 
                     client.DownloadFileAsync(new Uri(download.GetDownloadUrl()), file.Name);
                 }

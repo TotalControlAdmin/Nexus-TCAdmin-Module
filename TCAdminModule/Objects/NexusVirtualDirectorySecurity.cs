@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using Nexus.Exceptions;
 using TCAdmin.SDK.Misc;
 using TCAdmin.SDK.Objects;
 using TCAdmin.SDK.VirtualFileSystem;
+using TCAdminModule.Helpers;
 
 namespace TCAdminModule.Objects
 {
@@ -19,7 +20,7 @@ namespace TCAdminModule.Objects
             UserType = type;
             if (!fileSystem.DirectoryExists(currentDirectory))
             {
-                throw new DirectoryNotFoundException($"{currentDirectory} cannot be found on the remote server.");
+                throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Could not find directory."));
             }
 
             var game = new TCAdmin.GameHosting.SDK.Objects.Game(gameId);

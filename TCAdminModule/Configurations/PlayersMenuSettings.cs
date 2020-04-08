@@ -1,11 +1,9 @@
-﻿using DSharpPlus.Entities;
-
-namespace TCAdminModule.Configurations
+﻿namespace TCAdminModule.Configurations
 {
     public class PlayersMenuSettings
     {
-        public DiscordColor Color { get; set; } = DiscordColor.Green;
+        public string HexColor { get; set; } = "#99ff33";
 
-        public string ThumbnailUrl { get; set; } = "";
+        public string ThumbnailUrl { get; set; } = "https://img.icons8.com/officel/256/000000/controller.png";
     }
 }

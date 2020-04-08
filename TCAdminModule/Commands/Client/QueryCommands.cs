@@ -24,7 +24,8 @@ namespace TCAdminModule.Commands.Client
                 {
                     Title = "Commands",
                     Color = DiscordColor.Green,
-                    Description = "Shows Basic Commands"
+                    Description = "Shows Basic Commands",
+                    ThumbnailUrl = "https://img.icons8.com/plasticine/100/000000/help.png"
                 }
                 .AddField(";Players", "Show all players on the server.", true)
                 .AddField(";Service", "Show the Service Interface.", true)
@@ -40,7 +41,8 @@ namespace TCAdminModule.Commands.Client
             var user = AccountsService.GetUser(ctx.User.Id);
             if (user == null)
             {
-                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Logout", "**You have to be signed in, in order to logout.**"));
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Logout",
+                    "**You have to be signed in, in order to logout.**"));
                 return;
             }
 
@@ -67,7 +69,9 @@ namespace TCAdminModule.Commands.Client
         [Cooldown(1, 15.0, CooldownBucketType.User)]
         public async Task PlayersTask(CommandContext ctx)
         {
-            var settings = new NexusModuleConfiguration<PlayersMenuSettings>("PlayerMenuSettings", "./Config/TCAdminModule/").GetConfiguration();
+            var settings =
+                new NexusModuleConfiguration<PlayersMenuSettings>("PlayerMenuSettings", "./Config/TCAdminModule/")
+                    .GetConfiguration();
             await ctx.TriggerTypingAsync();
             var service = await DiscordService.GetService(ctx);
             var server = new Server(service.ServerId);
@@ -77,33 +81,28 @@ namespace TCAdminModule.Commands.Client
 
             if (query.NumPlayers == 0)
             {
-                await ctx.RespondAsync($"**No players online on {service.Name}**");
+                await ctx.RespondAsync(
+                    embed: EmbedTemplates.CreateErrorEmbed(service.NameNoHtml, "**No players online**"));
                 return;
             }
 
             if (query.NumPlayers != query.Players.Count)
             {
-                await ctx.RespondAsync($"There are **{query.NumPlayers}/{query.MaxPlayers}** online!");
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed(service.NameNoHtml,
+                    $"There are **{query.NumPlayers}/{query.MaxPlayers}** online!"));
+                return;
             }
 
             var embed = new DiscordEmbedBuilder
             {
                 Title = $"{service.Name} | Players: {query.NumPlayers}/{query.MaxPlayers}",
-                Color = settings.Color,
+                Color = new Optional<DiscordColor>(new DiscordColor(settings.HexColor)),
                 Timestamp = DateTime.Now,
                 ThumbnailUrl = settings.ThumbnailUrl
             };
 
-            if (query.NumPlayers <= 24)
-            {
-                foreach (var player in query.Players.OrderBy(x => x.Name))
-                    embed.AddField(player.Name, "Score: " + player.Score, true);
-            }
-            else
-            {
-                foreach (var player in query.Players)
-                    embed.Description += $"**{player.Name}** | Score: {player.Score}\n";
-            }
+            foreach (var player in query.Players.OrderBy(x => x.Name))
+                embed.Description += $":bust_in_silhouette: {player.Name}\n";
 
             await ctx.RespondAsync(embed: embed);
         }

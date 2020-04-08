@@ -1,15 +1,16 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
 using DSharpPlus.Interactivity;
+using Nexus.Exceptions;
 using Nexus.SDK.Modules;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.SDK.Web.References.FileSystem;
 using TCAdminModule.Attributes;
 using TCAdminModule.Configurations;
+using TCAdminModule.Helpers;
 using TCAdminModule.Objects.FileSystem;
 using DirectoryInfo = System.IO.DirectoryInfo;
 using FileInfo = TCAdmin.SDK.Web.References.FileSystem.FileInfo;
@@ -22,7 +23,7 @@ namespace TCAdminModule.Objects.Emulators
             string rootDir, bool lockDirectory = false)
         {
             AuthenticationService = authenticationService;
-            
+
             var service = authenticationService.Service;
             var user = authenticationService.User;
 
@@ -59,11 +60,11 @@ namespace TCAdminModule.Objects.Emulators
 
         private VirtualDirectorySecurity VirtualDirectorySecurity { get; }
 
-        public string CurrentDirectory { get; set; }
+        private string CurrentDirectory { get; set; }
 
         private DiscordMessage ListingMessage { get; set; }
 
-        private bool LockDirectory { get; set; }
+        private bool LockDirectory { get; }
 
         private DirectoryListing CurrentListing { get; set; }
 
@@ -94,13 +95,14 @@ namespace TCAdminModule.Objects.Emulators
 
             if (!FileSystem.DirectoryExists(CurrentDirectory))
             {
-                throw new DirectoryNotFoundException("No directory exists on the remote server.");
+                throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Could not find directory"));
             }
 
             var embed = new DiscordEmbedBuilder
             {
-                Title = "File Manager", Color = DiscordColor.None,
-                Description = $"**Navigating {CurrentDirectory}**\n\n"
+                Title = "File Manager", Color = new Optional<DiscordColor>(new DiscordColor(_settings.HexColor)),
+                Description = $"**Navigating {CurrentDirectory}**\n\n",
+                ThumbnailUrl = _settings.ThumbnailUrl
             };
             embed = UpdateEmbedListing(embed);
 
@@ -108,27 +110,26 @@ namespace TCAdminModule.Objects.Emulators
 
             ListingMessage = await CommandContext.RespondAsync(embed: embed);
 
-            var navigating = true;
             var currentlyInFile = false;
             FileInfo currentFileInfo = null;
-            while (navigating)
+            while (true)
             {
                 var choice = await interactivity.WaitForMessageAsync(x =>
                     x.Author.Id == CommandContext.User.Id && x.Channel.Id == CommandContext.Channel.Id);
                 if (choice.TimedOut)
                 {
-                    await CommandContext.RespondAsync("Ended action");
-                    navigating = false;
-                    continue;
+                    await ListingMessage.ModifyAsync(
+                        embed: new Optional<DiscordEmbed>(
+                            EmbedTemplates.CreateInfoEmbed("File Manager", "Ended Session")));
+                    return;
                 }
-                
+
                 var message = choice.Result.Content.ToLower();
                 await choice.Result.DeleteAsync();
 
                 if (_settings.ExitCommand.Contains(message))
                 {
                     await ListingMessage.DeleteAsync();
-
                     return;
                 }
 
@@ -162,11 +163,9 @@ namespace TCAdminModule.Objects.Emulators
                             await ListingMessage.ModifyAsync(embed: updatedEmbed.Build());
                         }
                     }
-
-                    continue;
                 }
 
-                if (int.TryParse(message, out var index))
+                else if (int.TryParse(message, out var index))
                 {
                     if (currentlyInFile)
                     {
@@ -210,11 +209,9 @@ namespace TCAdminModule.Objects.Emulators
                         var updatedEmbed = UpdateEmbedListing(fileInfo, embed);
                         await ListingMessage.ModifyAsync(embed: updatedEmbed.Build());
                     }
-
-                    continue;
                 }
 
-                if (char.TryParse(message, out var result))
+                else if (char.TryParse(message, out var result))
                 {
                     var action = ToEnum<FileSystemUtilities.EDirectoryActions>(result.ToString().ToUpper());
 

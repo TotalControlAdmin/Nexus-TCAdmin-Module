@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TCAdminModule.API;
 using TCAdminModule.Modules;
@@ -28,16 +27,8 @@ namespace TCAdminModule.ServiceMenu.Buttons
             await CommandContext.TriggerTypingAsync();
 
             var chartType = await TcAdminUtilities.GetGraphType(CommandContext);
-
-            try
-            {
-                await TcAdminUtilities.SendGraph(CommandContext, this.Authentication.Service, chartType);
-            }
-            catch (Exception e)
-            {
-                await CommandContext.RespondAsync(e.Message);
-                await CommandContext.RespondAsync(e.StackTrace);
-            }
+            
+            await TcAdminUtilities.SendGraph(CommandContext, this.Authentication.Service, chartType);
         }
     }
 }

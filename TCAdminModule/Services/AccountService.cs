@@ -72,10 +72,17 @@ namespace TCAdminModule.Services
         {
             var companyInfo = new CompanyInfo(2);
             var interactivity = ctx.Client.GetInteractivity();
-            await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Login",
+            var questionMsg = await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Login",
                 $"To proceed you will have to login to **{companyInfo.CompanyName}**. Would you like to login now? **Y/N**"));
-            var signUp = await interactivity.WaitForMessageAsync(x => x.Author.Id == ctx.User.Id);
-            switch (signUp.Result.Content.ToLower())
+            var signUpResponse = await interactivity.WaitForMessageAsync(x => x.Author.Id == ctx.User.Id);
+            if (signUpResponse.TimedOut)
+            {
+                await questionMsg.ModifyAsync(
+                    embed: new Optional<DiscordEmbed>(EmbedTemplates.CreateErrorEmbed("Login", "No response")));
+                return null;
+            }
+
+            switch (signUpResponse.Result.Content.ToLower())
             {
                 case "y":
                 case "yes":
@@ -83,7 +90,10 @@ namespace TCAdminModule.Services
                     if (await DiscordUtilities.SendMessageToDm(ctx, dmChannel,
                         "**Login**"))
                     {
-                        await ctx.RespondAsync("Please check your DM");
+                        await signUpResponse.Result.DeleteAsync();
+                        await questionMsg.ModifyAsync(
+                            embed: new Optional<DiscordEmbed>(
+                                EmbedTemplates.CreateInfoEmbed("Login", "Please check your DM")));
 
                         var loginEmbed = new DiscordEmbedBuilder()
                         {
@@ -138,11 +148,10 @@ namespace TCAdminModule.Services
                         var loginMessage = new MailMessage()
                         {
                             Subject = LoginNotificationSettings.Subject,
-                            FromName = LoginNotificationSettings.FromEmail,
+                            FromName = LoginNotificationSettings.FromName,
                             FromEmail = LoginNotificationSettings.FromEmail,
                             HtmlBody = LoginNotificationSettings.MessageContents.ReplaceWithVariables(mailVariables),
-                            DontSendEmail = mailConfig.MailServer.Contains("localhost") &&
-                                            LoginNotificationSettings.SendEmail,
+                            DontSendEmail = mailConfig.MailServer.Contains("localhost") || !LoginNotificationSettings.SendEmail,
                             ForceViewNotification = LoginNotificationSettings.ForceToViewOnPanel,
                         };
                         user.SendMessage(loginMessage);

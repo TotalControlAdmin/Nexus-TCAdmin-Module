@@ -1,10 +1,8 @@
-﻿using DSharpPlus.Entities;
-
-namespace TCAdminModule.Configurations
+﻿namespace TCAdminModule.Configurations
 {
     public class ServiceMenuConfiguration
     {
-        public string ThumbnailUrl { get; set; }
+        public string ThumbnailUrl { get; set; } = "https://img.icons8.com/officel/256/000000/controller.png";
 
         public bool ShowCpu { get; set; } = true;
         
