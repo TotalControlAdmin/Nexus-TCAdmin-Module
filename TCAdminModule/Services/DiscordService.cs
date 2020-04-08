@@ -1,4 +1,6 @@
-﻿namespace TCAdminModule.Services
+﻿using TCAdminModule.Helpers;
+
+namespace TCAdminModule.Services
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -8,52 +10,36 @@
     using TCAdmin.SDK.Objects;
     using Nexus.Exceptions;
     using Service = TCAdmin.GameHosting.SDK.Objects.Service;
-    
+
     public static class DiscordService
     {
-        private static readonly Dictionary<ulong, List<Service>> CacheServices = new Dictionary<ulong, List<Service>>();
-
         public static async Task<Service> GetService(CommandContext ctx)
         {
             var guildServices = new List<Service>();
-            var servicesInCache = false;
+            
+            var servicesFresh = Service.GetServices();
 
-            if (CacheServices.TryGetValue(ctx.Guild.Id, out var services))
-            {
-                foreach (var service in services)
-                    if (service.Variables["__Nexus::DiscordGuild"] != null && service.Variables["__Nexus::DiscordGuild"].ToString() == ctx.Guild.Id.ToString())
-                    {
-                        guildServices.Add(service);
-                    }
-
-                servicesInCache = true;
-            }
-
-            if (!servicesInCache)
-            {
-                var servicesFresh = Service.GetServices();
-
-                foreach (Service service in servicesFresh)
-                    if (service.Variables["__Nexus::DiscordGuild"] != null && service.Variables["__Nexus::DiscordGuild"].ToString() == ctx.Guild.Id.ToString() /*&& ShowServiceVar(service)*/)
-                    {
-                        guildServices.Add(service);
-                    }
-            }
+            foreach (Service service in servicesFresh)
+                if (service.Variables["__Nexus::DiscordGuild"] != null &&
+                    service.Variables["__Nexus::DiscordGuild"].ToString() ==
+                    ctx.Guild.Id.ToString() /*&& ShowServiceVar(service)*/)
+                {
+                    guildServices.Add(service);
+                }
 
             if (guildServices.Count == 0)
             {
-                throw new CustomMessageException("**No Services could be found. Add one by doing the `;Link` command!**");
+                throw new CustomMessageException(
+                    "**No Services could be found. Add one by doing the `;Link` command!**");
             }
 
             if (guildServices.Count == 1)
             {
-                AddServiceToCache(ctx.Guild.Id, guildServices[0]);
                 return guildServices[0];
             }
 
             if (guildServices.Count > 1)
             {
-                AddServicesToCache(ctx.Guild.Id, guildServices);
                 return await ChooseServiceFromList(ctx, guildServices);
             }
 
@@ -92,7 +78,6 @@
 
             if (service.Find())
             {
-                AddServiceToCache(guildId, new Service(serviceId));
                 UpdateService(service, guildId);
                 return true;
             }
@@ -109,27 +94,10 @@
                 {
                     if (!ulong.TryParse(service.Variables["__Nexus::DiscordGuild"].ToString(), out var s)) continue;
                     if (s != ctx.Guild.Id) continue;
-                    
-                    RemoveServiceFromCache(ctx.Guild.Id, service);
+
                     service.Variables["__Nexus::DiscordGuild"] = 0;
                     service.Save();
                 }
-        }
-
-        private static void AddServicesToCache(ulong id, List<Service> services)
-        {
-            if (!CacheServices.ContainsKey(id))
-            {
-                CacheServices.Add(id, services);
-            }
-        }
-
-        private static void AddServiceToCache(ulong id, Service service)
-        {
-            if (CacheServices.ContainsKey(id))
-            {
-                CacheServices.FirstOrDefault(x => x.Key == id).Value.Add(service);
-            }
         }
 
         private static async Task<Service> ChooseServiceFromList(CommandContext ctx, IReadOnlyList<Service> services)
@@ -139,23 +107,29 @@
             var serviceId = 1;
             var servicesString = services.Aggregate(
                 string.Empty,
-                (current, service) => current + $"**{serviceId++}**) {service.Name} **({service.IpAddress}:{service.GamePort})**\n");
+                (current, service) =>
+                    current + $"**{serviceId++}**) {service.Name} **({service.IpAddress}:{service.GamePort})**\n");
 
             if (servicesString.Length >= 1900)
             {
-                await interactivity.SendPaginatedMessageAsync(ctx.Channel, ctx.User, interactivity.GeneratePagesInContent(servicesString));
-                await ctx.RespondAsync("When you have found the number of the server press the **STOP** Button then type the Number.");
+                await interactivity.SendPaginatedMessageAsync(ctx.Channel, ctx.User,
+                    interactivity.GeneratePagesInContent(servicesString));
+                await ctx.RespondAsync(
+                    embed: EmbedTemplates.CreateInfoEmbed("Tip!",
+                        "When you have found the number of the server press the **STOP** Button then type the ID number."));
             }
             else
             {
-                await ctx.RespondAsync("**Choose a Server**\n" + servicesString);
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Service Picker", servicesString));
             }
 
-            var serviceOption = await interactivity.WaitForMessageAsync(x => x.Author.Id == ctx.User.Id && x.Channel.Id == ctx.Channel.Id);
+            var serviceOption =
+                await interactivity.WaitForMessageAsync(x =>
+                    x.Author.Id == ctx.User.Id && x.Channel.Id == ctx.Channel.Id);
 
             if (serviceOption.TimedOut)
             {
-                throw new CustomMessageException("No response from " + ctx.User.Mention);
+                throw new CustomMessageException(EmbedTemplates.CreateInfoEmbed("Timeout", ""));
             }
 
             if (int.TryParse(serviceOption.Result.Content, out var result) && result <= serviceId && result > 0)
@@ -163,46 +137,7 @@
                 return services[result - 1];
             }
 
-            await ctx.RespondAsync("**Not a valid number!**");
-
-            return null;
-        }
-
-        private static void RemoveServiceFromCache(ulong id, Service service)
-        {
-            if (CacheServices.ContainsKey(id))
-            {
-                var services = CacheServices.FirstOrDefault(x => x.Key == id).Value;
-                services.RemoveAll(x => x.ServiceId == service.ServiceId);
-                CacheServices.Remove(id);
-                CacheServices.Add(id, services);
-            }
-        }
-
-        private static void RemoveServicesFromCache(ulong id)
-        {
-            if (CacheServices.ContainsKey(id))
-            {
-                CacheServices.Remove(id);
-            }
-        }
-
-        private static bool ShowServiceVar(Service service)
-        {
-            if (service.Variables["NexusShowOnDiscord"] == null)
-            {
-                service.Variables["NexusShowOnDiscord"] = true;
-                service.Save();
-
-                return true;
-            }
-
-            if (bool.TryParse(service.Variables["NexusShowOnDiscord"].ToString(), out var result))
-            {
-                return result;
-            }
-
-            return false;
+            throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed(description: "Not a number!"));
         }
 
         private static void UpdateService(Service service, ulong id)
@@ -210,18 +145,6 @@
             service.Variables["__Nexus::DiscordGuild"] = id;
             service.Variables["NexusShowOnDiscord"] = true;
             service.Save();
-        }
-
-        private static bool GetService(string billingId, out Service serviceOut)
-        {
-            if (Service.GetServicesByBillingId(billingId)[0] is Service service)
-            {
-                serviceOut = service;
-                return true;
-            }
-
-            serviceOut = null;
-            return false;
         }
     }
 }

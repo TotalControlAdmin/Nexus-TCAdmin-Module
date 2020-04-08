@@ -2,6 +2,8 @@
 using DSharpPlus.Entities;
 using Nexus.SDK.Modules;
 using Nexus.Utilities;
+using TCAdminModule.Configurations;
+using TCAdminModule.Helpers;
 
 namespace TCAdminModule.Services
 {
@@ -18,6 +20,10 @@ namespace TCAdminModule.Services
     {
         public static readonly Dictionary<ulong, User> EmulatedUsers = new Dictionary<ulong, User>();
         private static readonly Dictionary<ulong, User> UserCache = new Dictionary<ulong, User>();
+
+        private static readonly LoginNotificationSettings LoginNotificationSettings =
+            new NexusModuleConfiguration<LoginNotificationSettings>("LoginNotificationSettings",
+                "./Config/TCAdminModule/Services/AccountService/").GetConfiguration();
 
         public static async Task<User> GetUser(CommandContext ctx)
         {
@@ -66,12 +72,13 @@ namespace TCAdminModule.Services
         {
             var companyInfo = new CompanyInfo(2);
             var interactivity = ctx.Client.GetInteractivity();
-            await ctx.RespondAsync(
-                $"To proceed you will have to login to **{companyInfo.CompanyName}**. Would you like to login now? Y/N");
+            await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Login",
+                $"To proceed you will have to login to **{companyInfo.CompanyName}**. Would you like to login now? **Y/N**"));
             var signUp = await interactivity.WaitForMessageAsync(x => x.Author.Id == ctx.User.Id);
             switch (signUp.Result.Content.ToLower())
             {
                 case "y":
+                case "yes":
                     var dmChannel = await ctx.Member.CreateDmChannelAsync();
                     if (await DiscordUtilities.SendMessageToDm(ctx, dmChannel,
                         "**Login**"))
@@ -99,9 +106,9 @@ namespace TCAdminModule.Services
                             .WaitForMessageAsync(x => x.Author.Id == ctx.User.Id, TimeSpan.FromMinutes(5));
                         if (tokenResponse.TimedOut || string.IsNullOrEmpty(tokenResponse.Result.Content))
                         {
-                            await ctx.RespondAsync(
+                            await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Login",
                                 "**Timeout**: To resume logging in, please do the `;login` command again. " +
-                                ctx.Channel.Mention);
+                                ctx.Channel.Mention));
                             return null;
                         }
 
@@ -109,7 +116,8 @@ namespace TCAdminModule.Services
                             .FindByCustomField("__Nexus:DiscordToken", tokenResponse.Result.Content) as User;
                         if (user == null)
                         {
-                            await dmChannel.SendMessageAsync("**Invalid Token Used**");
+                            await dmChannel.SendMessageAsync(
+                                embed: EmbedTemplates.CreateErrorEmbed("Login", "**Invalid Token Used**"));
                             return null;
                         }
 
@@ -118,22 +126,24 @@ namespace TCAdminModule.Services
                         user.Save();
 
                         var mailConfig = new MailConfig();
+                        var mailVariables = new Dictionary<string, object>()
+                        {
+                            {"CompanyInfo", new CompanyInfo(2)},
+                            {"ThisUser", user},
+                            {"Guild", ctx.Guild},
+                            {"Member", ctx.Member},
+                            {"DateTime", DateTime.UtcNow.ToString("F")}
+                        };
+
                         var loginMessage = new MailMessage()
                         {
-                            Subject = "Discord Access",
-                            FromName = mailConfig.DefaultFromName,
-                            FromEmail = mailConfig.DefaultFromEmail,
-                            HtmlBody = $"<h3>Hello {user.FullName},</h3><br />" +
-                                       $"<b>[This is an automated message from Nexus]</b><br />" +
-                                       $"We are letting you know that your <b>{companyInfo.CompanyName}</b> account was used to authenticate through discord. Please find details below of the request.<br />" +
-                                       $"Discord Account: <b>{ctx.Member}</b><br />" +
-                                       $"Discord Server: <b>{ctx.Guild}</b><br />" +
-                                       $"Time Requested: <b>{DateTime.UtcNow:F}</b><br /><br />" +
-                                       $"If you do not recognise this request, please immediately raise a support ticket!<br /><br />" +
-                                       $"{companyInfo.SignatureHtml}",
-                            DontSendEmail = mailConfig.MailServer.Contains("localhost"),
-                            ForceViewNotification = true,
-                            ToUserIdsList = {user.UserId},
+                            Subject = LoginNotificationSettings.Subject,
+                            FromName = LoginNotificationSettings.FromEmail,
+                            FromEmail = LoginNotificationSettings.FromEmail,
+                            HtmlBody = LoginNotificationSettings.MessageContents.ReplaceWithVariables(mailVariables),
+                            DontSendEmail = mailConfig.MailServer.Contains("localhost") &&
+                                            LoginNotificationSettings.SendEmail,
+                            ForceViewNotification = LoginNotificationSettings.ForceToViewOnPanel,
                         };
                         user.SendMessage(loginMessage);
 
