@@ -29,8 +29,8 @@ namespace TCAdminModule.Services
 
             if (guildServices.Count == 0)
             {
-                throw new CustomMessageException(
-                    "**No Services could be found. Add one by doing the `;Link` command!**");
+                throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Service Link",
+                    "**No Services could be found. Add one by doing the `;Link` command!**"));
             }
 
             if (guildServices.Count == 1)

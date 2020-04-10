@@ -52,8 +52,8 @@ namespace TCAdminModule.Attributes
                     return true;
                 }
 
-                throw new CustomMessageException(
-                    "**You require `Administrator` permissions to execute this command.**");
+                throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Access Denied",
+                    $"**You require `Administrator` permissions to execute this command.**"));
             }
         }
 
@@ -68,8 +68,8 @@ namespace TCAdminModule.Attributes
                 }
 
                 var companyInfo = new CompanyInfo(2);
-                throw new CustomMessageException(
-                    $"**You do not have the correct Access Group in `{companyInfo.ControlPanelUrl}` to use this command.**");
+                throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Access Denied",
+                    $"**You do not have the correct Access Group in `{companyInfo.ControlPanelUrl}` to use this command.**"));
             }
         }
 
@@ -84,8 +84,8 @@ namespace TCAdminModule.Attributes
                 }
 
                 var companyInfo = new CompanyInfo(2);
-                throw new CustomMessageException(
-                    $"**You do not have the correct Access Group in `{companyInfo.ControlPanelUrl}` to use this command.**");
+                throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Access Denied",
+                    $"**You do not have the correct Access Group in `{companyInfo.ControlPanelUrl}` to use this command.**"));
             }
         }
 

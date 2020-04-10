@@ -221,9 +221,4 @@ namespace TCAdminModule.Services
             }
         }
     }
-
-    public class TestConfigForAccountService
-    {
-        public string Name { get; set; } = "HEYHEY";
-    }
 }
