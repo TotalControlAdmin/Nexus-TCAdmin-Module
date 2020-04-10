@@ -37,7 +37,6 @@ namespace TCAdminModule.API
                     chartType = ServiceChartType.Players;
                     break;
             }
-
             return chartType;
         }
 
