@@ -71,7 +71,7 @@ namespace TCAdminModule.Crons
                 string gameXml;
                 using (var webClient = new WebClient())
                 {
-                    gameXml = webClient.DownloadString("https://github.com/Alexr03/Nexus-TCAdmin-Module/releases/download/Base/Nexus-Windows.txt");
+                    gameXml = webClient.DownloadString("https://github.com/Alexr03/Nexus-TCAdmin-Module/releases/download/Base/Nexus-Windows.xml");
                 }
 
                 GameImportOptions gameImportOptions = new GameImportOptions()
