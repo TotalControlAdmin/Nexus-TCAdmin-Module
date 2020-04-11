@@ -68,16 +68,10 @@ namespace TCAdminModule.Crons
                     return;
                 }
 
-                string gameXml = string.Empty;
-
-                foreach (CustomVariable nexusGameCustomVariable in nexusGame.CustomVariables)
+                string gameXml;
+                using (var webClient = new WebClient())
                 {
-                    if (nexusGameCustomVariable.Name != "UpdateUrlConfigUrlFrom") continue;
-                    using (WebClient webClient = new WebClient())
-                    {
-                        gameXml = webClient.DownloadString(nexusGameCustomVariable.DefaultValue);
-                        break;
-                    }
+                    gameXml = webClient.DownloadString("https://github.com/Alexr03/Nexus-TCAdmin-Module/releases/download/Base/Nexus-Windows.txt");
                 }
 
                 GameImportOptions gameImportOptions = new GameImportOptions()
