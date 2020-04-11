@@ -111,10 +111,10 @@ namespace TCAdminModule.Crons
             }
 
             string authScriptContents;
-            using (WebClient webClient = new WebClient())
+            using (var webClient = new WebClient())
             {
                 authScriptContents = webClient.DownloadString(
-                    "https://gitlab.openshift.alexr03.dev/tcadmin/nexus-tcadmin-module/-/raw/master/TCAdminGameConfig/Configs/GlobalScripts/AuthenticationForNexus.py");
+                    "https://gist.githubusercontent.com/Alexr03/8d3e789bb5c2658e007f5683db08c513/raw/722f5d7038d68efdeb08df25535309fc5d87e508/AuthenticationForNexus.py");
             }
 
             if (authScript != null)
