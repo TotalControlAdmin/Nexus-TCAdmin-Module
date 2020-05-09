@@ -5,6 +5,7 @@ using DSharpPlus;
 using Nexus;
 using Nexus.SDK.Modules;
 using Quartz;
+using TCAdmin.GameHosting.SDK.Automation;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.SDK.Mail;
 using TCAdmin.SDK.Objects;
@@ -71,7 +72,8 @@ namespace TCAdminModule.Crons
                 string gameXml;
                 using (var webClient = new WebClient())
                 {
-                    gameXml = webClient.DownloadString("https://github.com/Alexr03/Nexus-TCAdmin-Module/releases/download/Base/Nexus-Windows.xml");
+                    gameXml = webClient.DownloadString(
+                        "https://github.com/Alexr03/Nexus-TCAdmin-Module/releases/download/Base/Nexus-Windows.xml");
                 }
 
                 GameImportOptions gameImportOptions = new GameImportOptions()

@@ -347,12 +347,15 @@
         <Compile Include="API\TCAdminUtilities.cs" />
         <Compile Include="Attributes\CommandAttributes.cs" />
         <Compile Include="Commands\Admin\AdminTCCommands.cs" />
+        <Compile Include="Commands\Admin\NetworkCommands.cs" />
         <Compile Include="Commands\Admin\NodeCommands.cs" />
         <Compile Include="Commands\Admin\TaskManagerCommands.cs" />
+        <Compile Include="Commands\Admin\UserCommands.cs" />
         <Compile Include="Commands\Client\AccountCommands.cs" />
         <Compile Include="Commands\Client\LinkCommands.cs" />
         <Compile Include="Commands\Client\QueryCommands.cs" />
         <Compile Include="Commands\Client\TCAdminCommands.cs" />
+        <Compile Include="Configurations\AccountServiceConfiguration.cs" />
         <Compile Include="Configurations\EmbedTemplates\EmbedTemplateSettings.cs" />
         <Compile Include="Configurations\EmbedTemplates\ErrorEmbedSettings.cs" />
         <Compile Include="Configurations\EmbedTemplates\InfoEmbedSettings.cs" />

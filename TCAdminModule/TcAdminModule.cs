@@ -3,7 +3,9 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using DSharpPlus;
+using Models.Game;
 using Nexus.SDK.Modules;
+using TCAdmin.GameHosting.SDK.Objects;
 using TCAdminWrapper;
 
 namespace TCAdminModule

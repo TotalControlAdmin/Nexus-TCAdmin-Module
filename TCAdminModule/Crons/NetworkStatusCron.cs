@@ -41,7 +41,7 @@ namespace TCAdminModule.Crons
             if (!_settings.Enabled)
             {
                 _logger.LogMessage("NetworkStatus is disabled. Skipping cron.");
-                
+                return;
             }
 
             _client = (DiscordClient) context.Scheduler.Context.Get("Client");

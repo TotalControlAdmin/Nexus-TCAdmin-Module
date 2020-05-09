@@ -18,6 +18,7 @@ namespace TCAdminModule.Services
 
     public static class AccountsService
     {
+        public static readonly AccountServiceConfiguration AccountServiceConfiguration = new AccountServiceConfiguration().GetConfiguration();
         public static readonly Dictionary<ulong, User> EmulatedUsers = new Dictionary<ulong, User>();
         private static readonly Dictionary<ulong, User> UserCache = new Dictionary<ulong, User>();
 
@@ -97,7 +98,7 @@ namespace TCAdminModule.Services
 
                         var loginEmbed = new DiscordEmbedBuilder()
                         {
-                            Color = DiscordColor.Green,
+                            Color = new Optional<DiscordColor>(new DiscordColor(AccountServiceConfiguration.LoginConfiguration.EmbedColor)),
                             Title = $"**{companyInfo.CompanyName}** Login.",
                             Description = "Please follow the instructions below in order to authenticate yourself.\n" +
                                           $"**1)** Login to **{companyInfo.ControlPanelUrl}**\n" +
@@ -108,7 +109,7 @@ namespace TCAdminModule.Services
                             Url = companyInfo.ControlPanelUrl,
                             Timestamp = DateTimeOffset.Now,
                             ImageUrl =
-                                "https://cdn.discordapp.com/attachments/612133944695193619/696486508760268870/0673e9e0-4179-4e87-be57-357199ff5e01.gif",
+                                AccountServiceConfiguration.LoginConfiguration.ImageUrl,
                         };
                         await dmChannel.SendMessageAsync(embed: loginEmbed);
 
@@ -174,7 +175,7 @@ namespace TCAdminModule.Services
 
                     break;
                 default:
-                    throw new CustomMessageException("**Aborting logging process**");
+                    throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Aborted logging process"));
             }
 
             return null;

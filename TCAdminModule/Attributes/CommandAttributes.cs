@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-using Nexus;
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.SDK.Objects;
 using Nexus.Exceptions;
