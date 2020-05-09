@@ -33,102 +33,102 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="DSharpPlus, Version=4.0.0.692, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\..\..\packages\DSharpPlus.4.0.0-nightly-00692\lib\netstandard2.0\DSharpPlus.dll</HintPath>
+            <HintPath>..\packages\DSharpPlus.4.0.0-nightly-00692\lib\netstandard2.0\DSharpPlus.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="DSharpPlus.CommandsNext, Version=4.0.0.692, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\..\..\packages\DSharpPlus.CommandsNext.4.0.0-nightly-00692\lib\netstandard2.0\DSharpPlus.CommandsNext.dll</HintPath>
+            <HintPath>..\packages\DSharpPlus.CommandsNext.4.0.0-nightly-00692\lib\netstandard2.0\DSharpPlus.CommandsNext.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="DSharpPlus.Interactivity, Version=4.0.0.692, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\..\..\packages\DSharpPlus.Interactivity.4.0.0-nightly-00692\lib\netstandard2.0\DSharpPlus.Interactivity.dll</HintPath>
+            <HintPath>..\packages\DSharpPlus.Interactivity.4.0.0-nightly-00692\lib\netstandard2.0\DSharpPlus.Interactivity.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="Figgle, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\..\..\packages\Figgle.0.3.0\lib\net45\Figgle.dll</HintPath>
+            <HintPath>..\packages\Figgle.0.3.0\lib\net45\Figgle.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="Google.Protobuf, Version=3.12.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604">
-            <HintPath>..\..\..\packages\Google.Protobuf.3.12.0-rc1\lib\net45\Google.Protobuf.dll</HintPath>
+            <HintPath>..\packages\Google.Protobuf.3.12.0-rc1\lib\net45\Google.Protobuf.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-            <HintPath>..\..\..\ackages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+            <HintPath>..\ackages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="Microsoft.CSharp" />
         <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-          <HintPath>..\..\..\packages\Microsoft.Extensions.DependencyInjection.3.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+          <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-          <HintPath>..\..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+          <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="mscorlib" />
         <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-          <HintPath>..\..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nexus, Version=4.1.5.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\Nexus.4.1.5\lib\net461\Nexus.exe</HintPath>
+          <HintPath>..\packages\Nexus.4.1.5\lib\net461\Nexus.exe</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nito.AsyncEx.Context, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\Nito.AsyncEx.Context.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Context.dll</HintPath>
+          <HintPath>..\packages\Nito.AsyncEx.Context.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Context.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nito.AsyncEx.Coordination, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\Nito.AsyncEx.Coordination.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Coordination.dll</HintPath>
+          <HintPath>..\packages\Nito.AsyncEx.Coordination.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Coordination.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nito.AsyncEx.Interop.WaitHandles, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\Nito.AsyncEx.Interop.WaitHandles.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Interop.WaitHandles.dll</HintPath>
+          <HintPath>..\packages\Nito.AsyncEx.Interop.WaitHandles.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Interop.WaitHandles.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nito.AsyncEx.Oop, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\Nito.AsyncEx.Oop.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Oop.dll</HintPath>
+          <HintPath>..\packages\Nito.AsyncEx.Oop.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Oop.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nito.AsyncEx.Tasks, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\Nito.AsyncEx.Tasks.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Tasks.dll</HintPath>
+          <HintPath>..\packages\Nito.AsyncEx.Tasks.5.0.0-pre-06\lib\netstandard2.0\Nito.AsyncEx.Tasks.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nito.Cancellation, Version=1.0.5.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\Nito.Cancellation.1.0.5\lib\netstandard2.0\Nito.Cancellation.dll</HintPath>
+          <HintPath>..\packages\Nito.Cancellation.1.0.5\lib\netstandard2.0\Nito.Cancellation.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nito.Collections.Deque, Version=1.0.4.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\Nito.Collections.Deque.1.0.4\lib\netstandard2.0\Nito.Collections.Deque.dll</HintPath>
+          <HintPath>..\packages\Nito.Collections.Deque.1.0.4\lib\netstandard2.0\Nito.Collections.Deque.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Nito.Disposables, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\Nito.Disposables.2.0.0\lib\netstandard2.0\Nito.Disposables.dll</HintPath>
+          <HintPath>..\packages\Nito.Disposables.2.0.0\lib\netstandard2.0\Nito.Disposables.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Quartz, Version=3.0.7.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4">
-          <HintPath>..\..\..\packages\Quartz.3.0.7\lib\net452\Quartz.dll</HintPath>
+          <HintPath>..\packages\Quartz.3.0.7\lib\net452\Quartz.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Sentry, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fba2ec45388e2af0">
-          <HintPath>..\..\..\packages\Sentry.2.1.0\lib\net461\Sentry.dll</HintPath>
+          <HintPath>..\packages\Sentry.2.1.0\lib\net461\Sentry.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Sentry.PlatformAbstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=fba2ec45388e2af0">
-          <HintPath>..\..\..\packages\Sentry.PlatformAbstractions.1.1.0\lib\net45\Sentry.PlatformAbstractions.dll</HintPath>
+          <HintPath>..\packages\Sentry.PlatformAbstractions.1.1.0\lib\net45\Sentry.PlatformAbstractions.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Sentry.Protocol, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fba2ec45388e2af0">
-          <HintPath>..\..\..\packages\Sentry.Protocol.2.1.0\lib\net46\Sentry.Protocol.dll</HintPath>
+          <HintPath>..\packages\Sentry.Protocol.2.1.0\lib\net46\Sentry.Protocol.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-          <HintPath>..\..\..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+          <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-          <HintPath>..\..\..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+          <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="System.Configuration" />
@@ -141,109 +141,110 @@
         <Reference Include="System.Xml" />
         <Reference Include="System.Xml.Linq" />
         <Reference Include="TCAdmin.Basic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Basic.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Basic.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.DatabaseProviders.MySql, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.DatabaseProviders.MySql.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.DatabaseProviders.MySql.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.DatabaseProviders.Odbc, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.DatabaseProviders.Odbc.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.DatabaseProviders.Odbc.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.DatabaseProviders.SqLite, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.DatabaseProviders.SqLite.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.DatabaseProviders.SqLite.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.FtpServer.ModuleApi, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.FtpServer.ModuleApi.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.FtpServer.ModuleApi.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.GameHosting.ModuleApi, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.GameHosting.ModuleApi.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.GameHosting.ModuleApi.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.GameHosting.SDK, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.GameHosting.SDK.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.GameHosting.SDK.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.GameHosting.SDK.Web, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.GameHosting.SDK.Web.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.GameHosting.SDK.Web.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.GameHosting.SDK.Web.References, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.GameHosting.SDK.Web.References.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.GameHosting.SDK.Web.References.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.Helper, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Helper.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Helper.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.Interfaces, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Interfaces.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Interfaces.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.LogProviders.Text, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.LogProviders.Text.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.LogProviders.Text.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.SDK, Version=2.0.145.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.SDK.Language, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.Language.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.Language.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.SDK.TimeZones, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.TimeZones.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.TimeZones.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.SDK.Web, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.Web.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.Web.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.SDK.Web.MVC, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.Web.MVC.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.Web.MVC.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.SDK.Web.References, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.Web.References.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.SDK.Web.References.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.Support.ModuleApi, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Support.ModuleApi.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Support.ModuleApi.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.Support.SDK, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Support.SDK.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Support.SDK.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.TaskScheduler.ModuleApi, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.TaskScheduler.ModuleApi.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.TaskScheduler.ModuleApi.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.TaskScheduler.SDK, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.TaskScheduler.SDK.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.TaskScheduler.SDK.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.Web.MVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Web.MVC.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.Web.MVC.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.WebServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.WebServer.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\TCAdmin.WebServer.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="TCAdminWrapper, Version=1.0.5.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\packages\TCAdminWrapper.1.0.5\lib\net452\TCAdminWrapper.dll</HintPath>
+          <HintPath>..\packages\TCAdminWrapper.1.0.5\lib\net452\TCAdminWrapper.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Telerik.Web.UI, Version=2012.3.1016.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4">
-            <HintPath>..\..\..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\Telerik.Web.UI.dll</HintPath>
+            <HintPath>..\packages\TCAdmin.2.0.145\lib\net45\lib\net45\Telerik.Web.UI.dll</HintPath>
             <Private>True</Private>
         </Reference>
+        <Reference Include="netstandard" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="API\TCAdminUtilities.cs" />
