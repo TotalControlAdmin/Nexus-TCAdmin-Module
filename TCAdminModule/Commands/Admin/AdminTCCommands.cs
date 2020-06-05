@@ -57,6 +57,18 @@ namespace TCAdminModule.Commands.Admin
             return ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed(description: "Emulation Stopped"));
         }
 
+        [Command("LoginUserAs")]
+        public async Task LoginUserAs(CommandContext ctx, DiscordMember member, string username)
+        {
+            var user = User.GetUserByUserName(username);
+            if (!user.Find())
+            {
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Login As", "Cannot find user"));
+                return;
+            }
+            
+        }
+
         [Command("LoginAs")]
         public async Task LoginAs(CommandContext ctx, string username)
         {
@@ -64,6 +76,7 @@ namespace TCAdminModule.Commands.Admin
             if (!user.Find())
             {
                 await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Login As", "Cannot find user"));
+                return;
             }
 
             AccountsService.AddUserToEmulation(ctx.User.Id, user);
