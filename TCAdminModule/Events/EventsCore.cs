@@ -10,12 +10,12 @@ namespace TCAdminModule.Events
     {
         public EventsCore()
         {
-            this.Name = "Event Core!";
+            this.Name = "TCAdminEvents";
         }
 
         public override void Main()
         {
-            Console.WriteLine("Starting Events Core.");
+            this.Logger.LogMessage("Starting Events Core.");
             var tcAdminEvents = new TCAdminWrapper.Events.TcAdminEvents();
             
             tcAdminEvents.ServerModified += TcAdminEventsOnServerModified;
@@ -26,7 +26,7 @@ namespace TCAdminModule.Events
             
             tcAdminEvents.TaskCreated += TcAdminEventsOnTaskCreated;
             
-            Console.WriteLine("All events subscribed. Waiting for events to fire.");
+            this.Logger.LogMessage("All events subscribed. Waiting for events to fire.");
         }
 
         private void TcAdminEventsOnTaskCreated(Task args)
