@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using TCAdmin.GameHosting.SDK.Objects;
-using TCAdmin.SDK.Misc;
 using TCAdmin.SDK.Misc.Graphs;
 using TCAdminModule.Helpers;
 

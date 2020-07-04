@@ -45,21 +45,21 @@ namespace TCAdminModule.Crons
                                     new CompanyInfo(2).CompanyName);
             try
             {
-                GameImportFeatures allFeatures = GameImportFeatures.FileManager | GameImportFeatures.FileSystem |
-                                                 GameImportFeatures.IpAndPorts |
-                                                 GameImportFeatures.FilesAndDirectories |
-                                                 GameImportFeatures.GeneralSettings | GameImportFeatures.CommandLines |
-                                                 GameImportFeatures.SteamSettings |
-                                                 GameImportFeatures.PunkbusterSettings |
-                                                 GameImportFeatures.FeaturePermissions | GameImportFeatures.RunAs |
-                                                 GameImportFeatures.QueryMonitoring | GameImportFeatures.Variables |
-                                                 GameImportFeatures.ConfigurationFiles |
-                                                 GameImportFeatures.CustomScripts | GameImportFeatures.MailTemplates |
-                                                 GameImportFeatures.Mods | GameImportFeatures.TextConsole |
-                                                 GameImportFeatures.WebConsole | GameImportFeatures.FastDownload |
-                                                 GameImportFeatures.BukGetSettings | GameImportFeatures.CustomLinks |
-                                                 GameImportFeatures.MapPacks | GameImportFeatures.Updates |
-                                                 GameImportFeatures.GameTracker | GameImportFeatures.Keys;
+                var allFeatures = GameImportFeatures.FileManager | GameImportFeatures.FileSystem |
+                                  GameImportFeatures.IpAndPorts |
+                                  GameImportFeatures.FilesAndDirectories |
+                                  GameImportFeatures.GeneralSettings | GameImportFeatures.CommandLines |
+                                  GameImportFeatures.SteamSettings |
+                                  GameImportFeatures.PunkbusterSettings |
+                                  GameImportFeatures.FeaturePermissions | GameImportFeatures.RunAs |
+                                  GameImportFeatures.QueryMonitoring | GameImportFeatures.Variables |
+                                  GameImportFeatures.ConfigurationFiles |
+                                  GameImportFeatures.CustomScripts | GameImportFeatures.MailTemplates |
+                                  GameImportFeatures.Mods | GameImportFeatures.TextConsole |
+                                  GameImportFeatures.WebConsole | GameImportFeatures.FastDownload |
+                                  GameImportFeatures.BukGetSettings | GameImportFeatures.CustomLinks |
+                                  GameImportFeatures.MapPacks | GameImportFeatures.Updates |
+                                  GameImportFeatures.GameTracker | GameImportFeatures.Keys;
 
                 if (!(TCAdmin.GameHosting.SDK.Objects.Game.GetGames("Nexus Bot")[0] is
                     TCAdmin.GameHosting.SDK.Objects.Game nexusGame))
