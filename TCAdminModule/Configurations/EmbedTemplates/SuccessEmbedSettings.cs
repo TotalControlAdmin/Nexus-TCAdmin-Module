@@ -11,7 +11,10 @@ namespace TCAdminModule.Configurations.EmbedTemplates
                 Title = "Success",
                 Description = "The task was successful",
                 Color = new Optional<DiscordColor>(new DiscordColor(9556540)),
-                ThumbnailUrl = "https://img.icons8.com/color/48/000000/checked-2.png"
+                Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail
+                {
+                    Url = "https://img.icons8.com/color/48/000000/checked-2.png"
+                }
             };
         }
     }

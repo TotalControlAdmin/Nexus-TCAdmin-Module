@@ -25,7 +25,10 @@ namespace TCAdminModule.Commands.Client
                     Title = "Commands",
                     Color = DiscordColor.Green,
                     Description = "Shows Basic Commands",
-                    ThumbnailUrl = "https://img.icons8.com/plasticine/100/000000/help.png"
+                    Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail
+                    {
+                        Url = "https://img.icons8.com/plasticine/100/000000/help.png"
+                    }
                 }
                 .AddField(";Players", "Show all players on the server.", true)
                 .AddField(";Service", "Show the Service Interface.", true)
@@ -98,7 +101,10 @@ namespace TCAdminModule.Commands.Client
                 Title = $"{service.Name} | Players: {query.NumPlayers}/{query.MaxPlayers}",
                 Color = new Optional<DiscordColor>(new DiscordColor(settings.HexColor)),
                 Timestamp = DateTime.Now,
-                ThumbnailUrl = settings.ThumbnailUrl
+                Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail
+                {
+                    Url = settings.ThumbnailUrl
+                }
             };
 
             foreach (var player in query.Players.OrderBy(x => x.Name))

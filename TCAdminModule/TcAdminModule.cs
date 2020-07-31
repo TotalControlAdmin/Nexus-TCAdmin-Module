@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Configuration;
 using System.IO;
-using System.Linq;
 using DSharpPlus;
-using Models.Game;
 using Nexus.SDK.Modules;
-using TCAdmin.GameHosting.SDK.Objects;
 using TCAdminWrapper;
 
 namespace TCAdminModule
@@ -28,11 +25,11 @@ namespace TCAdminModule
         {
             CheckSettings();
 
-            TCAdminSettings settings =
+            var settings =
                 new TCAdminSettings(true, _moduleConfig.DebugTcAdmin, _moduleConfig.DebugTcAdminSql);
-            TCAdminClientConfiguration config = new TCAdminClientConfiguration(_moduleConfig.SqlString,
+            var config = new TCAdminClientConfiguration(_moduleConfig.SqlString,
                 _moduleConfig.SqlEncrypted, "TCAdminModule", settings);
-            TcAdminClient client = new TcAdminClient(config);
+            var client = new TcAdminClient(config);
 
             client.SetAppSettings();
         }

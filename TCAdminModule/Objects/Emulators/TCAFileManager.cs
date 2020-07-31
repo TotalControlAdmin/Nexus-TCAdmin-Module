@@ -102,7 +102,10 @@ namespace TCAdminModule.Objects.Emulators
             {
                 Title = "File Manager", Color = new Optional<DiscordColor>(new DiscordColor(_settings.HexColor)),
                 Description = $"**Navigating {CurrentDirectory}**\n\n",
-                ThumbnailUrl = _settings.ThumbnailUrl
+                Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail
+                {
+                    Url = _settings.ThumbnailUrl
+                }
             };
             embed = UpdateEmbedListing(embed);
 

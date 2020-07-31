@@ -11,7 +11,10 @@ namespace TCAdminModule.Configurations.EmbedTemplates
                 Title = "Information",
                 Description = "Information",
                 Color = new Optional<DiscordColor>(new DiscordColor(15132390)),
-                ThumbnailUrl = "https://img.icons8.com/office/40/000000/information.png"
+                Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail
+                {
+                    Url = "https://img.icons8.com/office/40/000000/information.png"
+                }
             };
         }
     }

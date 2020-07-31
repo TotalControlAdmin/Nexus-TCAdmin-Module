@@ -33,7 +33,10 @@ namespace TCAdminModule.Objects.Emulators
             var embedBuilder = new DiscordEmbedBuilder
             {
                 Title = context.Service.Name,
-                ThumbnailUrl = config.ThumbnailUrl,
+                Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail
+                {
+                    Url = config.ThumbnailUrl
+                },
                 Footer =
                     new DiscordEmbedBuilder.EmbedFooter
                     {

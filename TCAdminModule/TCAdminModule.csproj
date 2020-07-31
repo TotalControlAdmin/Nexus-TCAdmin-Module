@@ -9,7 +9,7 @@
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>TCAdminModule</RootNamespace>
         <AssemblyName>TCAdminModule</AssemblyName>
-        <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,17 +32,17 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="DSharpPlus, Version=4.0.0.692, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\packages\DSharpPlus.4.0.0-nightly-00692\lib\netstandard2.0\DSharpPlus.dll</HintPath>
-            <Private>True</Private>
+        <Reference Include="DSharpPlus, Version=4.0.0.709, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\packages\DSharpPlus.4.0.0-nightly-00709\lib\netstandard2.0\DSharpPlus.dll</HintPath>
+          <Private>True</Private>
         </Reference>
-        <Reference Include="DSharpPlus.CommandsNext, Version=4.0.0.692, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\packages\DSharpPlus.CommandsNext.4.0.0-nightly-00692\lib\netstandard2.0\DSharpPlus.CommandsNext.dll</HintPath>
-            <Private>True</Private>
+        <Reference Include="DSharpPlus.CommandsNext, Version=4.0.0.709, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\packages\DSharpPlus.CommandsNext.4.0.0-nightly-00709\lib\netstandard2.0\DSharpPlus.CommandsNext.dll</HintPath>
+          <Private>True</Private>
         </Reference>
-        <Reference Include="DSharpPlus.Interactivity, Version=4.0.0.692, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\packages\DSharpPlus.Interactivity.4.0.0-nightly-00692\lib\netstandard2.0\DSharpPlus.Interactivity.dll</HintPath>
-            <Private>True</Private>
+        <Reference Include="DSharpPlus.Interactivity, Version=4.0.0.709, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\packages\DSharpPlus.Interactivity.4.0.0-nightly-00709\lib\netstandard2.0\DSharpPlus.Interactivity.dll</HintPath>
+          <Private>True</Private>
         </Reference>
         <Reference Include="Figgle, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\packages\Figgle.0.3.0\lib\net45\Figgle.dll</HintPath>
@@ -52,12 +52,12 @@
             <HintPath>..\packages\Google.Protobuf.3.12.0-rc1\lib\net45\Google.Protobuf.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="Kendo.Mvc, Version=2020.1.406.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\Kendo.Mvc.dll</HintPath>
+        <Reference Include="Kendo.Mvc, Version=2020.2.513.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\Kendo.Mvc.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-            <HintPath>..\ackages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+            <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
             <Private>True</Private>
         </Reference>
         <Reference Include="Microsoft.CSharp" />
@@ -135,122 +135,135 @@
           <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
           <Private>True</Private>
         </Reference>
+        <Reference Include="System.ComponentModel.Composition" />
         <Reference Include="System.Configuration" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Drawing" />
+        <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\..\..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System.IO.Compression" />
+        <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\..\..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\..\..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System.Web" />
         <Reference Include="System.Web.Services" />
         <Reference Include="System.Xml" />
         <Reference Include="System.Xml.Linq" />
         <Reference Include="TCAdmin.Basic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.Basic.dll</HintPath>
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.Basic.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.DatabaseProviders.MySql, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.DatabaseProviders.MySql.dll</HintPath>
+        <Reference Include="TCAdmin.DatabaseProviders.MySql, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.DatabaseProviders.MySql.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.DatabaseProviders.Odbc, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.DatabaseProviders.Odbc.dll</HintPath>
+        <Reference Include="TCAdmin.DatabaseProviders.Odbc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.DatabaseProviders.Odbc.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.DatabaseProviders.SqLite, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.DatabaseProviders.SqLite.dll</HintPath>
+        <Reference Include="TCAdmin.DatabaseProviders.SqLite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.DatabaseProviders.SqLite.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.FtpServer.ModuleApi, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.FtpServer.ModuleApi.dll</HintPath>
+        <Reference Include="TCAdmin.FtpServer.ModuleApi, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.FtpServer.ModuleApi.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.GameHosting.ModuleApi, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.GameHosting.ModuleApi.dll</HintPath>
+        <Reference Include="TCAdmin.GameHosting.ModuleApi, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.GameHosting.ModuleApi.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.GameHosting.SDK, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.GameHosting.SDK.dll</HintPath>
+        <Reference Include="TCAdmin.GameHosting.SDK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.GameHosting.SDK.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.GameHosting.SDK.Web, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.GameHosting.SDK.Web.dll</HintPath>
+        <Reference Include="TCAdmin.GameHosting.SDK.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.GameHosting.SDK.Web.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.GameHosting.SDK.Web.References, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.GameHosting.SDK.Web.References.dll</HintPath>
+        <Reference Include="TCAdmin.GameHosting.SDK.Web.References, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.GameHosting.SDK.Web.References.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.Helper, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.Helper.dll</HintPath>
+        <Reference Include="TCAdmin.Helper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.Helper.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.Interfaces, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.Interfaces.dll</HintPath>
+        <Reference Include="TCAdmin.Interfaces, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.Interfaces.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.LogProviders.Text, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.LogProviders.Text.dll</HintPath>
+        <Reference Include="TCAdmin.LogProviders.Text, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.LogProviders.Text.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.SDK, Version=2.0.146.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.SDK.dll</HintPath>
+        <Reference Include="TCAdmin.SDK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.SDK.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.SDK.Language, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.SDK.Language.dll</HintPath>
+        <Reference Include="TCAdmin.SDK.Language, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.SDK.Language.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.SDK.TimeZones, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.SDK.TimeZones.dll</HintPath>
+        <Reference Include="TCAdmin.SDK.TimeZones, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.SDK.TimeZones.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.SDK.Web, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.SDK.Web.dll</HintPath>
+        <Reference Include="TCAdmin.SDK.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.SDK.Web.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.SDK.Web.MVC, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.SDK.Web.MVC.dll</HintPath>
+        <Reference Include="TCAdmin.SDK.Web.MVC, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.SDK.Web.MVC.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.SDK.Web.References, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.SDK.Web.References.dll</HintPath>
+        <Reference Include="TCAdmin.SDK.Web.References, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.SDK.Web.References.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.Support.ModuleApi, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.Support.ModuleApi.dll</HintPath>
+        <Reference Include="TCAdmin.Support.ModuleApi, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.Support.ModuleApi.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.Support.SDK, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.Support.SDK.dll</HintPath>
+        <Reference Include="TCAdmin.Support.SDK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.Support.SDK.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.Support.SDK.Web, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.Support.SDK.Web.dll</HintPath>
+        <Reference Include="TCAdmin.Support.SDK.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.Support.SDK.Web.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.TaskScheduler.ModuleApi, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.TaskScheduler.ModuleApi.dll</HintPath>
+        <Reference Include="TCAdmin.TaskScheduler.ModuleApi, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.TaskScheduler.ModuleApi.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.TaskScheduler.SDK, Version=2.0.143.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.TaskScheduler.SDK.dll</HintPath>
+        <Reference Include="TCAdmin.TaskScheduler.SDK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.TaskScheduler.SDK.dll</HintPath>
           <Private>True</Private>
         </Reference>
-        <Reference Include="TCAdmin.Web.MVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.Web.MVC.dll</HintPath>
+        <Reference Include="TCAdmin.Web.MVC, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.Web.MVC.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="TCAdmin.WebServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=336a280da999c339">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\TCAdmin.WebServer.dll</HintPath>
-          <Private>True</Private>
-        </Reference>
-        <Reference Include="TCAdminWrapper, Version=1.0.5.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\packages\TCAdminWrapper.1.0.5\lib\net452\TCAdminWrapper.dll</HintPath>
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\TCAdmin.WebServer.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="netstandard" />
+        <Reference Include="TCAdminWrapper, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\packages\TCAdminWrapper.1.0.7\lib\netstandard2.0\TCAdminWrapper.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="Telerik.Web.UI, Version=2012.3.1016.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4">
-          <HintPath>..\..\..\packages\TCAdmin.2.0.146\lib\netstandard2.0\Telerik.Web.UI.dll</HintPath>
+          <HintPath>..\..\..\packages\TCAdmin.2.0.149.5\lib\netstandard2.0\Telerik.Web.UI.dll</HintPath>
           <Private>True</Private>
         </Reference>
     </ItemGroup>
@@ -307,6 +320,7 @@
         <Compile Include="TcAdminModuleConfig.cs" />
     </ItemGroup>
     <ItemGroup>
+      <None Include="app.config" />
       <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
