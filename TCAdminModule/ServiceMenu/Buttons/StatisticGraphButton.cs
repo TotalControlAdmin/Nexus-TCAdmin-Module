@@ -10,15 +10,15 @@ namespace TCAdminModule.ServiceMenu.Buttons
     {
         public override void DefaultSettings()
         {
-            this.Name = "Statistics Graph Button";
+            Name = "Statistics Graph Button";
             var attribute =
                 new ActionCommandAttribute("Statistics", "View graphs of statistics of your server", ":satellite:",
                     new List<string> {"PlayerStats", "CpuStats", "MemoryStats"},
                     true);
-            this.Settings.ViewOrder = 6;
-            this.Settings.ActionCommandAttribute = attribute;
+            Settings.ViewOrder = 6;
+            Settings.ActionCommandAttribute = attribute;
 
-            this.Configuration.SetConfiguration(this.Settings);
+            Configuration.SetConfiguration(Settings);
         }
 
         public override async Task DoAction()
@@ -27,8 +27,8 @@ namespace TCAdminModule.ServiceMenu.Buttons
             await CommandContext.TriggerTypingAsync();
 
             var chartType = await TcAdminUtilities.GetGraphType(CommandContext);
-            
-            await TcAdminUtilities.SendGraph(CommandContext, this.Authentication.Service, chartType);
+
+            await TcAdminUtilities.SendGraph(CommandContext, Authentication.Service, chartType);
         }
     }
 }

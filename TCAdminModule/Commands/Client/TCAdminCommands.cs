@@ -30,10 +30,10 @@ namespace TCAdminModule.Commands.Client
 
             await context.ExecuteCheckAsync(ctx, false);
 
-            var remoteConsole = new RemoteConsoleButton()
+            var remoteConsole = new RemoteConsoleButton
             {
                 Authentication = context,
-                CommandContext = ctx,
+                CommandContext = ctx
             };
 
             await remoteConsole.RconTask(command);

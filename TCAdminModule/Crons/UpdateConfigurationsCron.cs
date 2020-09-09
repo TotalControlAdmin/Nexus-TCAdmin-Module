@@ -5,29 +5,29 @@ using DSharpPlus;
 using Nexus;
 using Nexus.SDK.Modules;
 using Quartz;
-using TCAdmin.GameHosting.SDK.Automation;
 using TCAdmin.GameHosting.SDK.Objects;
+using TCAdmin.SDK.Database;
 using TCAdmin.SDK.Mail;
-using TCAdmin.SDK.Objects;
 using TCAdminModule.Configurations;
+using OperatingSystem = TCAdmin.SDK.Objects.OperatingSystem;
 
 namespace TCAdminModule.Crons
 {
     public class UpdateConfigurationsCron : NexusScheduledTaskModule
     {
+        private readonly Logger _logger = new Logger("UpdateConfigurationCron");
+
         private readonly UpdateConfigurationCronSettings _settings =
             new NexusModuleConfiguration<UpdateConfigurationCronSettings>("UpdateConfigurations",
                 "./Config/TCAdminModule/Crons/").GetConfiguration();
 
-        private readonly Logger _logger = new Logger("UpdateConfigurationCron");
-
         public UpdateConfigurationsCron()
         {
-            this.Name = "Update Configuration";
-            this.RepeatEveryMilliseconds = _settings.UpdateEverySeconds;
+            Name = "Update Configuration";
+            RepeatEveryMilliseconds = _settings.UpdateEverySeconds;
         }
 
-        public async override Task DoAction(IJobExecutionContext context)
+        public override async Task DoAction(IJobExecutionContext context)
         {
             if (!_settings.Enable)
             {
@@ -41,8 +41,8 @@ namespace TCAdminModule.Crons
 
         private void UpdateGameConfig()
         {
-            this._logger.LogMessage("Updating Nexus Game Configuration on TCAdmin Installation: " +
-                                    new CompanyInfo(2).CompanyName);
+            _logger.LogMessage("Updating Nexus Game Configuration on TCAdmin Installation: " +
+                               new CompanyInfo(2).CompanyName);
             try
             {
                 var allFeatures = GameImportFeatures.FileManager | GameImportFeatures.FileSystem |
@@ -64,7 +64,7 @@ namespace TCAdminModule.Crons
                 if (!(TCAdmin.GameHosting.SDK.Objects.Game.GetGames("Nexus Bot")[0] is
                     TCAdmin.GameHosting.SDK.Objects.Game nexusGame))
                 {
-                    this._logger.LogMessage(LogLevel.Error,
+                    _logger.LogMessage(LogLevel.Error,
                         "Cannot find Nexus Game. Aborting updated game config download.");
                     return;
                 }
@@ -76,7 +76,7 @@ namespace TCAdminModule.Crons
                         "https://github.com/Alexr03/Nexus-TCAdmin-Module/releases/download/Base/Nexus-Windows.xml");
                 }
 
-                GameImportOptions gameImportOptions = new GameImportOptions()
+                var gameImportOptions = new GameImportOptions
                 {
                     UpdateGameId = nexusGame.GameId,
                     ImportFeatures = allFeatures
@@ -85,20 +85,20 @@ namespace TCAdminModule.Crons
                 if (!string.IsNullOrEmpty(gameXml))
                 {
                     TCAdmin.GameHosting.SDK.Objects.Game.Import(
-                        TCAdmin.SDK.Database.DatabaseManager.CreateDatabaseManager(), gameXml, gameImportOptions);
-                    this._logger.LogMessage("Successfully updated Nexus Bot Configuration.");
+                        DatabaseManager.CreateDatabaseManager(), gameXml, gameImportOptions);
+                    _logger.LogMessage("Successfully updated Nexus Bot Configuration.");
                 }
             }
             catch (Exception e)
             {
-                this._logger.LogMessage(LogLevel.Error, "Failed to update Nexus Bot Configuration");
-                this._logger.LogException(e);
+                _logger.LogMessage(LogLevel.Error, "Failed to update Nexus Bot Configuration");
+                _logger.LogException(e);
             }
         }
 
         private void CreateAuthenticationScript()
         {
-            this._logger.LogMessage("Updating Authentication for Nexus script.");
+            _logger.LogMessage("Updating Authentication for Nexus script.");
             GlobalGameScript authScript = null;
             foreach (GlobalGameScript gameScript in GlobalGameScript.GetGlobalGameScripts())
             {
@@ -120,7 +120,7 @@ namespace TCAdminModule.Crons
             }
             else
             {
-                authScript = new GlobalGameScript()
+                authScript = new GlobalGameScript
                 {
                     Name = "Nexus Authentication",
                     Description = "Authentication Script for Nexus Discord Bot.",
@@ -128,12 +128,12 @@ namespace TCAdminModule.Crons
                     ScriptContents = authScriptContents,
                     ScriptEngineId = 1,
                     ScriptId = new Random().Next(500, 1000),
-                    OperatingSystem = TCAdmin.SDK.Objects.OperatingSystem.Any
+                    OperatingSystem = OperatingSystem.Any
                 };
                 authScript.Save();
             }
 
-            this._logger.LogMessage("Updated Authentication for Nexus script.");
+            _logger.LogMessage("Updated Authentication for Nexus script.");
         }
     }
 }

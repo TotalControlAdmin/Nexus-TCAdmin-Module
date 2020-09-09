@@ -6,12 +6,11 @@ using TCAdmin.SDK.Misc;
 using TCAdmin.SDK.Objects;
 using TCAdmin.SDK.VirtualFileSystem;
 using TCAdminModule.Helpers;
+using OperatingSystem = TCAdmin.SDK.Objects.OperatingSystem;
+using Permission = TCAdmin.SDK.VirtualFileSystem.Permission;
 
 namespace TCAdminModule.Objects
 {
-    using OperatingSystem = TCAdmin.SDK.Objects.OperatingSystem;
-    using Permission = TCAdmin.SDK.VirtualFileSystem.Permission;
-
     public class VirtualDirectorySecurity
     {
         public VirtualDirectorySecurity(TCAdmin.SDK.Web.References.FileSystem.FileSystem fileSystem,
@@ -19,9 +18,7 @@ namespace TCAdminModule.Objects
         {
             UserType = type;
             if (!fileSystem.DirectoryExists(currentDirectory))
-            {
                 throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Could not find directory."));
-            }
 
             var game = new TCAdmin.GameHosting.SDK.Objects.Game(gameId);
 
@@ -88,21 +85,5 @@ namespace TCAdminModule.Objects
 
             ActionLog.Add(new ActionLog(source, action, dateTime));
         }
-    }
-
-    public class ActionLog
-    {
-        public ActionLog(string source, string action, DateTime dateTime)
-        {
-            DateTime = dateTime;
-            Action = action;
-            Source = source;
-        }
-
-        public string Action { get; }
-
-        public DateTime DateTime { get; }
-
-        public string Source { get; }
     }
 }

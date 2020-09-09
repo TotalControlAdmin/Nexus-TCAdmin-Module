@@ -2,7 +2,6 @@
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using Nexus.SDK.Modules;
-using TCAdmin.SDK.Objects;
 using TCAdminModule.Attributes;
 using TCAdminModule.Helpers;
 using TCAdminModule.Services;

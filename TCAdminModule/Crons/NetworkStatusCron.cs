@@ -9,26 +9,25 @@ using Nexus.SDK.Modules;
 using Quartz;
 using TCAdmin.SDK.Objects;
 using TCAdminModule.Configurations;
+using Server = TCAdmin.GameHosting.SDK.Objects.Server;
 
 namespace TCAdminModule.Crons
 {
-    using Server = TCAdmin.GameHosting.SDK.Objects.Server;
-
     public class NetworkStatusCron : NexusScheduledTaskModule
     {
-        private DiscordClient _client;
-
-        private DiscordChannel _publicStatusChannel;
-
-        private DiscordChannel _privateStatusChannel;
-
-        private Dictionary<Datacenter, List<Server>> _serversDown;
-        
         private readonly Logger _logger = new Logger("NetworkStatusCron");
 
         private readonly NetworkStatusCronSettings _settings =
             new NexusModuleConfiguration<NetworkStatusCronSettings>("NetworkStatusSettings",
                 "./Config/TCAdminModule/Crons/").GetConfiguration();
+
+        private DiscordClient _client;
+
+        private DiscordChannel _privateStatusChannel;
+
+        private DiscordChannel _publicStatusChannel;
+
+        private Dictionary<Datacenter, List<Server>> _serversDown;
 
         public NetworkStatusCron()
         {
@@ -69,17 +68,14 @@ namespace TCAdminModule.Crons
             DiscordEmbedBuilder embed;
             embed = new DiscordEmbedBuilder
             {
-                Title = $"Network Status",
+                Title = "Network Status",
                 Description = $"**Network Status Across *{locations.Count}*  Locations**",
-                Timestamp = DateTimeOffset.Now,
+                Timestamp = DateTimeOffset.Now
             };
 
             foreach (var location in locations.OrderBy(x => x.Key.Location))
             {
-                if (location.Value.Count == 0)
-                {
-                    continue;
-                }
+                if (location.Value.Count == 0) continue;
 
                 var serversOperationalStatus = string.Empty;
                 foreach (var server in location.Value)
@@ -127,10 +123,7 @@ namespace TCAdminModule.Crons
         {
             var pinnedMessages = await _privateStatusChannel.GetPinnedMessagesAsync();
 
-            if (pinnedMessages.Count > 0)
-            {
-                return pinnedMessages[0];
-            }
+            if (pinnedMessages.Count > 0) return pinnedMessages[0];
 
             var statusMessage = await _privateStatusChannel.SendMessageAsync("**Placeholder**");
             await statusMessage.PinAsync();
@@ -142,10 +135,7 @@ namespace TCAdminModule.Crons
         {
             var pinnedMessages = await _publicStatusChannel.GetPinnedMessagesAsync();
 
-            if (pinnedMessages.Count > 0)
-            {
-                return pinnedMessages[0];
-            }
+            if (pinnedMessages.Count > 0) return pinnedMessages[0];
 
             var statusMessage = await _publicStatusChannel.SendMessageAsync("**Placeholder**");
             await statusMessage.PinAsync();
@@ -157,10 +147,7 @@ namespace TCAdminModule.Crons
             var dictionary = new Dictionary<Datacenter, List<Server>>();
             foreach (Datacenter dc in Datacenter.GetDatacenters())
             {
-                if (dc.DatacenterId == 27 || dc.DatacenterId == 9)
-                {
-                    continue;
-                }
+                if (dc.DatacenterId == 27 || dc.DatacenterId == 9) continue;
 
                 var servers = new List<Server>();
 
@@ -179,13 +166,10 @@ namespace TCAdminModule.Crons
                 Title = "Network Status",
                 Description = "**All Systems Are Operational!**",
                 Color = DiscordColor.Green,
-                Timestamp = DateTime.Now,
+                Timestamp = DateTime.Now
             };
 
-            if (_serversDown.Count == 0)
-            {
-                return embed;
-            }
+            if (_serversDown.Count == 0) return embed;
 
             embed.Description =
                 "**There are outages!\nCheck below for a list of the IP addresses that are affected. We are working to get back up as soon as possible!**";

@@ -12,7 +12,7 @@ using TCAdmin.SDK.Mail;
 using TCAdmin.SDK.Objects;
 using TCAdminModule.Attributes;
 using TCAdminModule.Configurations;
-using NexusServiceMenuModule = TCAdminModule.Modules.NexusServiceMenuModule;
+using TCAdminModule.Modules;
 
 namespace TCAdminModule.Objects.Emulators
 {
@@ -20,8 +20,20 @@ namespace TCAdminModule.Objects.Emulators
     {
         private readonly string[] _sizeSuffixes = {"bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"};
 
-        private NexusModuleConfiguration<ServiceMenuConfiguration> Configuration =
+        private readonly NexusModuleConfiguration<ServiceMenuConfiguration> Configuration =
             new NexusModuleConfiguration<ServiceMenuConfiguration>("ServiceMenuConfig", "./Config/TCAdminModule/");
+
+        private IEnumerable<NexusServiceMenuModule> NexusServiceMenuModules
+        {
+            get
+            {
+                var modules = typeof(NexusServiceMenuModule)
+                    .Assembly.GetTypes()
+                    .Where(t => t.IsSubclassOf(typeof(NexusServiceMenuModule)) && !t.IsAbstract)
+                    .Select(t => (NexusServiceMenuModule) Activator.CreateInstance(t));
+                return modules;
+            }
+        }
 
         public async Task MenuEmulation(CommandContext ctx, CommandAttributes.RequireAuthentication context)
         {
@@ -62,10 +74,7 @@ namespace TCAdminModule.Objects.Emulators
                 ? $"**Players:** {context.Service.CurrentPlayers}/{context.Service.CurrentMaxPlayers}"
                 : "";
 
-            if (!string.IsNullOrEmpty(currentStatistics))
-            {
-                embedBuilder.AddField("Stats", currentStatistics, true);
-            }
+            if (!string.IsNullOrEmpty(currentStatistics)) embedBuilder.AddField("Stats", currentStatistics, true);
 
             switch (context.Service.Status.ServiceStatus)
             {
@@ -98,7 +107,7 @@ namespace TCAdminModule.Objects.Emulators
 
             var menuMsg = await ctx.RespondAsync(embed: embedBuilder);
 
-            foreach (NexusServiceMenuModule module in modules.OrderBy(x => x.Settings.ViewOrder))
+            foreach (var module in modules.OrderBy(x => x.Settings.ViewOrder))
             {
                 module.CommandContext = ctx;
                 module.Authentication = context;
@@ -129,46 +138,23 @@ namespace TCAdminModule.Objects.Emulators
             }
         }
 
-        private IEnumerable<NexusServiceMenuModule> NexusServiceMenuModules
-        {
-            get
-            {
-                IEnumerable<NexusServiceMenuModule> modules = typeof(NexusServiceMenuModule)
-                    .Assembly.GetTypes()
-                    .Where(t => t.IsSubclassOf(typeof(NexusServiceMenuModule)) && !t.IsAbstract)
-                    .Select(t => (NexusServiceMenuModule) Activator.CreateInstance(t));
-                return modules;
-            }
-        }
-
         private string GenerateActions(DiscordClient client, IEnumerable<NexusServiceMenuModule> modules)
         {
-            string actions = string.Empty;
+            var actions = string.Empty;
             foreach (var module in modules.OrderBy(x => x.Settings.ViewOrder))
-            {
                 actions +=
                     $"**{DiscordEmoji.FromName(client, module.Settings.ActionCommandAttribute.EmojiName)} {module.Settings.ActionCommandAttribute.Description}**\n";
-            }
 
             return actions;
         }
 
         private string SizeSuffix(long value, int decimalPlaces = 1)
         {
-            if (decimalPlaces < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(decimalPlaces));
-            }
+            if (decimalPlaces < 0) throw new ArgumentOutOfRangeException(nameof(decimalPlaces));
 
-            if (value < 0)
-            {
-                return "-" + SizeSuffix(-value);
-            }
+            if (value < 0) return "-" + SizeSuffix(-value);
 
-            if (value == 0)
-            {
-                return string.Format("{0:n" + decimalPlaces + "} bytes", 0);
-            }
+            if (value == 0) return string.Format("{0:n" + decimalPlaces + "} bytes", 0);
 
             // mag is 0 for bytes, 1 for KB, 2, for MB, etc.
             var mag = (int) Math.Log(value, 1024);

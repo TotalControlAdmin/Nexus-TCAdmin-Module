@@ -81,7 +81,7 @@ namespace TCAdminModule.Objects.Emulators
             var normalEmbed = GenerateTaskEmbed();
             DiscordEmbed embed = new DiscordEmbedBuilder(normalEmbed)
             {
-                Color = DiscordColor.Green,
+                Color = DiscordColor.Green
             };
 
             return TaskMessage.ModifyAsync(string.Empty, embed);

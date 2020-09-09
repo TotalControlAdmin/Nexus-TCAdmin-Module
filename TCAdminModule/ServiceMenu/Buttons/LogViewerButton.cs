@@ -13,15 +13,15 @@ namespace TCAdminModule.ServiceMenu.Buttons
     {
         public override void DefaultSettings()
         {
-            this.Name = "Log Viewer Button";
+            Name = "Log Viewer Button";
             var attribute =
                 new ActionCommandAttribute("Log Viewer", "Access server logs", ":file_cabinet:",
                     new List<string> {"LogViewer"},
                     true);
-            this.Settings.ViewOrder = 5;
-            this.Settings.ActionCommandAttribute = attribute;
+            Settings.ViewOrder = 5;
+            Settings.ActionCommandAttribute = attribute;
 
-            this.Configuration.SetConfiguration(this.Settings);
+            Configuration.SetConfiguration(Settings);
         }
 
         public override async Task DoAction()
@@ -45,7 +45,7 @@ namespace TCAdminModule.ServiceMenu.Buttons
             }
             catch (ArgumentException)
             {
-                await this.CommandContext.RespondAsync($"**The path for the logs contains too many files to show.");
+                await CommandContext.RespondAsync("**The path for the logs contains too many files to show.");
             }
             catch (Exception ex)
             {

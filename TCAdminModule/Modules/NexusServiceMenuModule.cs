@@ -9,6 +9,25 @@ namespace TCAdminModule.Modules
 {
     public class NexusServiceMenuModule : NexusModule
     {
+        public readonly ServiceMenuActionSettings Settings = new ServiceMenuActionSettings();
+
+        public NexusServiceMenuModule()
+        {
+            Configuration = new NexusModuleConfiguration<ServiceMenuActionSettings>(GetType().Name,
+                "./Config/TCAdminModule/ServiceMenuButtons/");
+            var config = Configuration.GetConfiguration(false);
+
+            if (config != null)
+            {
+                Settings.ActionCommandAttribute = config.ActionCommandAttribute;
+                Settings.ViewOrder = config.ViewOrder;
+            }
+            else
+            {
+                DefaultSettings();
+            }
+        }
+
         public CommandAttributes.RequireAuthentication Authentication { get; internal set; }
 
         public NexusModuleConfiguration<ServiceMenuActionSettings> Configuration { get; }
@@ -17,38 +36,16 @@ namespace TCAdminModule.Modules
 
         public CommandContext CommandContext { get; set; }
 
-        public readonly ServiceMenuActionSettings Settings = new ServiceMenuActionSettings();
-
-        public NexusServiceMenuModule()
-        {
-            Configuration = new NexusModuleConfiguration<ServiceMenuActionSettings>(this.GetType().Name,
-                "./Config/TCAdminModule/ServiceMenuButtons/");
-            var config = Configuration.GetConfiguration(false);
-
-            if (config != null)
-            {
-                this.Settings.ActionCommandAttribute = config.ActionCommandAttribute;
-                this.Settings.ViewOrder = config.ViewOrder;
-            }
-            else
-            {
-                DefaultSettings();
-            }
-        }
-
         public virtual void DefaultSettings()
         {
         }
 
         /// <summary>
-        /// This is fired when the user clicks on the emoji.
+        ///     This is fired when the user clicks on the emoji.
         /// </summary>
         public virtual async Task DoAction()
         {
-            if (this.Settings.ActionCommandAttribute.DeleteMenu)
-            {
-                await this.MenuMessage.DeleteAsync();
-            }
+            if (Settings.ActionCommandAttribute.DeleteMenu) await MenuMessage.DeleteAsync();
         }
     }
 }

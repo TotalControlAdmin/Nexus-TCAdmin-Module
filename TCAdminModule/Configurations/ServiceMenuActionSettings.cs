@@ -4,8 +4,7 @@ namespace TCAdminModule.Configurations
 {
     public class ServiceMenuActionSettings
     {
-        public ActionCommandAttribute ActionCommandAttribute { get; set; }
-
         public int ViewOrder;
+        public ActionCommandAttribute ActionCommandAttribute { get; set; }
     }
 }

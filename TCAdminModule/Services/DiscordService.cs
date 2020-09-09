@@ -1,47 +1,36 @@
-﻿using TCAdminModule.Helpers;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using DSharpPlus.CommandsNext;
+using DSharpPlus.Interactivity;
+using Nexus.Exceptions;
+using TCAdmin.SDK.Objects;
+using TCAdminModule.Helpers;
+using Service = TCAdmin.GameHosting.SDK.Objects.Service;
 
 namespace TCAdminModule.Services
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using DSharpPlus.CommandsNext;
-    using DSharpPlus.Interactivity;
-    using TCAdmin.SDK.Objects;
-    using Nexus.Exceptions;
-    using Service = TCAdmin.GameHosting.SDK.Objects.Service;
-
     public static class DiscordService
     {
         public static async Task<Service> GetService(CommandContext ctx)
         {
             var guildServices = new List<Service>();
-            
+
             var servicesFresh = Service.GetServices();
 
             foreach (Service service in servicesFresh)
                 if (service.Variables["__Nexus::DiscordGuild"] != null &&
                     service.Variables["__Nexus::DiscordGuild"].ToString() ==
                     ctx.Guild.Id.ToString() /*&& ShowServiceVar(service)*/)
-                {
                     guildServices.Add(service);
-                }
 
             if (guildServices.Count == 0)
-            {
                 throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Service Link",
                     "**No Services could be found. Add one by doing the `;Link` command!**"));
-            }
 
-            if (guildServices.Count == 1)
-            {
-                return guildServices[0];
-            }
+            if (guildServices.Count == 1) return guildServices[0];
 
-            if (guildServices.Count > 1)
-            {
-                return await ChooseServiceFromList(ctx, guildServices);
-            }
+            if (guildServices.Count > 1) return await ChooseServiceFromList(ctx, guildServices);
 
             return null;
         }
@@ -49,21 +38,15 @@ namespace TCAdminModule.Services
         public static async Task<Service> LinkService(CommandContext ctx, User user)
         {
             if (user.IsSubUser)
-            {
                 throw new CustomMessageException(
                     "**Sorry!** Sub Users cannot yet link services to Discord. Please get the owner of the services to link them.");
-            }
 
             var userServices = Service.GetServices(user, true);
 
             var services = new List<Service>();
             foreach (Service sv in userServices)
-            {
                 if (sv.UserId == user.UserId)
-                {
                     services.Add(sv);
-                }
-            }
 
             var service = await ChooseServiceFromList(ctx, services.AsReadOnly());
 
@@ -127,15 +110,10 @@ namespace TCAdminModule.Services
                 await interactivity.WaitForMessageAsync(x =>
                     x.Author.Id == ctx.User.Id && x.Channel.Id == ctx.Channel.Id);
 
-            if (serviceOption.TimedOut)
-            {
-                throw new CustomMessageException(EmbedTemplates.CreateInfoEmbed("Timeout", ""));
-            }
+            if (serviceOption.TimedOut) throw new CustomMessageException(EmbedTemplates.CreateInfoEmbed("Timeout", ""));
 
             if (int.TryParse(serviceOption.Result.Content, out var result) && result <= serviceId && result > 0)
-            {
                 return services[result - 1];
-            }
 
             throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed(description: "Not a number!"));
         }

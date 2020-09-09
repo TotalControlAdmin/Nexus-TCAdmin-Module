@@ -13,12 +13,15 @@ using TCAdminModule.Configurations;
 using TCAdminModule.Helpers;
 using TCAdminModule.Objects.FileSystem;
 using DirectoryInfo = System.IO.DirectoryInfo;
-using FileInfo = TCAdmin.SDK.Web.References.FileSystem.FileInfo;
 
 namespace TCAdminModule.Objects.Emulators
 {
     public class TcaFileManager : IDisposable
     {
+        private readonly FileManagerSettings _settings =
+            new NexusModuleConfiguration<FileManagerSettings>("FileManagerSettings", "./Config/TCAdminModule/")
+                .GetConfiguration();
+
         public TcaFileManager(CommandContext ctx, CommandAttributes.RequireAuthentication authenticationService,
             string rootDir, bool lockDirectory = false)
         {
@@ -76,10 +79,6 @@ namespace TCAdminModule.Objects.Emulators
 
         private FileSystemUtilities FileSystemUtilities { get; }
 
-        private readonly FileManagerSettings _settings =
-            new NexusModuleConfiguration<FileManagerSettings>("FileManagerSettings", "./Config/TCAdminModule/")
-                .GetConfiguration();
-
         private bool IsServer { get; }
 
         public void Dispose()
@@ -94,9 +93,7 @@ namespace TCAdminModule.Objects.Emulators
             var waitMsg = await CommandContext.RespondAsync("Please wait");
 
             if (!FileSystem.DirectoryExists(CurrentDirectory))
-            {
                 throw new CustomMessageException(EmbedTemplates.CreateErrorEmbed("Could not find directory"));
-            }
 
             var embed = new DiscordEmbedBuilder
             {
@@ -277,10 +274,7 @@ namespace TCAdminModule.Objects.Emulators
                 id++;
             }
 
-            if (embed.Description.Length > 2000)
-            {
-                embed.Description = "**Cannot view contents of this directory!**";
-            }
+            if (embed.Description.Length > 2000) embed.Description = "**Cannot view contents of this directory!**";
 
             var actions = string.Empty;
             foreach (var action in Enum.GetNames(typeof(FileSystemUtilities.EDirectoryActions)))

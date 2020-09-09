@@ -1,8 +1,9 @@
 ﻿using System;
 using Nexus.SDK.Modules;
-using TCAdmin.SDK.Objects;
+using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.TaskScheduler.SDK.Objects;
-using Service = TCAdmin.GameHosting.SDK.Objects.Service;
+using TCAdminWrapper.Events;
+using Server = TCAdmin.SDK.Objects.Server;
 
 namespace TCAdminModule.Events
 {
@@ -10,23 +11,23 @@ namespace TCAdminModule.Events
     {
         public EventsCore()
         {
-            this.Name = "TCAdminEvents";
+            Name = "TCAdminEvents";
         }
 
         public override void Main()
         {
-            this.Logger.LogMessage("Starting Events Core.");
-            var tcAdminEvents = new TCAdminWrapper.Events.TcAdminEvents();
-            
+            Logger.LogMessage("Starting Events Core.");
+            var tcAdminEvents = new TcAdminEvents();
+
             tcAdminEvents.ServerModified += TcAdminEventsOnServerModified;
             tcAdminEvents.ServerCreated += TcAdminEventsOnServerCreated;
-            
+
             tcAdminEvents.ServiceCreated += TcAdminEventsOnServiceCreated;
             tcAdminEvents.ServiceModified += TcAdminEventsOnServiceModified;
-            
+
             tcAdminEvents.TaskCreated += TcAdminEventsOnTaskCreated;
-            
-            this.Logger.LogMessage("All events subscribed. Waiting for events to fire.");
+
+            Logger.LogMessage("All events subscribed. Waiting for events to fire.");
         }
 
         private void TcAdminEventsOnTaskCreated(Task args)

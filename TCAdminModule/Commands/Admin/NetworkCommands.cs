@@ -2,6 +2,7 @@
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using Nexus.SDK.Modules;
+using TCAdmin.SDK.Misc;
 using TCAdminModule.Helpers;
 
 namespace TCAdminModule.Commands.Admin
@@ -13,7 +14,7 @@ namespace TCAdminModule.Commands.Admin
         public async Task BanIp(CommandContext ctx, [RemainingText] string ipAddress)
         {
             await ctx.TriggerTypingAsync();
-            TCAdmin.SDK.Misc.Network.RegisterInvalidLogin(ipAddress);
+            Network.RegisterInvalidLogin(ipAddress);
             await ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed("Added invalid login for IP " + ipAddress));
         }
     }

@@ -6,7 +6,7 @@ namespace TCAdminModule.Configurations.EmbedTemplates
     {
         public ErrorEmbedSettings()
         {
-            this.EmbedBuilder = new DiscordEmbedBuilder
+            EmbedBuilder = new DiscordEmbedBuilder
             {
                 Title = "Error",
                 Description = "The task errored",

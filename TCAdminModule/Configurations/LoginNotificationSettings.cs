@@ -10,6 +10,7 @@ namespace TCAdminModule.Configurations
         public bool ForceToViewOnPanel { get; set; } = true;
 
         public string Subject { get; set; } = "Discord Access";
+
         public string MessageContents { get; set; } =
             "<h3>Hello {ThisUser.FullName},</h3><br /><br />" +
             "[This is an automated message from Nexus]<br />We are letting you know that your {CompanyInfo.CompanyName} account was used to authenticate through discord." +

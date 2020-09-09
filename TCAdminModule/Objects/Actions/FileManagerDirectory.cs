@@ -112,20 +112,14 @@ namespace TCAdminModule.Objects.Actions
         private async Task CleanUp(DiscordChannel channel, DiscordMessage afterMessage)
         {
             var messages = await channel.GetMessagesAfterAsync(afterMessage.Id);
-            if (messages.Count > 1)
-            {
-                await channel.DeleteMessagesAsync(messages);
-            }
+            if (messages.Count > 1) await channel.DeleteMessagesAsync(messages);
 
             await channel.DeleteMessageAsync(afterMessage);
         }
 
         private bool FitsMask(string sFileName)
         {
-            if (VirtualDirectorySecurity.UserType == UserType.Admin)
-            {
-                return false;
-            }
+            if (VirtualDirectorySecurity.UserType == UserType.Admin) return false;
 
             var bannedExtensions = VirtualDirectorySecurity.VirtualDirectorySecurityObject.AdditionalPermissions[0]
                 .Filters.Split(';');

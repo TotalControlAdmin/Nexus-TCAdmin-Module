@@ -23,9 +23,10 @@ namespace TCAdminModule.Commands.Admin
             await ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed($"SetVariable for {user.UserName}",
                 $"VariableName `{variableName}` value set to {variableValue}"));
         }
-        
+
         [Command("SetVariable")]
-        public async Task SetVariable(CommandContext ctx, DiscordMember member, string variableName, string variableValue)
+        public async Task SetVariable(CommandContext ctx, DiscordMember member, string variableName,
+            string variableValue)
         {
             var user = AccountsService.GetUser(member.Id);
             if (user == null)
@@ -36,7 +37,7 @@ namespace TCAdminModule.Commands.Admin
 
             await SetVariable(ctx, user.UserId, variableName, variableValue);
         }
-        
+
         [Command("GetVariable")]
         public async Task GetVariable(CommandContext ctx, int userId, string variableName)
         {
@@ -47,7 +48,7 @@ namespace TCAdminModule.Commands.Admin
             await ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed($"GetVariable for {user.UserName}",
                 $"VariableName `{variableName}` value is {userCustomField}"));
         }
-        
+
         [Command("GetVariable")]
         public async Task GetVariable(CommandContext ctx, DiscordMember member, string variableName)
         {

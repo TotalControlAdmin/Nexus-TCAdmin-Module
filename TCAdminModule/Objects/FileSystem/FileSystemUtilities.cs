@@ -14,19 +14,16 @@ using TCAdmin.SDK.VirtualFileSystem;
 using TCAdmin.SDK.Web.FileManager;
 using TCAdmin.SDK.Web.References.FileSystem;
 using TCAdminModule.Helpers;
-using FileManagerDirectory = TCAdminModule.Objects.Actions.FileManagerDirectory;
+using TCAdminModule.Objects.Actions;
+using DirectoryInfo = System.IO.DirectoryInfo;
+using FileInfo = TCAdmin.SDK.Web.References.FileSystem.FileInfo;
+using Permission = TCAdmin.SDK.VirtualFileSystem.Permission;
+using Server = TCAdmin.SDK.Objects.Server;
+using Service = TCAdmin.GameHosting.SDK.Objects.Service;
+using WebClient = System.Net.WebClient;
 
 namespace TCAdminModule.Objects.FileSystem
 {
-    using DirectoryInfo = System.IO.DirectoryInfo;
-    using FileInfo = TCAdmin.SDK.Web.References.FileSystem.FileInfo;
-    using FileSystem = TCAdmin.SDK.Web.References.FileSystem.FileSystem;
-    using Permission = TCAdmin.SDK.VirtualFileSystem.Permission;
-    using Server = TCAdmin.SDK.Objects.Server;
-    using Service = TCAdmin.GameHosting.SDK.Objects.Service;
-    using VirtualDirectorySecurity = VirtualDirectorySecurity;
-    using WebClient = System.Net.WebClient;
-
     public class FileSystemUtilities
     {
         public enum EDirectoryActions
@@ -87,7 +84,7 @@ namespace TCAdminModule.Objects.FileSystem
             CommandContext = ctx;
         }
 
-        private FileSystem FileSystem { get; }
+        private TCAdmin.SDK.Web.References.FileSystem.FileSystem FileSystem { get; }
 
         private VirtualDirectorySecurity VirtualDirectorySecurity { get; }
 
@@ -103,10 +100,7 @@ namespace TCAdminModule.Objects.FileSystem
             if (directoryInfo != null)
             {
                 var parentDirectory = directoryInfo.FullName;
-                if (!parentDirectory.Contains(serviceId.ToString()))
-                {
-                    return false;
-                }
+                if (!parentDirectory.Contains(serviceId.ToString())) return false;
 
                 return true;
             }
@@ -160,20 +154,16 @@ namespace TCAdminModule.Objects.FileSystem
             };
 
             if (file.Length / 1024 > 8)
-            {
                 await CommandContext.RespondAsync(
                     embed: EmbedTemplates.CreateSuccessEmbed(
                         $"[<{download.GetDownloadUrl()}>](**Click here to download {file.Name}**)"));
-            }
             else
-            {
                 using (var client = new WebClient())
                 {
                     client.DownloadFileCompleted += delegate { CommandContext.RespondWithFileAsync(file.Name); };
 
                     client.DownloadFileAsync(new Uri(download.GetDownloadUrl()), file.Name);
                 }
-            }
 
             await Task.Delay(3000);
             File.Delete(file.Name);
@@ -371,10 +361,7 @@ namespace TCAdminModule.Objects.FileSystem
         private async Task CleanUp(DiscordChannel channel, DiscordMessage afterMessage)
         {
             var messages = await channel.GetMessagesAfterAsync(afterMessage.Id);
-            if (messages.Count > 1)
-            {
-                await channel.DeleteMessagesAsync(messages);
-            }
+            if (messages.Count > 1) await channel.DeleteMessagesAsync(messages);
 
             await channel.DeleteMessageAsync(afterMessage);
         }
@@ -389,20 +376,14 @@ namespace TCAdminModule.Objects.FileSystem
 
         private bool FitsMask(string sFileName)
         {
-            if (VirtualDirectorySecurity.UserType == UserType.Admin)
-            {
-                return false;
-            }
+            if (VirtualDirectorySecurity.UserType == UserType.Admin) return false;
 
             var bannedExtensions = VirtualDirectorySecurity.VirtualDirectorySecurityObject.AdditionalPermissions[0]
                 .Filters.Split(';');
             foreach (var bannedExt in bannedExtensions)
             {
                 var mask = new Regex(bannedExt.Replace(".", "[.]").Replace("*", ".*").Replace("?", "."));
-                if (mask.IsMatch(sFileName))
-                {
-                    return true;
-                }
+                if (mask.IsMatch(sFileName)) return true;
             }
 
             return false;

@@ -15,10 +15,7 @@ namespace TCAdminModule.Helpers
 
             var embed = new DiscordEmbedBuilder(config.EmbedBuilder) {Title = title, Description = description};
 
-            if (showTimestamp)
-            {
-                embed.WithTimestamp(DateTime.Now);
-            }
+            if (showTimestamp) embed.WithTimestamp(DateTime.Now);
 
             return embed;
         }
@@ -31,10 +28,7 @@ namespace TCAdminModule.Helpers
 
             var embed = new DiscordEmbedBuilder(config.EmbedBuilder) {Title = title, Description = description};
 
-            if (showTimestamp)
-            {
-                embed.WithTimestamp(DateTime.Now);
-            }
+            if (showTimestamp) embed.WithTimestamp(DateTime.Now);
 
             return embed;
         }
@@ -47,10 +41,7 @@ namespace TCAdminModule.Helpers
 
             var embed = new DiscordEmbedBuilder(config.EmbedBuilder) {Title = title, Description = description};
 
-            if (showTimestamp)
-            {
-                embed.WithTimestamp(DateTime.Now);
-            }
+            if (showTimestamp) embed.WithTimestamp(DateTime.Now);
 
             return embed;
         }

@@ -6,7 +6,7 @@ namespace TCAdminModule.Configurations.EmbedTemplates
     {
         public InfoEmbedSettings()
         {
-            this.EmbedBuilder = new DiscordEmbedBuilder
+            EmbedBuilder = new DiscordEmbedBuilder
             {
                 Title = "Information",
                 Description = "Information",

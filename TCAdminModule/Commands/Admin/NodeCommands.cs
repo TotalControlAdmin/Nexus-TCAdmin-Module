@@ -40,7 +40,8 @@ namespace TCAdminModule.Commands.Admin
             await ctx.TriggerTypingAsync();
             if (!script.StartsWith("```\n") && !script.EndsWith("```"))
             {
-                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("PowerShell", "**No script found!** Example Script: ```\necho 'test'\n```"));
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("PowerShell",
+                    "**No script found!** Example Script: ```\necho 'test'\n```"));
                 return;
             }
 
@@ -65,10 +66,11 @@ namespace TCAdminModule.Commands.Admin
         {
             if (!script.StartsWith("```\n") && !script.EndsWith("```"))
             {
-                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("PowerShell", "**No script found!** Example Script: ```\necho 'test'\n```"));
+                await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("PowerShell",
+                    "**No script found!** Example Script: ```\necho 'test'\n```"));
                 return;
             }
-            
+
             foreach (Server enabledServer in Server.GetEnabledServers())
             {
                 if (enabledServer.IsMaster) continue;

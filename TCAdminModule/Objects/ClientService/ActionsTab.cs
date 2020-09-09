@@ -2,20 +2,10 @@
 using TCAdmin.GameHosting.SDK.Objects;
 using TCAdmin.SDK.Misc;
 using TCAdmin.TaskScheduler.ModuleApi;
+using Server = TCAdmin.GameHosting.SDK.Objects.Server;
 
 namespace TCAdminModule.Objects.ClientService
 {
-    using Server = TCAdmin.GameHosting.SDK.Objects.Server;
-
-    internal struct TaskData
-    {
-        public TaskInfo TaskInfo { get; set; }
-
-        public Service Service { get; set; }
-
-        public StepInfo StepInfo { get; set; }
-    }
-
     internal class ActionsTab
     {
         public ActionsTab(TaskData taskData, Server server)

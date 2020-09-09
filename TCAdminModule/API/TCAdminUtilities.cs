@@ -20,7 +20,8 @@ namespace TCAdminModule.API
             const string options = "**1**) Players\n" +
                                    "**2**) CPU Usage\n" +
                                    "**3**) RAM Usage";
-            await ctx.RespondAsync(embed: EmbedTemplates.CreateInfoEmbed("Selection", "**Please choose an option:**\n\n" + options));
+            await ctx.RespondAsync(
+                embed: EmbedTemplates.CreateInfoEmbed("Selection", "**Please choose an option:**\n\n" + options));
 
             var graphChoice = await interactivity.WaitForMessageAsync(x => x.Author.Id == ctx.User.Id);
             switch (graphChoice.Result.Content.ToLower())
@@ -35,10 +36,12 @@ namespace TCAdminModule.API
                     chartType = ServiceChartType.Memory;
                     break;
                 default:
-                    await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Unknown Option", "Defaulting to Players graph"));
+                    await ctx.RespondAsync(
+                        embed: EmbedTemplates.CreateErrorEmbed("Unknown Option", "Defaulting to Players graph"));
                     chartType = ServiceChartType.Players;
                     break;
             }
+
             return chartType;
         }
 
@@ -65,10 +68,7 @@ namespace TCAdminModule.API
             properties.MainPenColor = Color.LimeGreen;
             properties.LabelColor = Color.White;
 
-            if (File.Exists("watermark.png"))
-            {
-                properties.WaterMarkImage = "watermark.png";
-            }
+            if (File.Exists("watermark.png")) properties.WaterMarkImage = "watermark.png";
 
             return properties;
         }

@@ -7,7 +7,7 @@
         public string HexColor { get; set; } = "#ffb31a";
 
         public string[] ExitCommand { get; set; } = {"exit", "quit", "q"};
-        
+
         public string[] GoBackCommand { get; set; } = {"..", "..."};
     }
 }

@@ -6,7 +6,7 @@ namespace TCAdminModule.Configurations.EmbedTemplates
     {
         public SuccessEmbedSettings()
         {
-            this.EmbedBuilder = new DiscordEmbedBuilder
+            EmbedBuilder = new DiscordEmbedBuilder
             {
                 Title = "Success",
                 Description = "The task was successful",

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
@@ -57,6 +56,12 @@ namespace TCAdminModule.Commands.Client
         [Aliases("signin")]
         public async Task Signin(CommandContext ctx)
         {
+            if (AccountsService.IsUserAuthenticated(ctx.User.Id))
+            {
+                await ctx.RespondAsync(
+                    embed: EmbedTemplates.CreateErrorEmbed(description: "You are already logged in!"));
+                return;
+            }
             var user = AccountsService.GetUser(ctx.User.Id);
             if (user == null)
             {

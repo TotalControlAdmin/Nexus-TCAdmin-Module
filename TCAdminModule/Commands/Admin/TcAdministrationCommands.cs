@@ -18,7 +18,7 @@ namespace TCAdminModule.Commands.Admin
         [Command("Whois")]
         public async Task Whois(CommandContext ctx, DiscordMember member)
         {
-            var user = User.GetAllUsers(2, true).FindByCustomField("__Nexus:DiscordUserId", member.Id) as User;
+            var user = AccountsService.GetUser(member.Id);
             if (user == null || !user.Find())
             {
                 await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed(description: "User not found"));
@@ -36,7 +36,7 @@ namespace TCAdminModule.Commands.Admin
         [Command("EmulateAs")]
         public async Task EmulateAs(CommandContext ctx, DiscordMember member)
         {
-            var user = User.GetAllUsers(2, true).FindByCustomField("__Nexus:DiscordUserId", member.Id) as User;
+            var user = AccountsService.GetUser(member.Id);
             if (user == null || !user.Find())
             {
                 await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed(description: "User not found"));
@@ -64,15 +64,13 @@ namespace TCAdminModule.Commands.Admin
             if (!user.Find())
             {
                 await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Login As", "Cannot find user"));
-                return;
             }
-            
         }
 
         [Command("LoginAs")]
         public async Task LoginAs(CommandContext ctx, string username)
         {
-            User user = User.GetUserByUserName(username);
+            var user = User.GetUserByUserName(username);
             if (!user.Find())
             {
                 await ctx.RespondAsync(embed: EmbedTemplates.CreateErrorEmbed("Login As", "Cannot find user"));
@@ -90,14 +88,10 @@ namespace TCAdminModule.Commands.Admin
             await ctx.Message.DeleteAsync();
 
             if (DiscordService.LinkService(ctx.Guild.Id, serviceId))
-            {
                 await ctx.RespondAsync(embed: EmbedTemplates.CreateSuccessEmbed(description: "**Linked Service**"));
-            }
             else
-            {
                 await ctx.RespondAsync(
                     embed: EmbedTemplates.CreateErrorEmbed(description: "**Failed to link service**"));
-            }
         }
 
         [Command("UnlinkServices")]
@@ -115,8 +109,7 @@ namespace TCAdminModule.Commands.Admin
         public Task LogoutUser(CommandContext ctx, string username)
         {
             var user = User.GetUserByUserName(username);
-
-            user.CustomFields["__Nexus:DiscordUserId"] = 0;
+            user.AppData.RemoveValue("OAUTH::Discord");
             user.Save();
             return ctx.RespondAsync(
                 embed: EmbedTemplates.CreateSuccessEmbed(
@@ -127,9 +120,7 @@ namespace TCAdminModule.Commands.Admin
         public Task LogoutUser(CommandContext ctx, DiscordMember discordMember)
         {
             var user = AccountsService.GetUser(discordMember.Id);
-
-            user.CustomFields["__Nexus:DiscordUserId"] = 0;
-            user.Save();
+            AccountsService.LogoutUser(user, discordMember.Id);
             return ctx.RespondAsync(
                 embed: EmbedTemplates.CreateSuccessEmbed(
                     description: $"**{user.FullName} has been unlinked and logged out."));

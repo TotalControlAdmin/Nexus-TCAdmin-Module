@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using DSharpPlus.Interactivity;
 using TCAdmin.GameHosting.SDK.Objects;
@@ -14,13 +13,13 @@ namespace TCAdminModule.ServiceMenu.Buttons
     {
         public override void DefaultSettings()
         {
-            this.Name = "Remote Console Button";
+            Name = "Remote Console Button";
             var attribute =
                 new ActionCommandAttribute("Remote Console", "Access the servers Remote Console", ":desktop:",
                     new List<string> {"StartStop"});
-            this.Settings.ViewOrder = 7;
-            this.Settings.ActionCommandAttribute = attribute;
-            this.Configuration.SetConfiguration(this.Settings);
+            Settings.ViewOrder = 7;
+            Settings.ActionCommandAttribute = attribute;
+            Configuration.SetConfiguration(Settings);
         }
 
         public override async Task DoAction()
